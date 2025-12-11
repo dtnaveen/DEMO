@@ -12,28 +12,60 @@ import { calculateMatchScore } from '@/lib/matchingAlgorithm'
 import { isPremiumUser, recordLike } from '@/lib/subscription'
 
 // Mock localStorage
-const localStorageMock = (() => {
-  let store = {}
-  return {
-    getItem: jest.fn((key) => store[key] || null),
-    setItem: jest.fn((key, value) => {
-      store[key] = value.toString()
-    }),
-    removeItem: jest.fn((key) => {
-      delete store[key]
-    }),
-    clear: jest.fn(() => {
-      store = {}
-    }),
-  }
-})()
+let store = {};
+const localStorageMock = {
+  getItem: jest.fn((key) => {
+    return store[key] || null;
+  }),
+  setItem: jest.fn((key, value) => {
+    store[key] = value.toString();
+  }),
+  removeItem: jest.fn((key) => {
+    delete store[key];
+  }),
+  clear: jest.fn(() => {
+    store = {};
+  })
+};
+
+// Ensure window exists before any tests
+if (typeof window === 'undefined') {
+  global.window = {};
+}
+
+// Set up localStorage before any imports or tests run
+Object.defineProperty(window, 'localStorage', {
+  value: localStorageMock,
+  writable: true,
+  configurable: true,
+});
+global.localStorage = localStorageMock;
 
 beforeEach(() => {
+  // Reset the store
+  store = {};
+  
+  // Re-create mock implementations (Jest's resetMocks might clear them)
+  localStorageMock.getItem.mockImplementation((key) => {
+    return store[key] || null;
+  });
+  localStorageMock.setItem.mockImplementation((key, value) => {
+    store[key] = value.toString();
+  });
+  localStorageMock.removeItem.mockImplementation((key) => {
+    delete store[key];
+  });
+  localStorageMock.clear.mockImplementation(() => {
+    store = {};
+  });
+  
+  // Re-setup localStorage to ensure it's fresh
   Object.defineProperty(window, 'localStorage', {
     value: localStorageMock,
     writable: true,
-  })
-  localStorageMock.clear()
+    configurable: true,
+  });
+  global.localStorage = localStorageMock;
 })
 
 describe('Matching Flow Integration', () => {
@@ -95,11 +127,17 @@ describe('Matching Flow Integration', () => {
 
     // Free users have 10 daily likes
     let likeCount = 0
-    while (recordLike(freeUser) && likeCount < 15) {
-      likeCount++
+    let canLike = true
+    while (canLike && likeCount < 15) {
+      canLike = recordLike(freeUser)
+      if (canLike) {
+        likeCount++
+      }
     }
 
     expect(likeCount).toBeLessThanOrEqual(10)
+    // After 10 likes, should not be able to like more
+    expect(recordLike(freeUser)).toBe(false)
   })
 
   it('filters out passed users from discovery', () => {

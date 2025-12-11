@@ -6,28 +6,60 @@ import {
 } from '@/lib/localStorage'
 
 // Mock localStorage
-const localStorageMock = (() => {
-  let store = {}
-  return {
-    getItem: jest.fn((key) => store[key] || null),
-    setItem: jest.fn((key, value) => {
-      store[key] = value.toString()
-    }),
-    removeItem: jest.fn((key) => {
-      delete store[key]
-    }),
-    clear: jest.fn(() => {
-      store = {}
-    }),
-  }
-})()
+let store = {};
+const localStorageMock = {
+  getItem: jest.fn((key) => {
+    return store[key] || null;
+  }),
+  setItem: jest.fn((key, value) => {
+    store[key] = value.toString();
+  }),
+  removeItem: jest.fn((key) => {
+    delete store[key];
+  }),
+  clear: jest.fn(() => {
+    store = {};
+  })
+};
+
+// Ensure window exists before any tests
+if (typeof window === 'undefined') {
+  global.window = {};
+}
+
+// Set up localStorage before any imports or tests run
+Object.defineProperty(window, 'localStorage', {
+  value: localStorageMock,
+  writable: true,
+  configurable: true,
+});
+global.localStorage = localStorageMock;
 
 beforeEach(() => {
+  // Reset the store
+  store = {};
+  
+  // Re-create mock implementations (Jest's resetMocks might clear them)
+  localStorageMock.getItem.mockImplementation((key) => {
+    return store[key] || null;
+  });
+  localStorageMock.setItem.mockImplementation((key, value) => {
+    store[key] = value.toString();
+  });
+  localStorageMock.removeItem.mockImplementation((key) => {
+    delete store[key];
+  });
+  localStorageMock.clear.mockImplementation(() => {
+    store = {};
+  });
+  
+  // Re-setup localStorage to ensure it's fresh
   Object.defineProperty(window, 'localStorage', {
     value: localStorageMock,
     writable: true,
-  })
-  localStorageMock.clear()
+    configurable: true,
+  });
+  global.localStorage = localStorageMock;
 })
 
 describe('localStorage functions', () => {

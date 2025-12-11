@@ -28,13 +28,15 @@ describe('ProfileCard Component', () => {
   })
 
   it('displays match score', () => {
-    render(<ProfileCard user={mockUser} />)
-    expect(screen.getByText(/85%/)).toBeInTheDocument()
+    render(<ProfileCard user={mockUser} matchScore={mockUser.matchScore} />)
+    // Match score is split across elements, so check for the number
+    expect(screen.getByText('85')).toBeInTheDocument()
+    expect(screen.getByText('%')).toBeInTheDocument()
   })
 
   it('displays distance when provided', () => {
-    render(<ProfileCard user={mockUser} />)
-    expect(screen.getByText(/5.2/)).toBeInTheDocument()
+    render(<ProfileCard user={mockUser} distance={mockUser.distance} />)
+    expect(screen.getByText(/5\.2/)).toBeInTheDocument()
   })
 
   it('calls onLike when like button is clicked', () => {
