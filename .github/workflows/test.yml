@@ -33,6 +33,7 @@ jobs:
 
     - name: Run tests
       run: npm run test:ci
+      continue-on-error: false
 
     - name: Check for coverage file
       id: coverage

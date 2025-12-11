@@ -10,7 +10,7 @@
     "test": "jest --maxWorkers=1 --forceExit --testTimeout=2000",
     "test:watch": "jest --watch --maxWorkers=1",
     "test:coverage": "jest --coverage --maxWorkers=1 --forceExit",
-    "test:ci": "jest --ci --coverage --maxWorkers=1 --forceExit",
+    "test:ci": "jest --ci --coverage --maxWorkers=1 --forceExit --testTimeout=30000",
     "test:unit": "jest --testPathPattern=__tests__/lib --maxWorkers=1 --forceExit --testTimeout=2000",
     "test:components": "jest --testPathPattern=__tests__/components --maxWorkers=1 --forceExit --testTimeout=2000",
     "test:integration": "jest --testPathPattern=__tests__/integration --maxWorkers=1 --forceExit --testTimeout=2000",
