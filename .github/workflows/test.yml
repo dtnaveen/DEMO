@@ -2,7 +2,7 @@ name: Automated Tests
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main, develop, fix-lint-cc443 ]
   pull_request:
     branches: [ main, develop ]
 
