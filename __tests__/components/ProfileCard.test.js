@@ -1,4 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react'
+// eslint-disable-next-line no-unused-vars
 import ProfileCard from '@/components/ui/ProfileCard'
 
 // Mock Next.js router

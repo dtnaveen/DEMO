@@ -1,15 +1,13 @@
 import {
-  getCurrentUser,
   setCurrentUser,
   getAllUsers,
   setAllUsers,
   getUserActions,
   addLike,
   getMatches,
-  setMatches
 } from '@/lib/localStorage'
 import { calculateMatchScore } from '@/lib/matchingAlgorithm'
-import { isPremiumUser, recordLike } from '@/lib/subscription'
+import { recordLike } from '@/lib/subscription'
 
 // Mock localStorage
 let store = {};

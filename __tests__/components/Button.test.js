@@ -1,4 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react'
+// eslint-disable-next-line no-unused-vars
 import Button from '@/components/ui/Button'
 
 describe('Button Component', () => {

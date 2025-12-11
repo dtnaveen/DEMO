@@ -2,7 +2,6 @@ import {
   getCurrentUser,
   setCurrentUser,
   getAllUsers,
-  getConversations,
 } from '@/lib/localStorage'
 
 // Mock localStorage
