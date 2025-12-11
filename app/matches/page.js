@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { getCurrentUser, getMatches, getAllUsers } from '@/lib/localStorage';
 import { calculateMatchScore, getSharedInterests } from '@/lib/matchingAlgorithm';
-import { showToast } from '@/utils/helpers';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 import MatchScore from '@/components/ui/MatchScore';
@@ -12,7 +11,7 @@ import MatchScore from '@/components/ui/MatchScore';
 export default function MatchesPage() {
   const router = useRouter();
   const [currentUser, setCurrentUser] = useState(null);
-  const [matches, setMatchesState] = useState([]);
+  const [, setMatchesState] = useState([]);
   const [matchedUsers, setMatchedUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   

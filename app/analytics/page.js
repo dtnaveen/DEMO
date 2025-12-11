@@ -15,15 +15,13 @@ import {
   LightBulbIcon,
   ArrowTrendingUpIcon,
   ArrowTrendingDownIcon,
-  CheckCircleIcon,
   ClockIcon,
-  FireIcon,
   StarIcon
 } from '@heroicons/react/24/outline';
 
 export default function AnalyticsPage() {
   const router = useRouter();
-  const [currentUser, setCurrentUser] = useState(null);
+  const [, setCurrentUser] = useState(null);
   const [analytics, setAnalytics] = useState(null);
   const [insights, setInsights] = useState(null);
   const [loading, setLoading] = useState(true);

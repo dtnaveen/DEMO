@@ -10,7 +10,6 @@ import { initializeMockData } from '@/lib/mockData';
 import { setupRanjithUser } from '@/lib/userSetup';
 import { createMatchingProfiles } from '@/lib/createMatchingProfiles';
 import { sendAutoMessagesFromSarah } from '@/lib/autoMessaging';
-import Button from '@/components/ui/Button';
 
 function LandingPageContent() {
   const router = useRouter();

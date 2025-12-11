@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { getCurrentUser, getAllUsers, getMatches } from '@/lib/localStorage';
-import { isAdmin, requireAdmin } from '@/lib/adminAuth';
+import { isAdmin } from '@/lib/adminAuth';
 import { getAllMetrics, getMetricsTrend } from '@/lib/adminMetrics';
 import { generateTestDataForMetrics } from '@/lib/generateTestData';
 import Card from '@/components/ui/Card';
@@ -43,7 +43,8 @@ export default function AdminDashboard() {
     try {
       generateTestDataForMetrics();
     } catch (error) {
-      console.error('Error generating test data:', error);
+      // Error generating test data - silently fail
+      setError('Failed to generate test data');
     }
     
     loadMetrics();
@@ -106,10 +107,10 @@ export default function AdminDashboard() {
   const TrendIndicator = ({ value }) => {
     if (!value) return null;
     const isPositive = value > 0;
-    const Icon = isPositive ? ArrowTrendingUpIcon : ArrowTrendingDownIcon;
+    const TrendIcon = isPositive ? ArrowTrendingUpIcon : ArrowTrendingDownIcon;
     return (
       <span className={`flex items-center gap-1 text-sm ${isPositive ? 'text-green-600' : 'text-red-600'}`}>
-        <Icon className="w-4 h-4" />
+        <TrendIcon className="w-4 h-4" />
         {Math.abs(value).toFixed(1)}%
       </span>
     );

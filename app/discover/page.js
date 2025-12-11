@@ -12,8 +12,8 @@ import { calculateMatchScore, getSharedInterests } from '@/lib/matchingAlgorithm
 import { showToast } from '@/utils/helpers';
 import { sendAutoMessagesFromSarah } from '@/lib/autoMessaging';
 import { setupAIBotAutoReplies } from '@/lib/aiBotReplies';
-import { isPremiumUser, getDailyLikesRemaining, recordLike, hasPremiumFeature } from '@/lib/subscription';
-import { getDistanceBetweenUsers, hasGPSCoordinates, getCoordinatesFromLocation, calculateDistance } from '@/lib/gpsUtils';
+import { isPremiumUser, getDailyLikesRemaining, recordLike } from '@/lib/subscription';
+import { hasGPSCoordinates, getCoordinatesFromLocation, calculateDistance } from '@/lib/gpsUtils';
 import { TravelMode, RealTimeLocationTracker } from '@/lib/advancedGPS';
 import Link from 'next/link';
 import { SparklesIcon } from '@heroicons/react/24/outline';
@@ -34,7 +34,6 @@ export default function DiscoverPage() {
   const [likesRemaining, setLikesRemaining] = useState(null);
   const [userLocation, setUserLocation] = useState(null);
   const [discoveryMode, setDiscoveryMode] = useState('discover'); // 'discover', 'explore', 'speed'
-  const [speedDatingTimer, setSpeedDatingTimer] = useState(30);
   const [travelMode, setTravelMode] = useState(null);
   const locationTrackerRef = useRef(null);
   
@@ -101,7 +100,7 @@ export default function DiscoverPage() {
                 setCurrentUserState(updatedUser);
               }
             }
-          } catch (error) {
+          } catch {
             // Fallback to regular location if TravelMode fails
             if (hasGPSCoordinates(user)) {
               setUserLocation({
@@ -153,7 +152,8 @@ export default function DiscoverPage() {
           // GPS errors are expected when location services are unavailable
           // Only log unexpected errors in development
           if (process.env.NODE_ENV === 'development' && error.code && error.code !== 1 && error.code !== 2 && error.code !== 3) {
-            console.debug('Location tracking setup error:', error.message || 'GPS unavailable');
+            // Location tracking setup error - GPS unavailable
+            void error;
           }
         }
       }
@@ -191,7 +191,6 @@ export default function DiscoverPage() {
     
     const actions = getUserActions();
     const passes = actions?.passes || [];
-    const likes = actions?.likes || [];
     
     const filteredAndProcessed = allUsers
       .filter(user => {
