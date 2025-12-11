@@ -8,6 +8,63 @@ import {
   FREE_USER_LIMITS
 } from '@/lib/subscription'
 
+// Mock localStorage for subscription tests
+let store = {};
+const localStorageMock = {
+  getItem: jest.fn((key) => {
+    return store[key] || null;
+  }),
+  setItem: jest.fn((key, value) => {
+    store[key] = value.toString();
+  }),
+  removeItem: jest.fn((key) => {
+    delete store[key];
+  }),
+  clear: jest.fn(() => {
+    store = {};
+  })
+};
+
+// Ensure window exists
+if (typeof window === 'undefined') {
+  global.window = {};
+}
+
+// Set up localStorage before any tests
+Object.defineProperty(window, 'localStorage', {
+  value: localStorageMock,
+  writable: true,
+  configurable: true,
+});
+global.localStorage = localStorageMock;
+
+beforeEach(() => {
+  // Reset the store
+  store = {};
+  
+  // Re-create mock implementations (Jest's resetMocks might clear them)
+  localStorageMock.getItem.mockImplementation((key) => {
+    return store[key] || null;
+  });
+  localStorageMock.setItem.mockImplementation((key, value) => {
+    store[key] = value.toString();
+  });
+  localStorageMock.removeItem.mockImplementation((key) => {
+    delete store[key];
+  });
+  localStorageMock.clear.mockImplementation(() => {
+    store = {};
+  });
+  
+  // Re-setup localStorage to ensure it's fresh
+  Object.defineProperty(window, 'localStorage', {
+    value: localStorageMock,
+    writable: true,
+    configurable: true,
+  });
+  global.localStorage = localStorageMock;
+});
+
 describe('Subscription Functions', () => {
   const createUser = (overrides = {}) => ({
     id: '1',
