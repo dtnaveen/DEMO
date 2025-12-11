@@ -341,7 +341,24 @@ export default function LoginPage() {
       
       <Card variant="glass" className="max-w-md w-full relative z-10 border-2 border-white/30">
         <div className="text-center mb-8">
-          <div className="flex justify-center mb-8">
+          <div 
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              console.log('Logo clicked, redirecting to home...');
+              router.push('/');
+            }} 
+            className="flex justify-center mb-8 hover:opacity-80 transition-opacity cursor-pointer"
+            style={{ pointerEvents: 'auto' }}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                router.push('/');
+              }
+            }}
+          >
             <Logo size="lg" />
           </div>
           <h1 className="text-4xl font-black text-dark-900 mb-3 font-display">Welcome Back</h1>
@@ -406,27 +423,23 @@ export default function LoginPage() {
         </div>
 
         <div className="mt-4 text-xs text-gray-500 text-left space-y-2">
-          <p className="font-semibold mb-2">Test Accounts (All Categories):</p>
+          <p className="font-semibold mb-2">Test Accounts Available:</p>
           <div className="space-y-1">
-            <p className="font-medium text-gray-700">Admin:</p>
+            <p className="text-gray-600">
+              Test account credentials are available in <code className="bg-gray-100 px-1 rounded">TEST_USERS_CREDENTIALS.md</code> (local file, not in git).
+            </p>
+            <p className="font-medium text-gray-700 mt-2">Available Test Accounts:</p>
             <ul className="list-disc list-inside ml-2 space-y-0.5">
-              <li>admin@vibematch.com / admin123</li>
+              <li>Admin: admin@vibematch.com</li>
+              <li>Free: free@test.com</li>
+              <li>Basic: basic@test.com</li>
+              <li>Plus: plus@test.com</li>
+              <li>Premium (VIP): premium@test.com</li>
+              <li>Regular: ranjith@example.com or "ranjith"</li>
             </ul>
-            <p className="font-medium text-gray-700 mt-2">Subscription Tiers:</p>
-            <ul className="list-disc list-inside ml-2 space-y-0.5">
-              <li>Free: free@test.com / free123</li>
-              <li>Basic: basic@test.com / basic123</li>
-              <li>Plus: plus@test.com / plus123</li>
-              <li>Premium (VIP): premium@test.com / premium123</li>
-            </ul>
-            <p className="font-medium text-gray-700 mt-2">Regular User:</p>
-            <ul className="list-disc list-inside ml-2 space-y-0.5">
-              <li>ranjith@example.com or "ranjith" / 1234567890</li>
-            </ul>
-            <p className="font-medium text-gray-700 mt-2">Match Profiles:</p>
-            <ul className="list-disc list-inside ml-2 space-y-0.5">
-              <li>Any seeded email / match123</li>
-            </ul>
+            <p className="text-gray-500 italic mt-2">
+              ⚠️ For security, passwords are not displayed here. See TEST_USERS_CREDENTIALS.md for credentials.
+            </p>
           </div>
         </div>
       </Card>

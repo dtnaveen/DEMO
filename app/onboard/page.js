@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import OnboardingStep from '@/components/OnboardingStep';
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
+import Logo from '@/components/ui/Logo';
 import { VALUE_QUESTIONS, CONTENT_QUESTIONS, GENDERS, LOOKING_FOR, GENDER_PREFERENCES, DEAL_BREAKERS, getAgeGroup, EDUCATION_LEVELS, LIFESTYLE_OPTIONS, OCCUPATION_CATEGORIES } from '@/lib/constants';
 import { setCurrentUser, getAllUsers, setAllUsers } from '@/lib/localStorage';
 import { initializeMockData } from '@/lib/mockData';
@@ -800,6 +802,32 @@ export default function OnboardingPage() {
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
           }}
         ></div>
+        
+        {/* Logo and Title at the top - clickable to redirect to home */}
+        <div className="relative z-20 pt-8 pb-4 px-4">
+          <div className="max-w-3xl mx-auto flex justify-center">
+            <div 
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Logo clicked, redirecting to home...');
+                router.push('/');
+              }} 
+              className="hover:opacity-80 transition-opacity cursor-pointer"
+              style={{ pointerEvents: 'auto' }}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  router.push('/');
+                }
+              }}
+            >
+              <Logo size="lg" />
+            </div>
+          </div>
+        </div>
         
         <OnboardingStep
           step={step}

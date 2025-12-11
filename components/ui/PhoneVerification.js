@@ -93,7 +93,7 @@ export default function PhoneVerification({
         <h3 className="text-2xl font-bold text-gray-900 mb-2">Verify Your Phone Number</h3>
         <p className="text-gray-600">
           {step === 'phone' 
-            ? 'We'll send you a verification code via SMS'
+            ? "We'll send you a verification code via SMS"
             : 'Enter the 6-digit code sent to your phone'
           }
         </p>

@@ -69,7 +69,7 @@ pm2 save
 ## ✅ Post-Deployment Verification
 
 1. **Test Login:** `https://yourdomain.com/login`
-   - Use: `free@test.com` / `free123`
+   - Use: `free@test.com` / [See `TEST_USERS_CREDENTIALS.md`]
    - Verify password hashing works
 
 2. **Test Rate Limiting:**
@@ -82,8 +82,10 @@ pm2 save
    - Verify ads appear every 3 profiles
 
 4. **Test Admin Dashboard:**
-   - Login as: `admin@vibematch.com` / `admin123`
+   - Login as: `admin@vibematch.com` / [See `TEST_USERS_CREDENTIALS.md`]
    - Check ad revenue metrics
+
+**⚠️ SECURITY:** Test account credentials are stored in `TEST_USERS_CREDENTIALS.md` (gitignored, local file only).
 
 ---
 

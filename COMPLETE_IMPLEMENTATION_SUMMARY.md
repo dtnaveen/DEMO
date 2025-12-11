@@ -280,19 +280,21 @@ npm start
 
 ## 🎯 Test Accounts
 
+**⚠️ SECURITY:** Test account credentials are stored in `TEST_USERS_CREDENTIALS.md` (gitignored, local file only). Credentials are not displayed here for security reasons.
+
 ### Free User
 - **Email:** `free@test.com`
-- **Password:** `free123`
+- **Password:** See `TEST_USERS_CREDENTIALS.md`
 - **Features:** Limited likes, sees ads
 
 ### Premium User
 - **Email:** `premium@test.com`
-- **Password:** `premium123`
+- **Password:** See `TEST_USERS_CREDENTIALS.md`
 - **Features:** Unlimited, ad-free
 
 ### Admin
 - **Email:** `admin@vibematch.com`
-- **Password:** `admin123`
+- **Password:** See `TEST_USERS_CREDENTIALS.md`
 - **Features:** Full admin access
 
 ---

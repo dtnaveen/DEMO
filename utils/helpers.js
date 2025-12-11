@@ -88,9 +88,16 @@ export function validateEmail(email) {
 /**
  * Development-only logging helper
  * Only logs in development mode
+ * Works in both server and client components
  */
 export function devLog(...args) {
-  if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
+  // Check if we're in development mode
+  const isDevelopment = 
+    (typeof window !== 'undefined' && window.location?.hostname === 'localhost') ||
+    (typeof process !== 'undefined' && process.env?.NODE_ENV === 'development') ||
+    (typeof window !== 'undefined' && window.location?.hostname?.includes('localhost'));
+  
+  if (isDevelopment) {
     console.log(...args);
   }
 }

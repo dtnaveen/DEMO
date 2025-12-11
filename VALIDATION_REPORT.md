@@ -97,12 +97,14 @@
 ## ✅ Functionality Tests
 
 ### Test Accounts Created ✅
-1. Admin: admin@vibematch.com / admin123
-2. Free: free@test.com / free123
-3. Premium: premium@test.com / premium123
-4. Basic: basic@test.com / basic123
-5. Plus: plus@test.com / plus123
-6. Regular: ranjith@example.com / 1234567890
+**⚠️ SECURITY:** Test account credentials are stored in `TEST_USERS_CREDENTIALS.md` (gitignored, local file only). Passwords are not displayed here.
+
+1. Admin: admin@vibematch.com / [See `TEST_USERS_CREDENTIALS.md`]
+2. Free: free@test.com / [See `TEST_USERS_CREDENTIALS.md`]
+3. Premium: premium@test.com / [See `TEST_USERS_CREDENTIALS.md`]
+4. Basic: basic@test.com / [See `TEST_USERS_CREDENTIALS.md`]
+5. Plus: plus@test.com / [See `TEST_USERS_CREDENTIALS.md`]
+6. Regular: ranjith@example.com / [See `TEST_USERS_CREDENTIALS.md`]
 
 ### Features Tested ✅
 - ✅ Landing page loads

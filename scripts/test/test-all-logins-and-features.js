@@ -6,11 +6,13 @@
 console.log('🧪 COMPREHENSIVE LOGIN & FEATURE TESTING');
 console.log('==========================================\n');
 
+// ⚠️ SECURITY: Credentials rotated on 2024-12-11
+// See TEST_USERS_CREDENTIALS.md for current passwords
 const testAccounts = [
   {
     name: 'Admin User',
     email: 'admin@vibematch.com',
-    password: 'admin123',
+    password: 'AdminSecure2024!',
     tier: 'VIP',
     expectedRedirect: '/admin',
     features: ['Admin Dashboard', 'All Premium Features', 'User Management']
@@ -18,7 +20,7 @@ const testAccounts = [
   {
     name: 'Free User',
     email: 'free@test.com',
-    password: 'free123',
+    password: 'FreeSecure2024!',
     tier: 'free',
     expectedRedirect: '/discover',
     features: ['10 likes/day', 'Basic Filters', 'Standard Matching']
@@ -26,7 +28,7 @@ const testAccounts = [
   {
     name: 'Basic Tier',
     email: 'basic@test.com',
-    password: 'basic123',
+    password: 'BasicSecure2024!',
     tier: 'basic',
     expectedRedirect: '/discover',
     features: ['Unlimited Likes', 'Advanced Filters', 'Ad-Free']
@@ -34,7 +36,7 @@ const testAccounts = [
   {
     name: 'Plus Tier',
     email: 'plus@test.com',
-    password: 'plus123',
+    password: 'PlusSecure2024!',
     tier: 'plus',
     expectedRedirect: '/discover',
     features: ['Basic + Read Receipts', 'See Who Liked', 'Rewinds', 'Profile Boost']
@@ -42,7 +44,7 @@ const testAccounts = [
   {
     name: 'Premium (VIP)',
     email: 'premium@test.com',
-    password: 'premium123',
+    password: 'PremiumSecure2024!',
     tier: 'vip',
     expectedRedirect: '/discover',
     features: ['All Features', 'Priority Matching', 'Match Breakdown']
@@ -51,7 +53,7 @@ const testAccounts = [
     name: 'Regular User',
     email: 'ranjith@example.com',
     name: 'ranjith',
-    password: '1234567890',
+    password: 'RanjithSecure2024!',
     tier: 'free',
     expectedRedirect: '/discover',
     features: ['Standard Free Features']
