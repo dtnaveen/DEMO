@@ -1,0 +1,496 @@
+40711381a67b034b1c612ae34a5a5cc5
+// Value-based questions (10 questions)
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: Object.getOwnPropertyDescriptor(all, name).get
+    });
+}
+_export(exports, {
+    get CONTENT_QUESTIONS () {
+        return CONTENT_QUESTIONS;
+    },
+    get DEAL_BREAKERS () {
+        return DEAL_BREAKERS;
+    },
+    get EDUCATION_LEVELS () {
+        return EDUCATION_LEVELS;
+    },
+    get GENDERS () {
+        return GENDERS;
+    },
+    get GENDER_PREFERENCES () {
+        return GENDER_PREFERENCES;
+    },
+    get LIFESTYLE_OPTIONS () {
+        return LIFESTYLE_OPTIONS;
+    },
+    get LOOKING_FOR () {
+        return LOOKING_FOR;
+    },
+    get NICHE_FILTERS () {
+        return NICHE_FILTERS;
+    },
+    get OCCUPATION_CATEGORIES () {
+        return OCCUPATION_CATEGORIES;
+    },
+    get VALUE_QUESTIONS () {
+        return VALUE_QUESTIONS;
+    },
+    get getAgeGroup () {
+        return getAgeGroup;
+    }
+});
+const VALUE_QUESTIONS = [
+    {
+        id: 'friday_night',
+        question: "What's your ideal Friday night?",
+        options: [
+            'Quiet night in',
+            'Party with friends',
+            'Exploring new places',
+            'Creative project'
+        ]
+    },
+    {
+        id: 'conflict',
+        question: "How do you handle conflict?",
+        options: [
+            'Direct conversation',
+            'Need time to process',
+            'Avoid confrontation',
+            'Seek compromise'
+        ]
+    },
+    {
+        id: 'relationship_important',
+        question: "What's most important in a relationship?",
+        options: [
+            'Trust',
+            'Communication',
+            'Adventure',
+            'Stability'
+        ]
+    },
+    {
+        id: 'communication_style',
+        question: "Your communication style?",
+        options: [
+            'Text constantly',
+            'Quality calls',
+            'In-person only',
+            'Mix of everything'
+        ]
+    },
+    {
+        id: 'recharge',
+        question: "How do you recharge?",
+        options: [
+            'Alone time',
+            'With loved ones',
+            'Physical activity',
+            'Creative outlets'
+        ]
+    },
+    {
+        id: 'life_approach',
+        question: "Your approach to life?",
+        options: [
+            'Plan everything',
+            'Go with flow',
+            'Structured flexibility',
+            'Spontaneous always'
+        ]
+    },
+    {
+        id: 'drives_you',
+        question: "What drives you?",
+        options: [
+            'Career success',
+            'Personal growth',
+            'Relationships',
+            'Making impact'
+        ]
+    },
+    {
+        id: 'deal_stress',
+        question: "Deal with stress by?",
+        options: [
+            'Talking it out',
+            'Exercise',
+            'Distraction',
+            'Problem-solving'
+        ]
+    },
+    {
+        id: 'love_language',
+        question: "Your love language?",
+        options: [
+            'Words',
+            'Quality time',
+            'Gifts',
+            'Acts of service',
+            'Physical touch'
+        ]
+    },
+    {
+        id: 'future_goals',
+        question: "Future goals?",
+        options: [
+            'Career focused',
+            'Family oriented',
+            'Adventure seeking',
+            'Self-discovery'
+        ]
+    }
+];
+const CONTENT_QUESTIONS = {
+    'Gen Z': [
+        {
+            id: 'social_platform',
+            question: 'Favorite social platform?',
+            options: [
+                'TikTok',
+                'Instagram',
+                'Twitter/X',
+                'BeReal',
+                'Reddit'
+            ]
+        },
+        {
+            id: 'content_consume',
+            question: 'Content you consume?',
+            options: [
+                'Short-form video',
+                'Memes',
+                'Podcasts',
+                'Gaming streams',
+                'Educational content'
+            ]
+        },
+        {
+            id: 'music_vibe',
+            question: 'Music vibe?',
+            options: [
+                'Pop',
+                'Hip-hop',
+                'Indie',
+                'EDM',
+                'Alternative',
+                'K-pop'
+            ]
+        },
+        {
+            id: 'humor_style',
+            question: 'Humor style?',
+            options: [
+                'Memes',
+                'Sarcasm',
+                'Dark humor',
+                'Wholesome',
+                'Absurd'
+            ]
+        },
+        {
+            id: 'weekend_activity',
+            question: 'Weekend activity?',
+            options: [
+                'Concerts',
+                'Thrifting',
+                'Gaming',
+                'Content creation',
+                'Outdoor adventures'
+            ]
+        }
+    ],
+    'Millennials': [
+        {
+            id: 'preferred_platform',
+            question: 'Preferred platform?',
+            options: [
+                'Instagram',
+                'Facebook',
+                'LinkedIn',
+                'Twitter/X',
+                'YouTube'
+            ]
+        },
+        {
+            id: 'content_type',
+            question: 'Content type?',
+            options: [
+                'Long-form articles',
+                'Podcasts',
+                'Documentaries',
+                'Blogs',
+                'News'
+            ]
+        },
+        {
+            id: 'music_preference',
+            question: 'Music preference?',
+            options: [
+                'Rock',
+                'Pop',
+                'Hip-hop',
+                'Jazz',
+                'Electronic',
+                'Country'
+            ]
+        },
+        {
+            id: 'entertainment',
+            question: 'Entertainment?',
+            options: [
+                'Netflix binges',
+                'Live music',
+                'Cooking',
+                'Travel',
+                'Fitness'
+            ]
+        },
+        {
+            id: 'social_style',
+            question: 'Social style?',
+            options: [
+                'Dinner parties',
+                'Bars',
+                'Outdoor activities',
+                'Cultural events',
+                'Quiet gatherings'
+            ]
+        }
+    ],
+    'Gen Alpha': [
+        {
+            id: 'platform',
+            question: 'Platform?',
+            options: [
+                'TikTok',
+                'YouTube Shorts',
+                'Discord',
+                'Snapchat',
+                'Twitch'
+            ]
+        },
+        {
+            id: 'content',
+            question: 'Content?',
+            options: [
+                'Gaming',
+                'Animation',
+                'Tech reviews',
+                'Vlogs',
+                'Challenges'
+            ]
+        },
+        {
+            id: 'interests',
+            question: 'Interests?',
+            options: [
+                'Gaming',
+                'Digital art',
+                'Coding',
+                'Anime',
+                'Sports',
+                'Music production'
+            ]
+        },
+        {
+            id: 'music_vibe_alpha',
+            question: 'Music vibe?',
+            options: [
+                'Pop',
+                'Hip-hop',
+                'Electronic',
+                'K-pop',
+                'Indie',
+                'Rock'
+            ]
+        },
+        {
+            id: 'weekend_gen_alpha',
+            question: 'Weekend activity?',
+            options: [
+                'Gaming tournaments',
+                'Content creation',
+                'Online communities',
+                'Streaming',
+                'Tech projects'
+            ]
+        }
+    ]
+};
+const GENDERS = [
+    'Male',
+    'Female',
+    'Non-binary',
+    'Prefer not to say'
+];
+const LOOKING_FOR = [
+    'Relationship',
+    'Dating',
+    'Friends',
+    'Networking',
+    'Fling',
+    'Casual Dating',
+    'Serious Relationship',
+    'Marriage',
+    'Open Relationship',
+    'Polyamorous',
+    'Something Casual',
+    'Long-term Partner',
+    'Activity Partner',
+    'Travel Buddy',
+    'Study Buddy',
+    'Business Partner',
+    'Hook-up',
+    'Just Chatting'
+];
+const GENDER_PREFERENCES = [
+    'Male',
+    'Female',
+    'Non-binary',
+    'Everyone'
+];
+const DEAL_BREAKERS = [
+    'Must share my values on communication',
+    'Must enjoy similar content',
+    'Must have similar social energy',
+    'Must align on future goals'
+];
+function getAgeGroup(age) {
+    if (age >= 18 && age <= 27) {
+        return 'Gen Z';
+    } else if (age >= 28 && age <= 43) {
+        return 'Millennials';
+    } else {
+        return 'Gen Alpha';
+    }
+}
+const EDUCATION_LEVELS = [
+    'High School',
+    'Some College',
+    "Bachelor's Degree",
+    "Master's Degree",
+    'PhD',
+    'Trade School',
+    'Other',
+    'Prefer not to say'
+];
+const LIFESTYLE_OPTIONS = {
+    exercise: [
+        'Daily',
+        'Several times a week',
+        'Weekly',
+        'Rarely',
+        'Never'
+    ],
+    diet: [
+        'Vegetarian',
+        'Vegan',
+        'Pescatarian',
+        'Keto',
+        'Paleo',
+        'No restrictions',
+        'Other'
+    ],
+    drinking: [
+        'Never',
+        'Rarely',
+        'Socially',
+        'Regularly',
+        'Prefer not to say'
+    ],
+    smoking: [
+        'Never',
+        'Rarely',
+        'Socially',
+        'Regularly',
+        'Prefer not to say'
+    ],
+    pets: [
+        'Love pets',
+        'Have pets',
+        'Allergic',
+        'Not a pet person',
+        'Prefer not to say'
+    ],
+    children: [
+        'Want children',
+        'Have children',
+        "Don't want children",
+        'Not sure',
+        'Prefer not to say'
+    ]
+};
+const OCCUPATION_CATEGORIES = [
+    'Technology',
+    'Healthcare',
+    'Education',
+    'Finance',
+    'Arts & Entertainment',
+    'Business',
+    'Science & Research',
+    'Law',
+    'Engineering',
+    'Marketing',
+    'Sales',
+    'Hospitality',
+    'Retail',
+    'Student',
+    'Entrepreneur',
+    'Freelancer',
+    'Other',
+    'Prefer not to say'
+];
+const NICHE_FILTERS = {
+    'Gen Z': [
+        {
+            id: 'platform_preference',
+            label: 'Platform Preference'
+        },
+        {
+            id: 'content_creator',
+            label: 'Content Creator Interest'
+        },
+        {
+            id: 'gaming_interest',
+            label: 'Gaming Interest'
+        }
+    ],
+    'Millennials': [
+        {
+            id: 'career_focused',
+            label: 'Career-focused'
+        },
+        {
+            id: 'family_oriented',
+            label: 'Family-oriented'
+        },
+        {
+            id: 'travel_enthusiast',
+            label: 'Travel Enthusiast'
+        }
+    ],
+    'Gen Alpha': [
+        {
+            id: 'digital_native',
+            label: 'Digital Native'
+        },
+        {
+            id: 'gaming_culture',
+            label: 'Gaming Culture'
+        },
+        {
+            id: 'tech_savvy',
+            label: 'Tech-savvy'
+        }
+    ]
+};
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xcQWRtaW5cXE9uZURyaXZlXFxEZXNrdG9wXFxERU1PXFxsaWJcXGNvbnN0YW50cy5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBWYWx1ZS1iYXNlZCBxdWVzdGlvbnMgKDEwIHF1ZXN0aW9ucylcclxuZXhwb3J0IGNvbnN0IFZBTFVFX1FVRVNUSU9OUyA9IFtcclxuICB7XHJcbiAgICBpZDogJ2ZyaWRheV9uaWdodCcsXHJcbiAgICBxdWVzdGlvbjogXCJXaGF0J3MgeW91ciBpZGVhbCBGcmlkYXkgbmlnaHQ/XCIsXHJcbiAgICBvcHRpb25zOiBbJ1F1aWV0IG5pZ2h0IGluJywgJ1BhcnR5IHdpdGggZnJpZW5kcycsICdFeHBsb3JpbmcgbmV3IHBsYWNlcycsICdDcmVhdGl2ZSBwcm9qZWN0J11cclxuICB9LFxyXG4gIHtcclxuICAgIGlkOiAnY29uZmxpY3QnLFxyXG4gICAgcXVlc3Rpb246IFwiSG93IGRvIHlvdSBoYW5kbGUgY29uZmxpY3Q/XCIsXHJcbiAgICBvcHRpb25zOiBbJ0RpcmVjdCBjb252ZXJzYXRpb24nLCAnTmVlZCB0aW1lIHRvIHByb2Nlc3MnLCAnQXZvaWQgY29uZnJvbnRhdGlvbicsICdTZWVrIGNvbXByb21pc2UnXVxyXG4gIH0sXHJcbiAge1xyXG4gICAgaWQ6ICdyZWxhdGlvbnNoaXBfaW1wb3J0YW50JyxcclxuICAgIHF1ZXN0aW9uOiBcIldoYXQncyBtb3N0IGltcG9ydGFudCBpbiBhIHJlbGF0aW9uc2hpcD9cIixcclxuICAgIG9wdGlvbnM6IFsnVHJ1c3QnLCAnQ29tbXVuaWNhdGlvbicsICdBZHZlbnR1cmUnLCAnU3RhYmlsaXR5J11cclxuICB9LFxyXG4gIHtcclxuICAgIGlkOiAnY29tbXVuaWNhdGlvbl9zdHlsZScsXHJcbiAgICBxdWVzdGlvbjogXCJZb3VyIGNvbW11bmljYXRpb24gc3R5bGU/XCIsXHJcbiAgICBvcHRpb25zOiBbJ1RleHQgY29uc3RhbnRseScsICdRdWFsaXR5IGNhbGxzJywgJ0luLXBlcnNvbiBvbmx5JywgJ01peCBvZiBldmVyeXRoaW5nJ11cclxuICB9LFxyXG4gIHtcclxuICAgIGlkOiAncmVjaGFyZ2UnLFxyXG4gICAgcXVlc3Rpb246IFwiSG93IGRvIHlvdSByZWNoYXJnZT9cIixcclxuICAgIG9wdGlvbnM6IFsnQWxvbmUgdGltZScsICdXaXRoIGxvdmVkIG9uZXMnLCAnUGh5c2ljYWwgYWN0aXZpdHknLCAnQ3JlYXRpdmUgb3V0bGV0cyddXHJcbiAgfSxcclxuICB7XHJcbiAgICBpZDogJ2xpZmVfYXBwcm9hY2gnLFxyXG4gICAgcXVlc3Rpb246IFwiWW91ciBhcHByb2FjaCB0byBsaWZlP1wiLFxyXG4gICAgb3B0aW9uczogWydQbGFuIGV2ZXJ5dGhpbmcnLCAnR28gd2l0aCBmbG93JywgJ1N0cnVjdHVyZWQgZmxleGliaWxpdHknLCAnU3BvbnRhbmVvdXMgYWx3YXlzJ11cclxuICB9LFxyXG4gIHtcclxuICAgIGlkOiAnZHJpdmVzX3lvdScsXHJcbiAgICBxdWVzdGlvbjogXCJXaGF0IGRyaXZlcyB5b3U/XCIsXHJcbiAgICBvcHRpb25zOiBbJ0NhcmVlciBzdWNjZXNzJywgJ1BlcnNvbmFsIGdyb3d0aCcsICdSZWxhdGlvbnNoaXBzJywgJ01ha2luZyBpbXBhY3QnXVxyXG4gIH0sXHJcbiAge1xyXG4gICAgaWQ6ICdkZWFsX3N0cmVzcycsXHJcbiAgICBxdWVzdGlvbjogXCJEZWFsIHdpdGggc3RyZXNzIGJ5P1wiLFxyXG4gICAgb3B0aW9uczogWydUYWxraW5nIGl0IG91dCcsICdFeGVyY2lzZScsICdEaXN0cmFjdGlvbicsICdQcm9ibGVtLXNvbHZpbmcnXVxyXG4gIH0sXHJcbiAge1xyXG4gICAgaWQ6ICdsb3ZlX2xhbmd1YWdlJyxcclxuICAgIHF1ZXN0aW9uOiBcIllvdXIgbG92ZSBsYW5ndWFnZT9cIixcclxuICAgIG9wdGlvbnM6IFsnV29yZHMnLCAnUXVhbGl0eSB0aW1lJywgJ0dpZnRzJywgJ0FjdHMgb2Ygc2VydmljZScsICdQaHlzaWNhbCB0b3VjaCddXHJcbiAgfSxcclxuICB7XHJcbiAgICBpZDogJ2Z1dHVyZV9nb2FscycsXHJcbiAgICBxdWVzdGlvbjogXCJGdXR1cmUgZ29hbHM/XCIsXHJcbiAgICBvcHRpb25zOiBbJ0NhcmVlciBmb2N1c2VkJywgJ0ZhbWlseSBvcmllbnRlZCcsICdBZHZlbnR1cmUgc2Vla2luZycsICdTZWxmLWRpc2NvdmVyeSddXHJcbiAgfVxyXG5dO1xyXG5cclxuLy8gQWdlLXNwZWNpZmljIGNvbnRlbnQgcXVlc3Rpb25zXHJcbmV4cG9ydCBjb25zdCBDT05URU5UX1FVRVNUSU9OUyA9IHtcclxuICAnR2VuIFonOiBbXHJcbiAgICB7XHJcbiAgICAgIGlkOiAnc29jaWFsX3BsYXRmb3JtJyxcclxuICAgICAgcXVlc3Rpb246ICdGYXZvcml0ZSBzb2NpYWwgcGxhdGZvcm0/JyxcclxuICAgICAgb3B0aW9uczogWydUaWtUb2snLCAnSW5zdGFncmFtJywgJ1R3aXR0ZXIvWCcsICdCZVJlYWwnLCAnUmVkZGl0J11cclxuICAgIH0sXHJcbiAgICB7XHJcbiAgICAgIGlkOiAnY29udGVudF9jb25zdW1lJyxcclxuICAgICAgcXVlc3Rpb246ICdDb250ZW50IHlvdSBjb25zdW1lPycsXHJcbiAgICAgIG9wdGlvbnM6IFsnU2hvcnQtZm9ybSB2aWRlbycsICdNZW1lcycsICdQb2RjYXN0cycsICdHYW1pbmcgc3RyZWFtcycsICdFZHVjYXRpb25hbCBjb250ZW50J11cclxuICAgIH0sXHJcbiAgICB7XHJcbiAgICAgIGlkOiAnbXVzaWNfdmliZScsXHJcbiAgICAgIHF1ZXN0aW9uOiAnTXVzaWMgdmliZT8nLFxyXG4gICAgICBvcHRpb25zOiBbJ1BvcCcsICdIaXAtaG9wJywgJ0luZGllJywgJ0VETScsICdBbHRlcm5hdGl2ZScsICdLLXBvcCddXHJcbiAgICB9LFxyXG4gICAge1xyXG4gICAgICBpZDogJ2h1bW9yX3N0eWxlJyxcclxuICAgICAgcXVlc3Rpb246ICdIdW1vciBzdHlsZT8nLFxyXG4gICAgICBvcHRpb25zOiBbJ01lbWVzJywgJ1NhcmNhc20nLCAnRGFyayBodW1vcicsICdXaG9sZXNvbWUnLCAnQWJzdXJkJ11cclxuICAgIH0sXHJcbiAgICB7XHJcbiAgICAgIGlkOiAnd2Vla2VuZF9hY3Rpdml0eScsXHJcbiAgICAgIHF1ZXN0aW9uOiAnV2Vla2VuZCBhY3Rpdml0eT8nLFxyXG4gICAgICBvcHRpb25zOiBbJ0NvbmNlcnRzJywgJ1RocmlmdGluZycsICdHYW1pbmcnLCAnQ29udGVudCBjcmVhdGlvbicsICdPdXRkb29yIGFkdmVudHVyZXMnXVxyXG4gICAgfVxyXG4gIF0sXHJcbiAgJ01pbGxlbm5pYWxzJzogW1xyXG4gICAge1xyXG4gICAgICBpZDogJ3ByZWZlcnJlZF9wbGF0Zm9ybScsXHJcbiAgICAgIHF1ZXN0aW9uOiAnUHJlZmVycmVkIHBsYXRmb3JtPycsXHJcbiAgICAgIG9wdGlvbnM6IFsnSW5zdGFncmFtJywgJ0ZhY2Vib29rJywgJ0xpbmtlZEluJywgJ1R3aXR0ZXIvWCcsICdZb3VUdWJlJ11cclxuICAgIH0sXHJcbiAgICB7XHJcbiAgICAgIGlkOiAnY29udGVudF90eXBlJyxcclxuICAgICAgcXVlc3Rpb246ICdDb250ZW50IHR5cGU/JyxcclxuICAgICAgb3B0aW9uczogWydMb25nLWZvcm0gYXJ0aWNsZXMnLCAnUG9kY2FzdHMnLCAnRG9jdW1lbnRhcmllcycsICdCbG9ncycsICdOZXdzJ11cclxuICAgIH0sXHJcbiAgICB7XHJcbiAgICAgIGlkOiAnbXVzaWNfcHJlZmVyZW5jZScsXHJcbiAgICAgIHF1ZXN0aW9uOiAnTXVzaWMgcHJlZmVyZW5jZT8nLFxyXG4gICAgICBvcHRpb25zOiBbJ1JvY2snLCAnUG9wJywgJ0hpcC1ob3AnLCAnSmF6eicsICdFbGVjdHJvbmljJywgJ0NvdW50cnknXVxyXG4gICAgfSxcclxuICAgIHtcclxuICAgICAgaWQ6ICdlbnRlcnRhaW5tZW50JyxcclxuICAgICAgcXVlc3Rpb246ICdFbnRlcnRhaW5tZW50PycsXHJcbiAgICAgIG9wdGlvbnM6IFsnTmV0ZmxpeCBiaW5nZXMnLCAnTGl2ZSBtdXNpYycsICdDb29raW5nJywgJ1RyYXZlbCcsICdGaXRuZXNzJ11cclxuICAgIH0sXHJcbiAgICB7XHJcbiAgICAgIGlkOiAnc29jaWFsX3N0eWxlJyxcclxuICAgICAgcXVlc3Rpb246ICdTb2NpYWwgc3R5bGU/JyxcclxuICAgICAgb3B0aW9uczogWydEaW5uZXIgcGFydGllcycsICdCYXJzJywgJ091dGRvb3IgYWN0aXZpdGllcycsICdDdWx0dXJhbCBldmVudHMnLCAnUXVpZXQgZ2F0aGVyaW5ncyddXHJcbiAgICB9XHJcbiAgXSxcclxuICAnR2VuIEFscGhhJzogW1xyXG4gICAge1xyXG4gICAgICBpZDogJ3BsYXRmb3JtJyxcclxuICAgICAgcXVlc3Rpb246ICdQbGF0Zm9ybT8nLFxyXG4gICAgICBvcHRpb25zOiBbJ1Rpa1RvaycsICdZb3VUdWJlIFNob3J0cycsICdEaXNjb3JkJywgJ1NuYXBjaGF0JywgJ1R3aXRjaCddXHJcbiAgICB9LFxyXG4gICAge1xyXG4gICAgICBpZDogJ2NvbnRlbnQnLFxyXG4gICAgICBxdWVzdGlvbjogJ0NvbnRlbnQ/JyxcclxuICAgICAgb3B0aW9uczogWydHYW1pbmcnLCAnQW5pbWF0aW9uJywgJ1RlY2ggcmV2aWV3cycsICdWbG9ncycsICdDaGFsbGVuZ2VzJ11cclxuICAgIH0sXHJcbiAgICB7XHJcbiAgICAgIGlkOiAnaW50ZXJlc3RzJyxcclxuICAgICAgcXVlc3Rpb246ICdJbnRlcmVzdHM/JyxcclxuICAgICAgb3B0aW9uczogWydHYW1pbmcnLCAnRGlnaXRhbCBhcnQnLCAnQ29kaW5nJywgJ0FuaW1lJywgJ1Nwb3J0cycsICdNdXNpYyBwcm9kdWN0aW9uJ11cclxuICAgIH0sXHJcbiAgICB7XHJcbiAgICAgIGlkOiAnbXVzaWNfdmliZV9hbHBoYScsXHJcbiAgICAgIHF1ZXN0aW9uOiAnTXVzaWMgdmliZT8nLFxyXG4gICAgICBvcHRpb25zOiBbJ1BvcCcsICdIaXAtaG9wJywgJ0VsZWN0cm9uaWMnLCAnSy1wb3AnLCAnSW5kaWUnLCAnUm9jayddXHJcbiAgICB9LFxyXG4gICAge1xyXG4gICAgICBpZDogJ3dlZWtlbmRfZ2VuX2FscGhhJyxcclxuICAgICAgcXVlc3Rpb246ICdXZWVrZW5kIGFjdGl2aXR5PycsXHJcbiAgICAgIG9wdGlvbnM6IFsnR2FtaW5nIHRvdXJuYW1lbnRzJywgJ0NvbnRlbnQgY3JlYXRpb24nLCAnT25saW5lIGNvbW11bml0aWVzJywgJ1N0cmVhbWluZycsICdUZWNoIHByb2plY3RzJ11cclxuICAgIH1cclxuICBdXHJcbn07XHJcblxyXG4vLyBHZW5kZXIgb3B0aW9uc1xyXG5leHBvcnQgY29uc3QgR0VOREVSUyA9IFsnTWFsZScsICdGZW1hbGUnLCAnTm9uLWJpbmFyeScsICdQcmVmZXIgbm90IHRvIHNheSddO1xyXG5cclxuLy8gTG9va2luZyBmb3Igb3B0aW9ucyAtIGNvbXByZWhlbnNpdmUgcmVsYXRpb25zaGlwIHR5cGVzXHJcbmV4cG9ydCBjb25zdCBMT09LSU5HX0ZPUiA9IFtcclxuICAnUmVsYXRpb25zaGlwJyxcclxuICAnRGF0aW5nJyxcclxuICAnRnJpZW5kcycsXHJcbiAgJ05ldHdvcmtpbmcnLFxyXG4gICdGbGluZycsXHJcbiAgJ0Nhc3VhbCBEYXRpbmcnLFxyXG4gICdTZXJpb3VzIFJlbGF0aW9uc2hpcCcsXHJcbiAgJ01hcnJpYWdlJyxcclxuICAnT3BlbiBSZWxhdGlvbnNoaXAnLFxyXG4gICdQb2x5YW1vcm91cycsXHJcbiAgJ1NvbWV0aGluZyBDYXN1YWwnLFxyXG4gICdMb25nLXRlcm0gUGFydG5lcicsXHJcbiAgJ0FjdGl2aXR5IFBhcnRuZXInLFxyXG4gICdUcmF2ZWwgQnVkZHknLFxyXG4gICdTdHVkeSBCdWRkeScsXHJcbiAgJ0J1c2luZXNzIFBhcnRuZXInLFxyXG4gICdIb29rLXVwJyxcclxuICAnSnVzdCBDaGF0dGluZydcclxuXTtcclxuXHJcbi8vIEdlbmRlciBwcmVmZXJlbmNlc1xyXG5leHBvcnQgY29uc3QgR0VOREVSX1BSRUZFUkVOQ0VTID0gWydNYWxlJywgJ0ZlbWFsZScsICdOb24tYmluYXJ5JywgJ0V2ZXJ5b25lJ107XHJcblxyXG4vLyBEZWFsIGJyZWFrZXJzXHJcbmV4cG9ydCBjb25zdCBERUFMX0JSRUFLRVJTID0gW1xyXG4gICdNdXN0IHNoYXJlIG15IHZhbHVlcyBvbiBjb21tdW5pY2F0aW9uJyxcclxuICAnTXVzdCBlbmpveSBzaW1pbGFyIGNvbnRlbnQnLFxyXG4gICdNdXN0IGhhdmUgc2ltaWxhciBzb2NpYWwgZW5lcmd5JyxcclxuICAnTXVzdCBhbGlnbiBvbiBmdXR1cmUgZ29hbHMnXHJcbl07XHJcblxyXG4vLyBBZ2UgZ3JvdXAgZGV0ZWN0aW9uXHJcbmV4cG9ydCBmdW5jdGlvbiBnZXRBZ2VHcm91cChhZ2UpIHtcclxuICBpZiAoYWdlID49IDE4ICYmIGFnZSA8PSAyNykge1xyXG4gICAgcmV0dXJuICdHZW4gWic7XHJcbiAgfSBlbHNlIGlmIChhZ2UgPj0gMjggJiYgYWdlIDw9IDQzKSB7XHJcbiAgICByZXR1cm4gJ01pbGxlbm5pYWxzJztcclxuICB9IGVsc2Uge1xyXG4gICAgcmV0dXJuICdHZW4gQWxwaGEnO1xyXG4gIH1cclxufVxyXG5cclxuLy8gRWR1Y2F0aW9uIGxldmVsc1xyXG5leHBvcnQgY29uc3QgRURVQ0FUSU9OX0xFVkVMUyA9IFtcclxuICAnSGlnaCBTY2hvb2wnLFxyXG4gICdTb21lIENvbGxlZ2UnLFxyXG4gIFwiQmFjaGVsb3IncyBEZWdyZWVcIixcclxuICBcIk1hc3RlcidzIERlZ3JlZVwiLFxyXG4gICdQaEQnLFxyXG4gICdUcmFkZSBTY2hvb2wnLFxyXG4gICdPdGhlcicsXHJcbiAgJ1ByZWZlciBub3QgdG8gc2F5J1xyXG5dO1xyXG5cclxuLy8gTGlmZXN0eWxlIG9wdGlvbnNcclxuZXhwb3J0IGNvbnN0IExJRkVTVFlMRV9PUFRJT05TID0ge1xyXG4gIGV4ZXJjaXNlOiBbJ0RhaWx5JywgJ1NldmVyYWwgdGltZXMgYSB3ZWVrJywgJ1dlZWtseScsICdSYXJlbHknLCAnTmV2ZXInXSxcclxuICBkaWV0OiBbJ1ZlZ2V0YXJpYW4nLCAnVmVnYW4nLCAnUGVzY2F0YXJpYW4nLCAnS2V0bycsICdQYWxlbycsICdObyByZXN0cmljdGlvbnMnLCAnT3RoZXInXSxcclxuICBkcmlua2luZzogWydOZXZlcicsICdSYXJlbHknLCAnU29jaWFsbHknLCAnUmVndWxhcmx5JywgJ1ByZWZlciBub3QgdG8gc2F5J10sXHJcbiAgc21va2luZzogWydOZXZlcicsICdSYXJlbHknLCAnU29jaWFsbHknLCAnUmVndWxhcmx5JywgJ1ByZWZlciBub3QgdG8gc2F5J10sXHJcbiAgcGV0czogWydMb3ZlIHBldHMnLCAnSGF2ZSBwZXRzJywgJ0FsbGVyZ2ljJywgJ05vdCBhIHBldCBwZXJzb24nLCAnUHJlZmVyIG5vdCB0byBzYXknXSxcclxuICBjaGlsZHJlbjogWydXYW50IGNoaWxkcmVuJywgJ0hhdmUgY2hpbGRyZW4nLCBcIkRvbid0IHdhbnQgY2hpbGRyZW5cIiwgJ05vdCBzdXJlJywgJ1ByZWZlciBub3QgdG8gc2F5J11cclxufTtcclxuXHJcbi8vIE9jY3VwYXRpb24gY2F0ZWdvcmllc1xyXG5leHBvcnQgY29uc3QgT0NDVVBBVElPTl9DQVRFR09SSUVTID0gW1xyXG4gICdUZWNobm9sb2d5JyxcclxuICAnSGVhbHRoY2FyZScsXHJcbiAgJ0VkdWNhdGlvbicsXHJcbiAgJ0ZpbmFuY2UnLFxyXG4gICdBcnRzICYgRW50ZXJ0YWlubWVudCcsXHJcbiAgJ0J1c2luZXNzJyxcclxuICAnU2NpZW5jZSAmIFJlc2VhcmNoJyxcclxuICAnTGF3JyxcclxuICAnRW5naW5lZXJpbmcnLFxyXG4gICdNYXJrZXRpbmcnLFxyXG4gICdTYWxlcycsXHJcbiAgJ0hvc3BpdGFsaXR5JyxcclxuICAnUmV0YWlsJyxcclxuICAnU3R1ZGVudCcsXHJcbiAgJ0VudHJlcHJlbmV1cicsXHJcbiAgJ0ZyZWVsYW5jZXInLFxyXG4gICdPdGhlcicsXHJcbiAgJ1ByZWZlciBub3QgdG8gc2F5J1xyXG5dO1xyXG5cclxuLy8gTmljaGUgZmlsdGVycyBieSBhZ2UgZ3JvdXBcclxuZXhwb3J0IGNvbnN0IE5JQ0hFX0ZJTFRFUlMgPSB7XHJcbiAgJ0dlbiBaJzogW1xyXG4gICAgeyBpZDogJ3BsYXRmb3JtX3ByZWZlcmVuY2UnLCBsYWJlbDogJ1BsYXRmb3JtIFByZWZlcmVuY2UnIH0sXHJcbiAgICB7IGlkOiAnY29udGVudF9jcmVhdG9yJywgbGFiZWw6ICdDb250ZW50IENyZWF0b3IgSW50ZXJlc3QnIH0sXHJcbiAgICB7IGlkOiAnZ2FtaW5nX2ludGVyZXN0JywgbGFiZWw6ICdHYW1pbmcgSW50ZXJlc3QnIH1cclxuICBdLFxyXG4gICdNaWxsZW5uaWFscyc6IFtcclxuICAgIHsgaWQ6ICdjYXJlZXJfZm9jdXNlZCcsIGxhYmVsOiAnQ2FyZWVyLWZvY3VzZWQnIH0sXHJcbiAgICB7IGlkOiAnZmFtaWx5X29yaWVudGVkJywgbGFiZWw6ICdGYW1pbHktb3JpZW50ZWQnIH0sXHJcbiAgICB7IGlkOiAndHJhdmVsX2VudGh1c2lhc3QnLCBsYWJlbDogJ1RyYXZlbCBFbnRodXNpYXN0JyB9XHJcbiAgXSxcclxuICAnR2VuIEFscGhhJzogW1xyXG4gICAgeyBpZDogJ2RpZ2l0YWxfbmF0aXZlJywgbGFiZWw6ICdEaWdpdGFsIE5hdGl2ZScgfSxcclxuICAgIHsgaWQ6ICdnYW1pbmdfY3VsdHVyZScsIGxhYmVsOiAnR2FtaW5nIEN1bHR1cmUnIH0sXHJcbiAgICB7IGlkOiAndGVjaF9zYXZ2eScsIGxhYmVsOiAnVGVjaC1zYXZ2eScgfVxyXG4gIF1cclxufTtcclxuIl0sIm5hbWVzIjpbIkNPTlRFTlRfUVVFU1RJT05TIiwiREVBTF9CUkVBS0VSUyIsIkVEVUNBVElPTl9MRVZFTFMiLCJHRU5ERVJTIiwiR0VOREVSX1BSRUZFUkVOQ0VTIiwiTElGRVNUWUxFX09QVElPTlMiLCJMT09LSU5HX0ZPUiIsIk5JQ0hFX0ZJTFRFUlMiLCJPQ0NVUEFUSU9OX0NBVEVHT1JJRVMiLCJWQUxVRV9RVUVTVElPTlMiLCJnZXRBZ2VHcm91cCIsImlkIiwicXVlc3Rpb24iLCJvcHRpb25zIiwiYWdlIiwiZXhlcmNpc2UiLCJkaWV0IiwiZHJpbmtpbmciLCJzbW9raW5nIiwicGV0cyIsImNoaWxkcmVuIiwibGFiZWwiXSwibWFwcGluZ3MiOiJBQUFBLHVDQUF1Qzs7Ozs7Ozs7Ozs7O1FBdUQxQkE7ZUFBQUE7O1FBaUhBQztlQUFBQTs7UUFtQkFDO2VBQUFBOztRQS9DQUM7ZUFBQUE7O1FBeUJBQztlQUFBQTs7UUFrQ0FDO2VBQUFBOztRQXhEQUM7ZUFBQUE7O1FBd0ZBQztlQUFBQTs7UUF0QkFDO2VBQUFBOztRQWhOQUM7ZUFBQUE7O1FBK0tHQztlQUFBQTs7O0FBL0tULE1BQU1ELGtCQUFrQjtJQUM3QjtRQUNFRSxJQUFJO1FBQ0pDLFVBQVU7UUFDVkMsU0FBUztZQUFDO1lBQWtCO1lBQXNCO1lBQXdCO1NBQW1CO0lBQy9GO0lBQ0E7UUFDRUYsSUFBSTtRQUNKQyxVQUFVO1FBQ1ZDLFNBQVM7WUFBQztZQUF1QjtZQUF3QjtZQUF1QjtTQUFrQjtJQUNwRztJQUNBO1FBQ0VGLElBQUk7UUFDSkMsVUFBVTtRQUNWQyxTQUFTO1lBQUM7WUFBUztZQUFpQjtZQUFhO1NBQVk7SUFDL0Q7SUFDQTtRQUNFRixJQUFJO1FBQ0pDLFVBQVU7UUFDVkMsU0FBUztZQUFDO1lBQW1CO1lBQWlCO1lBQWtCO1NBQW9CO0lBQ3RGO0lBQ0E7UUFDRUYsSUFBSTtRQUNKQyxVQUFVO1FBQ1ZDLFNBQVM7WUFBQztZQUFjO1lBQW1CO1lBQXFCO1NBQW1CO0lBQ3JGO0lBQ0E7UUFDRUYsSUFBSTtRQUNKQyxVQUFVO1FBQ1ZDLFNBQVM7WUFBQztZQUFtQjtZQUFnQjtZQUEwQjtTQUFxQjtJQUM5RjtJQUNBO1FBQ0VGLElBQUk7UUFDSkMsVUFBVTtRQUNWQyxTQUFTO1lBQUM7WUFBa0I7WUFBbUI7WUFBaUI7U0FBZ0I7SUFDbEY7SUFDQTtRQUNFRixJQUFJO1FBQ0pDLFVBQVU7UUFDVkMsU0FBUztZQUFDO1lBQWtCO1lBQVk7WUFBZTtTQUFrQjtJQUMzRTtJQUNBO1FBQ0VGLElBQUk7UUFDSkMs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

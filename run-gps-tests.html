@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPS Filtering Test Suite</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-header {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .test-step {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+            border-radius: 4px;
+        }
+        .status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .status.pass { background: #4CAF50; color: white; }
+        .status.fail { background: #f44336; color: white; }
+        .status.pending { background: #ff9800; color: white; }
+        button {
+            background: #2196F3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button:hover { background: #1976D2; }
+        .results {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e3f2fd;
+            border-radius: 4px;
+        }
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 GPS Filtering Test Suite</h1>
+    <p>Run these tests to verify GPS filtering functionality</p>
+
+    <div class="test-container">
+        <div class="test-header">Test 1: GPS Location Button</div>
+        <div class="test-step">
+            <strong>Step 1:</strong> Navigate to <code>http://localhost:3000/onboard</code>
+        </div>
+        <div class="test-step">
+            <strong>Step 2:</strong> Fill in the form (email, password, name, age, gender)
+        </div>
+        <div class="test-step">
+            <strong>Step 3:</strong> Click "📍 Use My Current Location" button
+        </div>
+        <div class="test-step">
+            <strong>Step 4:</strong> Allow location access when prompted
+        </div>
+        <div class="test-step">
+            <strong>Step 5:</strong> Verify location field auto-fills
+        </div>
+        <div class="test-step">
+            <strong>Expected:</strong> Location detected and saved with GPS coordinates
+            <span class="status pending">PENDING</span>
+        </div>
+    </div>
+
+    <div class="test-container">
+        <div class="test-header">Test 2: Distance Display</div>
+        <div class="test-step">
+            <strong>Step 1:</strong> Login as <code>ranjith</code> / <code>1234567890</code>
+        </div>
+        <div class="test-step">
+            <strong>Step 2:</strong> Navigate to <code>/discover</code> page
+        </div>
+        <div class="test-step">
+            <strong>Step 3:</strong> Check profile cards for distance display
+        </div>
+        <div class="test-step">
+            <strong>Expected:</strong> Each card shows "Age • Location • X.X mi away"
+            <span class="status pending">PENDING</span>
+        </div>
+    </div>
+
+    <div class="test-container">
+        <div class="test-header">Test 3: Distance Filter</div>
+        <div class="test-step">
+            <strong>Step 1:</strong> On Discover page, open Filters panel
+        </div>
+        <div class="test-step">
+            <strong>Step 2:</strong> Find "Distance" slider
+        </div>
+        <div class="test-step">
+            <strong>Step 3:</strong> Adjust to 10, 25, 50, 100 miles
+        </div>
+        <div class="test-step">
+            <strong>Step 4:</strong> Observe profile count changes
+        </div>
+        <div class="test-step">
+            <strong>Expected:</strong> Real-time filtering by GPS distance
+            <span class="status pending">PENDING</span>
+        </div>
+    </div>
+
+    <div class="test-container">
+        <div class="test-header">Test 4: Automated Console Test</div>
+        <div class="test-step">
+            <strong>Step 1:</strong> Open browser console (F12)
+        </div>
+        <div class="test-step">
+            <strong>Step 2:</strong> Click button below to run automated tests
+        </div>
+        <button onclick="runAutomatedTests()">Run Automated Tests</button>
+        <div id="test-results" class="results" style="display:none;"></div>
+    </div>
+
+    <script>
+        async function runAutomatedTests() {
+            const resultsDiv = document.getElementById('test-results');
+            resultsDiv.style.display = 'block';
+            resultsDiv.innerHTML = '<h3>Running Tests...</h3><p>Please ensure you are logged in and on a page with access to the app modules.</p>';
+
+            try {
+                // Import modules (adjust paths as needed)
+                const { getAllUsers, getCurrentUser } = await import('http://localhost:3000/lib/localStorage.js');
+                const { calculateDistance, hasGPSCoordinates, getDistanceBetweenUsers } = await import('http://localhost:3000/lib/gpsUtils.js');
+                
+                let results = '<h3>Test Results:</h3><ul>';
+                
+                // Test 1: Check current user
+                const currentUser = getCurrentUser();
+                if (currentUser) {
+                    results += `<li>✅ Current user: ${currentUser.name}</li>`;
+                    if (hasGPSCoordinates(currentUser)) {
+                        results += `<li>✅ User has GPS: ${currentUser.latitude}, ${currentUser.longitude}</li>`;
+                    } else {
+                        results += `<li>⚠️ User missing GPS coordinates</li>`;
+                    }
+                } else {
+                    results += `<li>❌ No user logged in</li>`;
+                }
+                
+                // Test 2: Check all users
+                const allUsers = getAllUsers();
+                const usersWithGPS = allUsers.filter(u => hasGPSCoordinates(u));
+                results += `<li>✅ Users with GPS: ${usersWithGPS.length} / ${allUsers.length}</li>`;
+                
+                // Test 3: Calculate distances
+                if (currentUser && hasGPSCoordinates(currentUser)) {
+                    const nearbyUsers = allUsers
+                        .filter(u => u.id !== currentUser.id && hasGPSCoordinates(u))
+                        .map(u => ({
+                            ...u,
+                            distance: getDistanceBetweenUsers(currentUser, u)
+                        }))
+                        .filter(u => u.distance !== null)
+                        .sort((a, b) => a.distance - b.distance)
+                        .slice(0, 5);
+                    
+                    results += `<li>✅ Distance calculations working</li>`;
+                    results += `<li>Nearest users: ${nearbyUsers.map(u => `${u.name} (${u.distance}mi)`).join(', ')}</li>`;
+                }
+                
+                results += '</ul>';
+                resultsDiv.innerHTML = results;
+                
+            } catch (error) {
+                resultsDiv.innerHTML = `<h3>Error Running Tests</h3><p>${error.message}</p><p>Make sure you are logged in and the modules are accessible.</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
+

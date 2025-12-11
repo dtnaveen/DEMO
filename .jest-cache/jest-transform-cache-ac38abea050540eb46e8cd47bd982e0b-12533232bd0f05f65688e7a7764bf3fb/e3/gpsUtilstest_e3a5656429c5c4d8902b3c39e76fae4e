@@ -1,0 +1,115 @@
+b5331885b56b82ae8daa35c4d1e4eb3d
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+const _gpsUtils = require("../../lib/gpsUtils.js");
+describe('GPS Utilities', ()=>{
+    describe('calculateDistance', ()=>{
+        it('calculates distance between two points', ()=>{
+            // New York to Los Angeles (approximately 2445 miles)
+            const distance = (0, _gpsUtils.calculateDistance)(40.7128, -74.0060, 34.0522, -118.2437);
+            expect(distance).toBeGreaterThan(2400);
+            expect(distance).toBeLessThan(2500);
+        });
+        it('returns 0 for same coordinates', ()=>{
+            const distance = (0, _gpsUtils.calculateDistance)(40.7128, -74.0060, 40.7128, -74.0060);
+            expect(distance).toBe(0);
+        });
+        it('handles negative coordinates', ()=>{
+            const distance = (0, _gpsUtils.calculateDistance)(-40.7128, -74.0060, -34.0522, -118.2437);
+            expect(distance).toBeGreaterThan(0);
+        });
+        it('returns positive distance for any two points', ()=>{
+            const distance = (0, _gpsUtils.calculateDistance)(0, 0, 1, 1);
+            expect(distance).toBeGreaterThan(0);
+        });
+    });
+    describe('hasGPSCoordinates', ()=>{
+        it('returns true for user with GPS coordinates', ()=>{
+            const user = {
+                latitude: 40.7128,
+                longitude: -74.0060
+            };
+            expect((0, _gpsUtils.hasGPSCoordinates)(user)).toBe(true);
+        });
+        it('returns false for user without GPS coordinates', ()=>{
+            const user = {
+                latitude: null,
+                longitude: null
+            };
+            expect((0, _gpsUtils.hasGPSCoordinates)(user)).toBe(false);
+        });
+        it('returns false for user with only latitude', ()=>{
+            const user = {
+                latitude: 40.7128,
+                longitude: null
+            };
+            expect((0, _gpsUtils.hasGPSCoordinates)(user)).toBe(false);
+        });
+        it('returns false for user with only longitude', ()=>{
+            const user = {
+                latitude: null,
+                longitude: -74.0060
+            };
+            expect((0, _gpsUtils.hasGPSCoordinates)(user)).toBe(false);
+        });
+    });
+    describe('getCoordinatesFromLocation', ()=>{
+        it('returns coordinates for known city', ()=>{
+            const coords = (0, _gpsUtils.getCoordinatesFromLocation)('New York');
+            expect(coords).toHaveProperty('latitude');
+            expect(coords).toHaveProperty('longitude');
+            expect(coords.latitude).toBeGreaterThan(0);
+        });
+        it('returns null for unknown location', ()=>{
+            const coords = (0, _gpsUtils.getCoordinatesFromLocation)('UnknownCity12345');
+            expect(coords).toBeNull();
+        });
+        it('handles case-insensitive city names', ()=>{
+            const coords1 = (0, _gpsUtils.getCoordinatesFromLocation)('new york');
+            const coords2 = (0, _gpsUtils.getCoordinatesFromLocation)('NEW YORK');
+            expect(coords1).toEqual(coords2);
+        });
+    });
+    describe('getDistanceBetweenUsers', ()=>{
+        it('calculates distance between two users with GPS', ()=>{
+            const user1 = {
+                latitude: 40.7128,
+                longitude: -74.0060
+            };
+            const user2 = {
+                latitude: 34.0522,
+                longitude: -118.2437
+            };
+            const distance = (0, _gpsUtils.getDistanceBetweenUsers)(user1, user2);
+            expect(distance).toBeGreaterThan(0);
+        });
+        it('returns null when first user has no GPS', ()=>{
+            const user1 = {
+                latitude: null,
+                longitude: null
+            };
+            const user2 = {
+                latitude: 34.0522,
+                longitude: -118.2437
+            };
+            const distance = (0, _gpsUtils.getDistanceBetweenUsers)(user1, user2);
+            expect(distance).toBeNull();
+        });
+        it('returns null when second user has no GPS', ()=>{
+            const user1 = {
+                latitude: 40.7128,
+                longitude: -74.0060
+            };
+            const user2 = {
+                latitude: null,
+                longitude: null
+            };
+            const distance = (0, _gpsUtils.getDistanceBetweenUsers)(user1, user2);
+            expect(distance).toBeNull();
+        });
+    });
+});
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xcQWRtaW5cXE9uZURyaXZlXFxEZXNrdG9wXFxERU1PXFxfX3Rlc3RzX19cXGxpYlxcZ3BzVXRpbHMudGVzdC5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge1xyXG4gIGNhbGN1bGF0ZURpc3RhbmNlLFxyXG4gIGhhc0dQU0Nvb3JkaW5hdGVzLFxyXG4gIGdldENvb3JkaW5hdGVzRnJvbUxvY2F0aW9uLFxyXG4gIGdldERpc3RhbmNlQmV0d2VlblVzZXJzXHJcbn0gZnJvbSAnQC9saWIvZ3BzVXRpbHMnXHJcblxyXG5kZXNjcmliZSgnR1BTIFV0aWxpdGllcycsICgpID0+IHtcclxuICBkZXNjcmliZSgnY2FsY3VsYXRlRGlzdGFuY2UnLCAoKSA9PiB7XHJcbiAgICBpdCgnY2FsY3VsYXRlcyBkaXN0YW5jZSBiZXR3ZWVuIHR3byBwb2ludHMnLCAoKSA9PiB7XHJcbiAgICAgIC8vIE5ldyBZb3JrIHRvIExvcyBBbmdlbGVzIChhcHByb3hpbWF0ZWx5IDI0NDUgbWlsZXMpXHJcbiAgICAgIGNvbnN0IGRpc3RhbmNlID0gY2FsY3VsYXRlRGlzdGFuY2UoNDAuNzEyOCwgLTc0LjAwNjAsIDM0LjA1MjIsIC0xMTguMjQzNylcclxuICAgICAgZXhwZWN0KGRpc3RhbmNlKS50b0JlR3JlYXRlclRoYW4oMjQwMClcclxuICAgICAgZXhwZWN0KGRpc3RhbmNlKS50b0JlTGVzc1RoYW4oMjUwMClcclxuICAgIH0pXHJcblxyXG4gICAgaXQoJ3JldHVybnMgMCBmb3Igc2FtZSBjb29yZGluYXRlcycsICgpID0+IHtcclxuICAgICAgY29uc3QgZGlzdGFuY2UgPSBjYWxjdWxhdGVEaXN0YW5jZSg0MC43MTI4LCAtNzQuMDA2MCwgNDAuNzEyOCwgLTc0LjAwNjApXHJcbiAgICAgIGV4cGVjdChkaXN0YW5jZSkudG9CZSgwKVxyXG4gICAgfSlcclxuXHJcbiAgICBpdCgnaGFuZGxlcyBuZWdhdGl2ZSBjb29yZGluYXRlcycsICgpID0+IHtcclxuICAgICAgY29uc3QgZGlzdGFuY2UgPSBjYWxjdWxhdGVEaXN0YW5jZSgtNDAuNzEyOCwgLTc0LjAwNjAsIC0zNC4wNTIyLCAtMTE4LjI0MzcpXHJcbiAgICAgIGV4cGVjdChkaXN0YW5jZSkudG9CZUdyZWF0ZXJUaGFuKDApXHJcbiAgICB9KVxyXG5cclxuICAgIGl0KCdyZXR1cm5zIHBvc2l0aXZlIGRpc3RhbmNlIGZvciBhbnkgdHdvIHBvaW50cycsICgpID0+IHtcclxuICAgICAgY29uc3QgZGlzdGFuY2UgPSBjYWxjdWxhdGVEaXN0YW5jZSgwLCAwLCAxLCAxKVxyXG4gICAgICBleHBlY3QoZGlzdGFuY2UpLnRvQmVHcmVhdGVyVGhhbigwKVxyXG4gICAgfSlcclxuICB9KVxyXG5cclxuICBkZXNjcmliZSgnaGFzR1BTQ29vcmRpbmF0ZXMnLCAoKSA9PiB7XHJcbiAgICBpdCgncmV0dXJucyB0cnVlIGZvciB1c2VyIHdpdGggR1BTIGNvb3JkaW5hdGVzJywgKCkgPT4ge1xyXG4gICAgICBjb25zdCB1c2VyID0ge1xyXG4gICAgICAgIGxhdGl0dWRlOiA0MC43MTI4LFxyXG4gICAgICAgIGxvbmdpdHVkZTogLTc0LjAwNjBcclxuICAgICAgfVxyXG4gICAgICBleHBlY3QoaGFzR1BTQ29vcmRpbmF0ZXModXNlcikpLnRvQmUodHJ1ZSlcclxuICAgIH0pXHJcblxyXG4gICAgaXQoJ3JldHVybnMgZmFsc2UgZm9yIHVzZXIgd2l0aG91dCBHUFMgY29vcmRpbmF0ZXMnLCAoKSA9PiB7XHJcbiAgICAgIGNvbnN0IHVzZXIgPSB7XHJcbiAgICAgICAgbGF0aXR1ZGU6IG51bGwsXHJcbiAgICAgICAgbG9uZ2l0dWRlOiBudWxsXHJcbiAgICAgIH1cclxuICAgICAgZXhwZWN0KGhhc0dQU0Nvb3JkaW5hdGVzKHVzZXIpKS50b0JlKGZhbHNlKVxyXG4gICAgfSlcclxuXHJcbiAgICBpdCgncmV0dXJucyBmYWxzZSBmb3IgdXNlciB3aXRoIG9ubHkgbGF0aXR1ZGUnLCAoKSA9PiB7XHJcbiAgICAgIGNvbnN0IHVzZXIgPSB7XHJcbiAgICAgICAgbGF0aXR1ZGU6IDQwLjcxMjgsXHJcbiAgICAgICAgbG9uZ2l0dWRlOiBudWxsXHJcbiAgICAgIH1cclxuICAgICAgZXhwZWN0KGhhc0dQU0Nvb3JkaW5hdGVzKHVzZXIpKS50b0JlKGZhbHNlKVxyXG4gICAgfSlcclxuXHJcbiAgICBpdCgncmV0dXJucyBmYWxzZSBmb3IgdXNlciB3aXRoIG9ubHkgbG9uZ2l0dWRlJywgKCkgPT4ge1xyXG4gICAgICBjb25zdCB1c2VyID0ge1xyXG4gICAgICAgIGxhdGl0dWRlOiBudWxsLFxyXG4gICAgICAgIGxvbmdpdHVkZTogLTc0LjAwNjBcclxuICAgICAgfVxyXG4gICAgICBleHBlY3QoaGFzR1BTQ29vcmRpbmF0ZXModXNlcikpLnRvQmUoZmFsc2UpXHJcbiAgICB9KVxyXG4gIH0pXHJcblxyXG4gIGRlc2NyaWJlKCdnZXRDb29yZGluYXRlc0Zyb21Mb2NhdGlvbicsICgpID0+IHtcclxuICAgIGl0KCdyZXR1cm5zIGNvb3JkaW5hdGVzIGZvciBrbm93biBjaXR5JywgKCkgPT4ge1xyXG4gICAgICBjb25zdCBjb29yZHMgPSBnZXRDb29yZGluYXRlc0Zyb21Mb2NhdGlvbignTmV3IFlvcmsnKVxyXG4gICAgICBleHBlY3QoY29vcmRzKS50b0hhdmVQcm9wZXJ0eSgnbGF0aXR1ZGUnKVxyXG4gICAgICBleHBlY3QoY29vcmRzKS50b0hhdmVQcm9wZXJ0eSgnbG9uZ2l0dWRlJylcclxuICAgICAgZXhwZWN0KGNvb3Jkcy5sYXRpdHVkZSkudG9CZUdyZWF0ZXJUaGFuKDApXHJcbiAgICB9KVxyXG5cclxuICAgIGl0KCdyZXR1cm5zIG51bGwgZm9yIHVua25vd24gbG9jYXRpb24nLCAoKSA9PiB7XHJcbiAgICAgIGNvbnN0IGNvb3JkcyA9IGdldENvb3JkaW5hdGVzRnJvbUxvY2F0aW9uKCdVbmtub3duQ2l0eTEyMzQ1JylcclxuICAgICAgZXhwZWN0KGNvb3JkcykudG9CZU51bGwoKVxyXG4gICAgfSlcclxuXHJcbiAgICBpdCgnaGFuZGxlcyBjYXNlLWluc2Vuc2l0aXZlIGNpdHkgbmFtZXMnLCAoKSA9PiB7XHJcbiAgICAgIGNvbnN0IGNvb3JkczEgPSBnZXRDb29yZGluYXRlc0Zyb21Mb2NhdGlvbignbmV3IHlvcmsnKVxyXG4gICAgICBjb25zdCBjb29yZHMyID0gZ2V0Q29vcmRpbmF0ZXNGcm9tTG9jYXRpb24oJ05FVyBZT1JLJylcclxuICAgICAgZXhwZWN0KGNvb3JkczEpLnRvRXF1YWwoY29vcmRzMilcclxuICAgIH0pXHJcbiAgfSlcclxuXHJcbiAgZGVzY3JpYmUoJ2dldERpc3RhbmNlQmV0d2VlblVzZXJzJywgKCkgPT4ge1xyXG4gICAgaXQoJ2NhbGN1bGF0ZXMgZGlzdGFuY2UgYmV0d2VlbiB0d28gdXNlcnMgd2l0aCBHUFMnLCAoKSA9PiB7XHJcbiAgICAgIGNvbnN0IHVzZXIxID0ge1xyXG4gICAgICAgIGxhdGl0dWRlOiA0MC43MTI4LFxyXG4gICAgICAgIGxvbmdpdHVkZTogLTc0LjAwNjBcclxuICAgICAgfVxyXG4gICAgICBjb25zdCB1c2VyMiA9IHtcclxuICAgICAgICBsYXRpdHVkZTogMzQuMDUyMixcclxuICAgICAgICBsb25naXR1ZGU6IC0xMTguMjQzN1xyXG4gICAgICB9XHJcbiAgICAgIFxyXG4gICAgICBjb25zdCBkaXN0YW5jZSA9IGdldERpc3RhbmNlQmV0d2VlblVzZXJzKHVzZXIxLCB1c2VyMilcclxuICAgICAgZXhwZWN0KGRpc3RhbmNlKS50b0JlR3JlYXRlclRoYW4oMClcclxuICAgIH0pXHJcblxyXG4gICAgaXQoJ3JldHVybnMgbnVsbCB3aGVuIGZpcnN0IHVzZXIgaGFzIG5vIEdQUycsICgpID0+IHtcclxuICAgICAgY29uc3QgdXNlcjEgPSB7IGxhdGl0dWRlOiBudWxsLCBsb25naXR1ZGU6IG51bGwgfVxyXG4gICAgICBjb25zdCB1c2VyMiA9IHsgbGF0aXR1ZGU6IDM0LjA1MjIsIGxvbmdpdHVkZTogLTExOC4yNDM3IH1cclxuICAgICAgXHJcbiAgICAgIGNvbnN0IGRpc3RhbmNlID0gZ2V0RGlzdGFuY2VCZXR3ZWVuVXNlcnModXNlcjEsIHVzZXIyKVxyXG4gICAgICBleHBlY3QoZGlzdGFuY2UpLnRvQmVOdWxsKClcclxuICAgIH0pXHJcblxyXG4gICAgaXQoJ3JldHVybnMgbnVsbCB3aGVuIHNlY29uZCB1c2VyIGhhcyBubyBHUFMnLCAoKSA9PiB7XHJcbiAgICAgIGNvbnN0IHVzZXIxID0geyBsYXRpdHVkZTogNDAuNzEyOCwgbG9uZ2l0dWRlOiAtNzQuMDA2MCB9XHJcbiAgICAgIGNvbnN0IHVzZXIyID0geyBsYXRpdHVkZTogbnVsbCwgbG9uZ2l0dWRlOiBudWxsIH1cclxuICAgICAgXHJcbiAgICAgIGNvbnN0IGRpc3RhbmNlID0gZ2V0RGlzdGFuY2VCZXR3ZWVuVXNlcnModXNlcjEsIHVzZXIyKVxyXG4gICAgICBleHBlY3QoZGlzdGFuY2UpLnRvQmVOdWxsKClcclxuICAgIH0pXHJcbiAgfSlcclxufSlcclxuXHJcbiJdLCJuYW1lcyI6WyJkZXNjcmliZSIsIml0IiwiZGlzdGFuY2UiLCJjYWxjdWxhdGVEaXN0YW5jZSIsImV4cGVjdCIsInRvQmVHcmVhdGVyVGhhbiIsInRvQmVMZXNzVGhhbiIsInRvQmUiLCJ1c2VyIiwibGF0aXR1ZGUiLCJsb25naXR1ZGUiLCJoYXNHUFNDb29yZGluYXRlcyIsImNvb3JkcyIsImdldENvb3JkaW5hdGVzRnJvbUxvY2F0aW9uIiwidG9IYXZlUHJvcGVydHkiLCJ0b0JlTnVsbCIsImNvb3JkczEiLCJjb29yZHMyIiwidG9FcXVhbCIsInVzZXIxIiwidXNlcjIiLCJnZXREaXN0YW5jZUJldHdlZW5Vc2VycyJdLCJtYXBwaW5ncyI6Ijs7OzswQkFLTztBQUVQQSxTQUFTLGlCQUFpQjtJQUN4QkEsU0FBUyxxQkFBcUI7UUFDNUJDLEdBQUcsMENBQTBDO1lBQzNDLHFEQUFxRDtZQUNyRCxNQUFNQyxXQUFXQyxJQUFBQSwyQkFBaUIsRUFBQyxTQUFTLENBQUMsU0FBUyxTQUFTLENBQUM7WUFDaEVDLE9BQU9GLFVBQVVHLGVBQWUs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

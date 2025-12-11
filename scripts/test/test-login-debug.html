@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Debug Test</title>
+</head>
+<body>
+    <h1>Login Debug Test</h1>
+    <p>Open browser console and check for login debug messages</p>
+    <p>Test credentials: admin@vibematch.com / admin123</p>
+    <script>
+        // Test localStorage functions
+        console.log('Testing localStorage...');
+        const testUsers = [
+            {
+                id: 'admin-1',
+                email: 'admin@vibematch.com',
+                password: 'admin123',
+                name: 'Admin User',
+                role: 'admin'
+            }
+        ];
+        localStorage.setItem('allUsers', JSON.stringify(testUsers));
+        console.log('✅ Test users set in localStorage');
+        
+        // Test user lookup
+        const allUsers = JSON.parse(localStorage.getItem('allUsers') || '[]');
+        const user = allUsers.find(u => u.email === 'admin@vibematch.com');
+        console.log('✅ User found:', user);
+        
+        // Test password comparison
+        const passwordMatch = user && user.password === 'admin123';
+        console.log('✅ Password match:', passwordMatch);
+        
+        if (passwordMatch) {
+            const { password, ...userWithoutPassword } = user;
+            localStorage.setItem('currentUser', JSON.stringify(userWithoutPassword));
+            console.log('✅ Current user set:', userWithoutPassword);
+        }
+    </script>
+</body>
+</html>
+
