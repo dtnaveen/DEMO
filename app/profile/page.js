@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { getCurrentUser, setCurrentUser, getAllUsers, setAllUsers } from '@/lib/localStorage';
-import { VALUE_QUESTIONS, CONTENT_QUESTIONS } from '@/lib/constants';
+import { VALUE_QUESTIONS, CONTENT_QUESTIONS, EDUCATION_LEVELS, OCCUPATION_CATEGORIES, LIFESTYLE_OPTIONS, getAgeGroup } from '@/lib/constants';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 import Input from '@/components/ui/Input';
@@ -51,7 +51,7 @@ export default function ProfilePage() {
       bio: currentUser.bio || '',
       education: currentUser.education || '',
       occupation: currentUser.occupation || '',
-      lifestyle: currentUser.lifestyle || {},
+      lifestyle: currentUser.lifestyle || { exercise: [], diet: [], drinking: '', children: '' },
       socialMedia: currentUser.socialMedia || {}
     });
     setLoading(false);
@@ -116,7 +116,12 @@ export default function ProfilePage() {
       name: user.name,
       location: user.location,
       photoUrl: user.photoUrl || '',
-      bio: user.bio || ''
+      photos: user.photos || [],
+      bio: user.bio || '',
+      education: user.education || '',
+      occupation: user.occupation || '',
+      lifestyle: user.lifestyle || { exercise: [], diet: [], drinking: '', children: '' },
+      socialMedia: user.socialMedia || {}
     });
     setIsEditing(false);
   };
@@ -212,7 +217,9 @@ export default function ProfilePage() {
     return null;
   }
   
-  const contentQuestions = CONTENT_QUESTIONS[user.ageGroup] || [];
+  // Ensure ageGroup exists, calculate if missing
+  const ageGroup = user.ageGroup || (user.age ? getAgeGroup(user.age) : 'Gen Z');
+  const contentQuestions = CONTENT_QUESTIONS[ageGroup] || [];
   
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">
@@ -232,14 +239,17 @@ export default function ProfilePage() {
             <div className="text-center">
               <div className="relative inline-block mb-4">
                 {/* Multiple Photos Display */}
-                {!isEditing && user.photos && user.photos.length > 0 ? (
+                {!isEditing && user.photos && Array.isArray(user.photos) && user.photos.length > 0 ? (
                   <div className="grid grid-cols-3 gap-2 mb-4">
                     {user.photos.slice(0, 9).map((photo, idx) => (
-                      <div key={photo.id || idx} className="relative">
+                      <div key={photo?.id || idx} className="relative">
                         <img 
-                          src={photo.url} 
+                          src={photo?.url || photo} 
                           alt={`Photo ${idx + 1}`}
                           className="w-20 h-20 rounded-lg object-cover border-2 border-primary"
+                          onError={(e) => {
+                            e.target.style.display = 'none';
+                          }}
                         />
                         {idx === 0 && user.verified && (
                           <div className="absolute -top-1 -right-1 bg-green-500 rounded-full p-1">
@@ -353,14 +363,18 @@ export default function ProfilePage() {
                 </div>
               ) : (
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-1">{user.name}</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-1">{user.name || 'User'}</h2>
                   {user.email && (
                     <p className="text-gray-600 mb-1 text-sm">{user.email}</p>
                   )}
-                  <p className="text-gray-600 mb-2">{user.age} years old</p>
-                  <p className="text-gray-600 mb-4">{user.location}</p>
+                  {user.age && (
+                    <p className="text-gray-600 mb-2">{user.age} years old</p>
+                  )}
+                  {user.location && (
+                    <p className="text-gray-600 mb-4">{user.location}</p>
+                  )}
                   <div className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">
-                    {user.ageGroup}
+                    {ageGroup}
                   </div>
                 </div>
               )}
@@ -427,25 +441,120 @@ export default function ProfilePage() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Lifestyle</label>
-                  <div className="space-y-2">
-                    {LIFESTYLE_OPTIONS.map((option) => (
-                      <label key={option} className="flex items-center gap-2">
-                        <input
-                          type="checkbox"
-                          checked={(editedData.lifestyle || []).includes(option)}
-                          onChange={(e) => {
-                            const current = editedData.lifestyle || [];
-                            if (e.target.checked) {
-                              setEditedData({ ...editedData, lifestyle: [...current, option] });
-                            } else {
-                              setEditedData({ ...editedData, lifestyle: current.filter(l => l !== option) });
-                            }
-                          }}
-                          className="w-4 h-4 text-primary focus:ring-primary border-gray-300 rounded"
-                        />
-                        <span className="text-gray-700">{option}</span>
-                      </label>
-                    ))}
+                  <div className="space-y-4">
+                    {/* Exercise */}
+                    <div>
+                      <label className="block text-xs font-medium text-gray-600 mb-2">Exercise Frequency</label>
+                      <div className="space-y-2">
+                        {LIFESTYLE_OPTIONS.exercise.map((option) => (
+                          <label key={option} className="flex items-center gap-2">
+                            <input
+                              type="checkbox"
+                              checked={(editedData.lifestyle?.exercise || []).includes(option)}
+                              onChange={(e) => {
+                                const current = editedData.lifestyle?.exercise || [];
+                                const newExercise = e.target.checked 
+                                  ? [...current, option]
+                                  : current.filter(l => l !== option);
+                                setEditedData({ 
+                                  ...editedData, 
+                                  lifestyle: {
+                                    ...editedData.lifestyle,
+                                    exercise: newExercise
+                                  }
+                                });
+                              }}
+                              className="w-4 h-4 text-primary focus:ring-primary border-gray-300 rounded"
+                            />
+                            <span className="text-gray-700 text-sm">{option}</span>
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {/* Diet */}
+                    <div>
+                      <label className="block text-xs font-medium text-gray-600 mb-2">Diet</label>
+                      <div className="space-y-2">
+                        {LIFESTYLE_OPTIONS.diet.map((option) => (
+                          <label key={option} className="flex items-center gap-2">
+                            <input
+                              type="checkbox"
+                              checked={(editedData.lifestyle?.diet || []).includes(option)}
+                              onChange={(e) => {
+                                const current = editedData.lifestyle?.diet || [];
+                                const newDiet = e.target.checked 
+                                  ? [...current, option]
+                                  : current.filter(l => l !== option);
+                                setEditedData({ 
+                                  ...editedData, 
+                                  lifestyle: {
+                                    ...editedData.lifestyle,
+                                    diet: newDiet
+                                  }
+                                });
+                              }}
+                              className="w-4 h-4 text-primary focus:ring-primary border-gray-300 rounded"
+                            />
+                            <span className="text-gray-700 text-sm">{option}</span>
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {/* Drinking */}
+                    <div>
+                      <label className="block text-xs font-medium text-gray-600 mb-2">Drinking</label>
+                      <div className="space-y-2">
+                        {LIFESTYLE_OPTIONS.drinking.map((option) => (
+                          <label key={option} className="flex items-center gap-2">
+                            <input
+                              type="radio"
+                              name="drinking"
+                              checked={(editedData.lifestyle?.drinking || '') === option}
+                              onChange={() => {
+                                setEditedData({ 
+                                  ...editedData, 
+                                  lifestyle: {
+                                    ...editedData.lifestyle,
+                                    drinking: option
+                                  }
+                                });
+                              }}
+                              className="w-4 h-4 text-primary focus:ring-primary border-gray-300"
+                            />
+                            <span className="text-gray-700 text-sm">{option}</span>
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {/* Children */}
+                    <div>
+                      <label className="block text-xs font-medium text-gray-600 mb-2">Children</label>
+                      <div className="space-y-2">
+                        {LIFESTYLE_OPTIONS.children.map((option) => (
+                          <label key={option} className="flex items-center gap-2">
+                            <input
+                              type="radio"
+                              name="children"
+                              checked={(editedData.lifestyle?.children || '') === option}
+                              onChange={() => {
+                                setEditedData({ 
+                                  ...editedData, 
+                                  lifestyle: {
+                                    ...editedData.lifestyle,
+                                    children: option
+                                  }
+                                });
+                              }}
+                              className="w-4 h-4 text-primary focus:ring-primary border-gray-300"
+                            />
+                            <span className="text-gray-700 text-sm">{option}</span>
+                          </label>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div>
@@ -499,7 +608,7 @@ export default function ProfilePage() {
             </div>
             
             {/* Education, Occupation, Lifestyle */}
-            {(user.education || user.occupation || (user.lifestyle && Array.isArray(user.lifestyle) && user.lifestyle.length > 0)) && (
+            {(user.education || user.occupation || (user.lifestyle && (user.lifestyle.exercise?.length > 0 || user.lifestyle.diet?.length > 0 || user.lifestyle.drinking || user.lifestyle.children))) && (
               <div className="mt-8">
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">Additional Information</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -515,15 +624,34 @@ export default function ProfilePage() {
                       <p className="font-medium text-gray-900">{user.occupation}</p>
                     </div>
                   )}
-                  {user.lifestyle && Array.isArray(user.lifestyle) && user.lifestyle.length > 0 && (
+                  {user.lifestyle && (
                     <div className="md:col-span-2">
                       <p className="text-sm text-gray-600 mb-2">Lifestyle</p>
-                      <div className="flex flex-wrap gap-2">
-                        {user.lifestyle.map((item, idx) => (
-                          <span key={idx} className="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">
-                            {item}
-                          </span>
-                        ))}
+                      <div className="space-y-2">
+                        {user.lifestyle.exercise && user.lifestyle.exercise.length > 0 && (
+                          <div>
+                            <span className="text-xs text-gray-500">Exercise: </span>
+                            <span className="text-gray-900">{user.lifestyle.exercise.join(', ')}</span>
+                          </div>
+                        )}
+                        {user.lifestyle.diet && user.lifestyle.diet.length > 0 && (
+                          <div>
+                            <span className="text-xs text-gray-500">Diet: </span>
+                            <span className="text-gray-900">{user.lifestyle.diet.join(', ')}</span>
+                          </div>
+                        )}
+                        {user.lifestyle.drinking && (
+                          <div>
+                            <span className="text-xs text-gray-500">Drinking: </span>
+                            <span className="text-gray-900">{user.lifestyle.drinking}</span>
+                          </div>
+                        )}
+                        {user.lifestyle.children && (
+                          <div>
+                            <span className="text-xs text-gray-500">Children: </span>
+                            <span className="text-gray-900">{user.lifestyle.children}</span>
+                          </div>
+                        )}
                       </div>
                     </div>
                   )}

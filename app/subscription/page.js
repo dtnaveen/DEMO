@@ -83,9 +83,32 @@ export default function SubscriptionPage() {
   const isPremium = isPremiumUser(currentUser);
   const currentTier = getUserSubscriptionTier(currentUser);
   const freeFeatures = FEATURE_COMPARISON.FREE;
-  const basicFeatures = FEATURE_COMPARISON.BASIC;
-  const plusFeatures = FEATURE_COMPARISON.PLUS;
-  const vipFeatures = FEATURE_COMPARISON.VIP;
+  
+  // Get localized pricing for user's country
+  const tierPricing = getTierPricing(currentUser);
+  const basicPricing = tierPricing[SUBSCRIPTION_TIERS.BASIC];
+  const plusPricing = tierPricing[SUBSCRIPTION_TIERS.PLUS];
+  const vipPricing = tierPricing[SUBSCRIPTION_TIERS.VIP];
+  
+  // Merge pricing with feature comparison
+  const basicFeatures = {
+    ...FEATURE_COMPARISON.BASIC,
+    price: basicPricing.formattedPrice || `$${basicPricing.price}`,
+    rawPrice: basicPricing.price,
+    currency: basicPricing.currency,
+  };
+  const plusFeatures = {
+    ...FEATURE_COMPARISON.PLUS,
+    price: plusPricing.formattedPrice || `$${plusPricing.price}`,
+    rawPrice: plusPricing.price,
+    currency: plusPricing.currency,
+  };
+  const vipFeatures = {
+    ...FEATURE_COMPARISON.VIP,
+    price: vipPricing.formattedPrice || `$${vipPricing.price}`,
+    rawPrice: vipPricing.price,
+    currency: vipPricing.currency,
+  };
 
   // Get all unique features for comparison
   const allFeatureKeys = new Set([
