@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { getCurrentUser } from '@/lib/localStorage';
+import { isAdmin } from '@/lib/adminAuth';
 import { getAIBotCharacter, updateAIBotCharacter, getOrCreateAIChatBot } from '@/lib/aiChatBot';
 import { DEFAULT_BOT_PROFILE } from '@/lib/botProfile';
 import Button from '@/components/ui/Button';
@@ -17,6 +18,7 @@ export default function AIChatSettingsPage() {
   const [botName, setBotName] = useState('AI Assistant');
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [isUserAdmin, setIsUserAdmin] = useState(false);
   
   useEffect(() => {
     const user = getCurrentUser();
@@ -26,6 +28,7 @@ export default function AIChatSettingsPage() {
     }
     
     setCurrentUser(user);
+    setIsUserAdmin(isAdmin(user));
     
     // Load AI bot character settings
     const aiBot = getOrCreateAIChatBot();
@@ -311,15 +314,22 @@ export default function AIChatSettingsPage() {
                   });
                   
                   if (success) {
-                    showToast('✅ Optimal settings saved! Navigating to test page...', 'success');
-                    // Refresh character settings
-                    const updatedCharacter = getAIBotCharacter();
-                    setCharacter(updatedCharacter);
-                    
-                    // Navigate to test page after a short delay
-                    setTimeout(() => {
-                      router.push('/test-ai-bot');
-                    }, 1500);
+                    if (isUserAdmin) {
+                      showToast('✅ Optimal settings saved! Navigating to test page...', 'success');
+                      // Refresh character settings
+                      const updatedCharacter = getAIBotCharacter();
+                      setCharacter(updatedCharacter);
+                      
+                      // Navigate to test page after a short delay (only for admin)
+                      setTimeout(() => {
+                        router.push('/test-ai-bot');
+                      }, 1500);
+                    } else {
+                      showToast('✅ Optimal settings saved!', 'success');
+                      // Refresh character settings
+                      const updatedCharacter = getAIBotCharacter();
+                      setCharacter(updatedCharacter);
+                    }
                   } else {
                     showToast('Failed to save settings. Please try again.', 'error');
                   }
@@ -333,8 +343,13 @@ export default function AIChatSettingsPage() {
               className="w-full bg-green-100 hover:bg-green-200 border-green-300"
               disabled={saving}
             >
-              {saving ? 'Saving...' : '🚀 Apply & Test (Auto-Save)'}
+              {saving ? 'Saving...' : isUserAdmin ? '🚀 Apply & Test (Auto-Save)' : '🚀 Apply Optimal Settings'}
             </Button>
+            {!isUserAdmin && (
+              <p className="text-xs text-gray-500 mt-2 text-center">
+                Note: Bot responsiveness testing is available for admin users only.
+              </p>
+            )}
           </div>
         </Card>
 

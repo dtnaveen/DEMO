@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { getCurrentUser } from '@/lib/localStorage';
+import { isAdmin } from '@/lib/adminAuth';
 import { getOrCreateAIChatBot, getOrCreateAIBotConversation, AI_CHAT_BOT_ID } from '@/lib/aiChatBot';
 import { getConversations, setConversations } from '@/lib/localStorage';
 import { getConversationId } from '@/utils/helpers';
@@ -191,6 +192,14 @@ export default function TestAIBotPage() {
       router.push('/login');
       return;
     }
+    
+    // Check if user is admin
+    if (!isAdmin(user)) {
+      showToast('Access denied. Admin privileges required.', 'error');
+      router.push('/messages');
+      return;
+    }
+    
     setCurrentUser(user);
   }, [router]);
   
@@ -449,6 +458,23 @@ export default function TestAIBotPage() {
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
           <p className="text-gray-600">Loading...</p>
         </div>
+      </div>
+    );
+  }
+  
+  // Show access denied message if not admin (shouldn't reach here, but safety check)
+  if (!isAdmin(currentUser)) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <Card className="max-w-md">
+          <div className="p-6 text-center">
+            <h1 className="text-2xl font-bold text-gray-900 mb-2">Access Denied</h1>
+            <p className="text-gray-600 mb-4">Admin privileges required to access this page.</p>
+            <Button onClick={() => router.push('/messages')}>
+              Back to Messages
+            </Button>
+          </div>
+        </Card>
       </div>
     );
   }
