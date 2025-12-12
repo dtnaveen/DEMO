@@ -51,12 +51,66 @@ function MessagesContent() {
     setCurrentUser(user);
     
     // Initialize AI chat bot for this user (always available, regardless of matches)
-    getOrCreateAIChatBot();
-    getOrCreateAIBotConversation();
+    // Force creation and ensure it's in the users list
+    try {
+      const aiBot = getOrCreateAIChatBot();
+      console.log('AI Bot created/retrieved:', aiBot);
+      
+      if (aiBot) {
+        const conversationId = getOrCreateAIBotConversation();
+        console.log('AI Bot conversation ID:', conversationId);
+        
+        if (conversationId) {
+          // Ensure conversation is saved
+          const convos = getConversations();
+          if (!convos[conversationId]) {
+            convos[conversationId] = {
+              participants: [user.id, aiBot.id],
+              messages: aiBot.welcomeMessage ? [{
+                senderId: aiBot.id,
+                text: aiBot.welcomeMessage,
+                timestamp: new Date().toISOString(),
+                isAI: true
+              }] : []
+            };
+            setConversations(convos);
+            console.log('AI Bot conversation created with welcome message');
+          }
+        }
+      } else {
+        console.error('Failed to create AI bot - getOrCreateAIChatBot returned null');
+      }
+    } catch (error) {
+      console.error('Error initializing AI bot:', error);
+    }
     
     // Load conversations
     const convos = getConversations();
     setConversationsState(convos);
+    
+    // Force refresh to ensure AI bot appears - check after a short delay
+    setTimeout(() => {
+      const allUsers = getAllUsers();
+      const aiBot = allUsers.find(u => u.id === AI_CHAT_BOT_ID && u.ownerId === user.id);
+      console.log('AI Bot in users list:', aiBot);
+      
+      if (!aiBot) {
+        console.log('AI Bot not found, attempting to recreate...');
+        try {
+          const newBot = getOrCreateAIChatBot();
+          console.log('Recreated AI Bot:', newBot);
+          // Force state update
+          const updatedConvos = getConversations();
+          setConversationsState(updatedConvos);
+        } catch (e) {
+          console.error('Error recreating AI bot:', e);
+        }
+      } else {
+        // Bot exists, just refresh conversations
+        const updatedConvos = getConversations();
+        setConversationsState(updatedConvos);
+      }
+    }, 100);
     
     // Send auto-messages from Sarah to all users
     setTimeout(() => {
@@ -131,25 +185,93 @@ function MessagesContent() {
     const partners = [];
     
     // Always include AI chat bot (always available, regardless of matches)
-    const aiBot = getOrCreateAIChatBot();
-    if (aiBot) {
-      const aiBotConversationId = getOrCreateAIBotConversation();
-      const aiBotConversation = conversations[aiBotConversationId] || getConversations()[aiBotConversationId];
-      const lastMessage = aiBotConversation?.messages?.[aiBotConversation.messages.length - 1];
+    // Force creation if it doesn't exist
+    let aiBot = null;
+    try {
+      aiBot = getOrCreateAIChatBot();
+      console.log('getAllConversationPartners - AI Bot:', aiBot);
       
-      partners.push({
-        user: aiBot,
-        conversationId: aiBotConversationId,
-        lastMessage,
-        matchScore: null, // AI bot doesn't have a match score
-        isAIChatBot: true // Flag to identify AI chat bot
-      });
+      // If bot not found, try to find it in users list
+      if (!aiBot) {
+        aiBot = allUsers.find(u => u.id === AI_CHAT_BOT_ID && u.ownerId === currentUser.id);
+        console.log('AI Bot found in users list:', aiBot);
+      }
+    } catch (error) {
+      console.error('Error getting AI bot:', error);
+      // Try to find existing bot in users list as fallback
+      aiBot = allUsers.find(u => u.id === AI_CHAT_BOT_ID && u.ownerId === currentUser.id);
+    }
+    
+    // Always add AI bot, even if conversation doesn't exist yet
+    if (aiBot) {
+      let aiBotConversationId = null;
+      try {
+        aiBotConversationId = getOrCreateAIBotConversation();
+      } catch (error) {
+        console.error('Error getting AI bot conversation:', error);
+        // Create conversation ID manually if function fails
+        const { getConversationId } = require('@/utils/helpers');
+        aiBotConversationId = getConversationId(currentUser.id, aiBot.id);
+      }
+      
+      if (aiBotConversationId) {
+        // Get conversation from localStorage (most up-to-date)
+        const allConversations = getConversations();
+        const aiBotConversation = allConversations[aiBotConversationId];
+        const lastMessage = aiBotConversation?.messages && aiBotConversation.messages.length > 0
+          ? aiBotConversation.messages[aiBotConversation.messages.length - 1]
+          : null;
+        
+        partners.push({
+          user: aiBot,
+          conversationId: aiBotConversationId,
+          lastMessage,
+          matchScore: null, // AI bot doesn't have a match score
+          isAIChatBot: true // Flag to identify AI chat bot
+        });
+        console.log('AI Bot added to partners list');
+      } else {
+        // Fallback: add AI bot even without conversation ID
+        const { getConversationId } = require('@/utils/helpers');
+        const fallbackConversationId = getConversationId(currentUser.id, aiBot.id);
+        partners.push({
+          user: aiBot,
+          conversationId: fallbackConversationId,
+          lastMessage: null,
+          matchScore: null,
+          isAIChatBot: true
+        });
+        console.log('AI Bot added to partners list (fallback)');
+      }
+    } else {
+      console.error('AI Bot is null - cannot add to partners list');
+      console.log('All users:', allUsers);
+      console.log('Current user:', currentUser);
+      // Last resort: try to create bot one more time
+      try {
+        const lastResortBot = getOrCreateAIChatBot();
+        if (lastResortBot) {
+          const { getConversationId } = require('@/utils/helpers');
+          const fallbackConversationId = getConversationId(currentUser.id, lastResortBot.id);
+          partners.push({
+            user: lastResortBot,
+            conversationId: fallbackConversationId,
+            lastMessage: null,
+            matchScore: null,
+            isAIChatBot: true
+          });
+          console.log('AI Bot added to partners list (last resort)');
+        }
+      } catch (e) {
+        console.error('Last resort bot creation failed:', e);
+      }
     }
     
     // Add other conversation partners
-    Object.keys(conversations).forEach(conversationId => {
-      const conversation = conversations[conversationId];
-      if (conversation.participants.includes(currentUser.id)) {
+    const allConversations = getConversations();
+    Object.keys(allConversations).forEach(conversationId => {
+      const conversation = allConversations[conversationId];
+      if (conversation && conversation.participants && conversation.participants.includes(currentUser.id)) {
         const otherUserId = conversation.participants.find(id => id !== currentUser.id);
         
         // Skip AI chat bot (already added above)
@@ -158,7 +280,9 @@ function MessagesContent() {
         const otherUser = allUsers.find(u => u.id === otherUserId);
         
         if (otherUser) {
-          const lastMessage = conversation.messages[conversation.messages.length - 1];
+          const lastMessage = conversation.messages && conversation.messages.length > 0
+            ? conversation.messages[conversation.messages.length - 1]
+            : null;
           const matchScore = calculateMatchScore(currentUser, otherUser);
           
           partners.push({
@@ -224,7 +348,8 @@ function MessagesContent() {
         const delay = 2000 + Math.random() * 2000; // 2-4 seconds
         setTimeout(() => {
           const conversationId = getConversationId(currentUser.id, selectedUser.id);
-          forceImmediateReply(conversationId, selectedUser.id);
+          const replySent = forceImmediateReply(conversationId, currentUser.id);
+          console.log('AI Bot reply sent:', replySent);
           setIsAIBotTyping(false);
           
           // Refresh conversations multiple times to ensure update
@@ -243,7 +368,7 @@ function MessagesContent() {
     }
     
     if (selectedConversationId) {
-      const convos = { ...conversations };
+      const convos = getConversations();
       if (!convos[selectedConversationId]) {
         convos[selectedConversationId] = {
           participants: [currentUser.id, selectedUser.id],
@@ -271,7 +396,8 @@ function MessagesContent() {
         // Wait 2-4 seconds, then force immediate reply
         const delay = 2000 + Math.random() * 2000; // 2-4 seconds
         setTimeout(() => {
-          forceImmediateReply(selectedConversationId, selectedUser.id);
+          const replySent = forceImmediateReply(selectedConversationId, currentUser.id);
+          console.log('AI Bot reply sent:', replySent);
           setIsAIBotTyping(false);
           
           // Refresh conversations multiple times to ensure update
@@ -295,11 +421,15 @@ function MessagesContent() {
     }
   };
   
-  const currentMessages = selectedConversationId && conversations[selectedConversationId]
-    ? conversations[selectedConversationId].messages
+  // Get conversations from both state and localStorage to ensure we have the latest
+  const allConversations = { ...getConversations(), ...conversations };
+  
+  const currentMessages = selectedConversationId && allConversations[selectedConversationId]
+    ? (allConversations[selectedConversationId].messages || [])
     : [];
   
   const conversationPartners = getAllConversationPartners();
+  console.log('Conversation partners:', conversationPartners.length, conversationPartners);
   
   return (
     <div className="min-h-screen relative overflow-hidden">
