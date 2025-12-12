@@ -32,7 +32,24 @@ export default function AIChatSettingsPage() {
     if (aiBot) {
       setBotName(aiBot.name || 'AI Assistant');
       const botCharacter = getAIBotCharacter();
-      setCharacter(botCharacter);
+      
+      // Ensure optimal settings are applied if bot profile is missing or incomplete
+      if (!botCharacter || !botCharacter.askQuestions === undefined) {
+        // Apply optimal defaults
+        updateAIBotCharacter({
+          askQuestions: true,
+          responseLength: 'medium',
+          emojiUsage: true,
+          personality: 'friendly',
+          replyStyle: 'conversational',
+          formality: 'casual',
+          humorLevel: 'medium'
+        });
+        const updatedCharacter = getAIBotCharacter();
+        setCharacter(updatedCharacter);
+      } else {
+        setCharacter(botCharacter);
+      }
     }
     
     setLoading(false);
@@ -248,6 +265,76 @@ export default function AIChatSettingsPage() {
               />
               <p className="text-sm text-gray-500 mt-1">Leave empty to use default greeting</p>
             </div>
+          </div>
+        </Card>
+
+        {/* Optimal Settings Card */}
+        <Card className="mb-6 border-2 border-green-200 bg-green-50">
+          <div className="p-6">
+            <h2 className="text-xl font-semibold mb-2 text-green-800">🚀 Quick Setup: Optimal Settings</h2>
+            <p className="text-sm text-gray-700 mb-4">
+              Apply recommended settings for best human-like score (8.0+):
+            </p>
+            <ul className="text-sm text-gray-600 mb-4 space-y-1">
+              <li>✅ Ask Questions: Enabled (better engagement)</li>
+              <li>✅ Response Length: Medium (optimal scoring)</li>
+              <li>✅ Use Emojis: Enabled (more human-like)</li>
+              <li>✅ Personality: Friendly (balanced)</li>
+              <li>✅ Reply Style: Conversational (natural flow)</li>
+            </ul>
+            <Button 
+              onClick={async () => {
+                // Apply optimal settings
+                handleUpdateCharacter({
+                  askQuestions: true,
+                  responseLength: 'medium',
+                  emojiUsage: true,
+                  personality: 'friendly',
+                  replyStyle: 'conversational',
+                  formality: 'casual',
+                  humorLevel: 'medium'
+                });
+                
+                // Auto-save settings
+                setSaving(true);
+                try {
+                  const success = updateAIBotCharacter({
+                    name: botName,
+                    askQuestions: true,
+                    responseLength: 'medium',
+                    emojiUsage: true,
+                    personality: 'friendly',
+                    replyStyle: 'conversational',
+                    formality: 'casual',
+                    humorLevel: 'medium',
+                    ...character
+                  });
+                  
+                  if (success) {
+                    showToast('✅ Optimal settings saved! Navigating to test page...', 'success');
+                    // Refresh character settings
+                    const updatedCharacter = getAIBotCharacter();
+                    setCharacter(updatedCharacter);
+                    
+                    // Navigate to test page after a short delay
+                    setTimeout(() => {
+                      router.push('/test-ai-bot');
+                    }, 1500);
+                  } else {
+                    showToast('Failed to save settings. Please try again.', 'error');
+                  }
+                } catch (error) {
+                  console.error('Error saving optimal settings:', error);
+                  showToast('Error saving settings. Please try again.', 'error');
+                }
+                setSaving(false);
+              }}
+              variant="outline"
+              className="w-full bg-green-100 hover:bg-green-200 border-green-300"
+              disabled={saving}
+            >
+              {saving ? 'Saving...' : '🚀 Apply & Test (Auto-Save)'}
+            </Button>
           </div>
         </Card>
 
