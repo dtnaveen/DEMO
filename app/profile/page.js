@@ -783,8 +783,6 @@ export default function ProfilePage() {
               </div>
               
               {/* Change Password Section */}
-              <div>
-              
               {isChangingPassword ? (
                 <div className="space-y-4 bg-gray-50 p-6 rounded-lg">
                   {hasPassword && (
