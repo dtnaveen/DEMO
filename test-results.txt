@@ -1,0 +1,2624 @@
+
+> dating-app-mvp@1.0.0 test
+> jest --maxWorkers=1 --forceExit --testTimeout=2000
+
+FAIL __tests__/pages/profile.test.js
+  ● Profile Page › displays change password button
+
+    TestingLibraryElementError: Found multiple elements with the text: /Change Password|Set Password/i
+
+    Here are the matching elements:
+
+    Ignored nodes: comments, script, style
+    [36m<button[39m
+      [33mdata-testid[39m=[32m"button"[39m
+    [36m>[39m
+      [0mSet Password[0m
+    [36m</button>[39m
+
+    Ignored nodes: comments, script, style
+    [36m<p[39m
+      [33mclass[39m=[32m"text-gray-600 text-sm"[39m
+    [36m>[39m
+      [0mYou don't have a password set. Click "Set Password" to create one.[0m
+    [36m</p>[39m
+
+    (If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"min-h-screen bg-gray-50 py-8 px-4"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"max-w-4xl mx-auto"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 gap-4"[39m
+            [36m>[39m
+              [36m<h1[39m
+                [33mclass[39m=[32m"text-3xl font-bold text-gray-900"[39m
+              [36m>[39m
+                [0mMy Profile[0m
+              [36m</h1>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex gap-3"[39m
+              [36m>[39m
+                [36m<button[39m
+                  [33mdata-testid[39m=[32m"button"[39m
+                [36m>[39m
+                  [0mEdit Profile[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"flex items-center gap-2"[39m
+                  [33mdata-testid[39m=[32m"button"[39m
+                [36m>[39m
+                  [36m<svg[39m
+                    [33maria-hidden[39m=[32m"true"[39m
+                    [33mclass[39m=[32m"w-5 h-5"[39m
+                    [33mdata-slot[39m=[32m"icon"[39m
+                    [33mfill[39m=[32m"none"[39m
+                    [33mstroke[39m=[32m"currentColor"[39m
+                    [33mstroke-width[39m=[32m"1.5"[39m
+                    [33mviewBox[39m=[32m"0 0 24 24"[39m
+                    [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                  [36m>[39m
+                    [36m<path[39m
+                      [33md[39m=[32m"M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                    [36m/>[39m
+                  [36m</svg>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"hidden sm:inline"[39m
+                  [36m>[39m
+                    [0mLogout[0m
+                  [36m</span>[39m
+                [36m</button>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"grid grid-cols-1 md:grid-cols-3 gap-6"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"md:col-span-1"[39m
+                [33mdata-testid[39m=[32m"card"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"text-center"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"relative inline-block mb-4"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"relative"[39m
+                    [36m>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"w-32 h-32 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white text-4xl font-bold mx-auto border-4 border-primary"[39m
+                      [36m>[39m
+                        [0mT[0m
+                      [36m</div>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                  [36m<div>[39m
+                    [36m<h2[39m
+                      [33mclass[39m=[32m"text-2xl font-bold text-gray-900 mb-1"[39m
+                    [36m>[39m
+                      [0mTest User[0m
+                    [36m</h2>[39m
+                    [36m<p[39m
+                      [33mclass[39m=[32m"text-gray-600 mb-1 text-sm"[39m
+                    [36m>[39m
+                      [0mtest@example.com[0m
+                    [36m</p>[39m
+                    [36m<p[39m
+                      [33mclass[39m=[32m"text-gray-600 mb-2"[39m
+                    [36m>[39m
+                      [0m25[0m
+                      [0m years old[0m
+                    [36m</p>[39m
+                    [36m<p[39m
+                      [33mclass[39m=[32m"text-gray-600 mb-4"[39m
+                    [36m>[39m
+                      [0mNew York[0m
+                    [36m</p>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"[39m
+                    [36m>[39m
+                      [0mGen Z[0m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"md:col-span-2"[39m
+                [33mdata-testid[39m=[32m"card"[39m
+              [36m>[39m
+                [36m<h3[39m
+                  [33mclass[39m=[32m"text-xl font-semibold text-gray-900 mb-4"[39m
+                [36m>[39m
+                  [0mAbout[0m
+                [36m</h3>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"mb-6 pb-6 border-b border-gray-200"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"grid grid-cols-1 md:grid-cols-2 gap-4"[39m
+                  [36m>[39m
+                    [36m<div>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-sm text-gray-600"[39m
+                      [36m>[39m
+                        [0mEmail[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900"[39m
+                      [36m>[39m
+                        [0mtest@example.com[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-sm text-gray-600"[39m
+                      [36m>[39m
+                        [0mMember since[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900"[39m
+                      [36m>[39m
+                        [0mRecently[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+                [36m<div>[39m
+                  [36m<p[39m
+                    [33mclass[39m=[32m"text-gray-700 mb-6"[39m
+                  [36m>[39m
+                    [0mTest bio[0m
+                  [36m</p>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"mt-8"[39m
+                [36m>[39m
+                  [36m<h3[39m
+                    [33mclass[39m=[32m"text-xl font-semibold text-gray-900 mb-4"[39m
+                  [36m>[39m
+                    [0mYour Values[0m
+                  [36m</h3>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"space-y-4"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mWhat's your ideal Friday night?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mHow do you handle conflict?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mWhat's most important in a relationship?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mYour communication style?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mHow do you recharge?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mYour approach to life?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mWhat drives you?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mDeal with stress by?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mYour love language?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mFuture goals?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"mt-8"[39m
+                [36m>[39m
+                  [36m<h3[39m
+                    [33mclass[39m=[32m"text-xl font-semibold text-gray-900 mb-4"[39m
+                  [36m>[39m
+                    [0mContent Preferences[0m
+                  [36m</h3>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"space-y-4"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mFavorite social platform?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mContent you consume?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mMusic vibe?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mHumor style?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mWeekend activity?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"mt-8"[39m
+                [36m>[39m
+                  [36m<h3[39m
+                    [33mclass[39m=[32m"text-xl font-semibold text-gray-900 mb-4"[39m
+                  [36m>[39m
+                    [0mPreferences[0m
+                  [36m</h3>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"grid grid-cols-2 gap-4"[39m
+                  [36m>[39m
+                    [36m<div>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-sm text-gray-600"[39m
+                      [36m>[39m
+                        [0mLooking for[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900"[39m
+                      [36m>[39m
+                        [0mNot set[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-sm text-gray-600"[39m
+                      [36m>[39m
+                        [0mAge range[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900"[39m
+                      [36m>[39m
+                        [0m18[0m
+                        [0m - [0m
+                        [0m50[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-sm text-gray-600"[39m
+                      [36m>[39m
+                        [0mDistance[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900"[39m
+                      [36m>[39m
+                        [0m25[0m
+                        [0m miles[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-sm text-gray-600"[39m
+                      [36m>[39m
+                        [0mGender preference[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900"[39m
+                      [36m>[39m
+                        [0mEveryone[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"mt-8 pt-8 border-t border-gray-200"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"flex justify-between items-center mb-4"[39m
+                  [36m>[39m
+                    [36m<h3[39m
+                      [33mclass[39m=[32m"text-xl font-semibold text-gray-900"[39m
+                    [36m>[39m
+                      [0mSecurity[0m
+                    [36m</h3>[39m
+                    [36m<button[39m
+                      [33mdata-testid[39m=[32m"button"[39m
+                    [36m>[39m
+                      [0mSet Password[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"mb-6 pb-6 border-b border-gray-200"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"[39m
+                    [36m>[39m
+                      [36m<div>[39m
+                        [36m<p[39m
+                          [33mclass[39m=[32m"text-sm font-medium text-gray-900 mb-1"[39m
+                        [36m>[39m
+                          [0mAccount[0m
+                        [36m</p>[39m
+                        [36m<p[39m
+                          [33mclass[39m=[32m"text-sm text-gray-600"[39m
+                        [36m>[39m
+                          [0mLog out of your account[0m
+                        [36m</p>[39m
+                      [36m</div>[39m
+                      [36m<button[39m
+                        [33mclass[39m=[32m"w-full sm:w-auto"[39m
+                        [33mdata-testid[39m=[32m"button"[39m
+                      [36m>[39m
+                        [36m<svg[39m
+                          [33maria-hidden[39m=[32m"true"[39m
+                          [33mclass[39m=[32m"w-4 h-4 mr-2"[39m
+                          [33mdata-slot[39m=[32m"icon"[39m
+                          [33mfill[39m=[32m"none"[39m
+                          [33mstroke[39m=[32m"currentColor"[39m
+                          [33mstroke-width[39m=[32m"1.5"[39m
+                          [33mviewBox[39m=[32m"0 0 24 24"[39m
+                          [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                        [36m>[39m
+                          [36m<path[39m
+                            [33md[39m=[32m"M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"[39m
+                            [33mstroke-linecap[39m=[32m"round"[39m
+                            [33mstroke-linejoin[39m=[32m"round"[39m
+                          [36m/>[39m
+                        [36m</svg>[39m
+                        [0mLogout[0m
+                      [36m</button>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                  [36m<p[39m
+                    [33mclass[39m=[32m"text-gray-600 text-sm"[39m
+                  [36m>[39m
+                    [0mYou don't have a password set. Click "Set Password" to create one.[0m
+                  [36m</p>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+    [0m [90m 187 |[39m   it([32m'displays change password button'[39m[33m,[39m () [33m=>[39m {
+     [90m 188 |[39m     render([33m<[39m[33mProfilePage[39m [33m/[39m[33m>[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 189 |[39m     [36mconst[39m changePasswordButton [33m=[39m screen[33m.[39mqueryByText([35m/Change Password|Set Password/i[39m)[33m;[39m
+     [90m     |[39m                                         [31m[1m^[22m[39m
+     [90m 190 |[39m     expect(changePasswordButton)[33m.[39mtoBeInTheDocument()[33m;[39m
+     [90m 191 |[39m   })[33m;[39m
+     [90m 192 |[39m[0m
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:37:19)
+      at getElementError (node_modules/@testing-library/dom/dist/query-helpers.js:20:35)
+      at getMultipleElementsFoundError (node_modules/@testing-library/dom/dist/query-helpers.js:23:10)
+      at node_modules/@testing-library/dom/dist/query-helpers.js:55:13
+      at node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+      at Object.queryByText (__tests__/pages/profile.test.js:189:41)
+
+  ● Profile Page › opens password change form
+
+    TestingLibraryElementError: Found multiple elements with the text: /Change Password|Set Password/i
+
+    Here are the matching elements:
+
+    Ignored nodes: comments, script, style
+    [36m<button[39m
+      [33mdata-testid[39m=[32m"button"[39m
+    [36m>[39m
+      [0mSet Password[0m
+    [36m</button>[39m
+
+    Ignored nodes: comments, script, style
+    [36m<p[39m
+      [33mclass[39m=[32m"text-gray-600 text-sm"[39m
+    [36m>[39m
+      [0mYou don't have a password set. Click "Set Password" to create one.[0m
+    [36m</p>[39m
+
+    (If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"min-h-screen bg-gray-50 py-8 px-4"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"max-w-4xl mx-auto"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 gap-4"[39m
+            [36m>[39m
+              [36m<h1[39m
+                [33mclass[39m=[32m"text-3xl font-bold text-gray-900"[39m
+              [36m>[39m
+                [0mMy Profile[0m
+              [36m</h1>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex gap-3"[39m
+              [36m>[39m
+                [36m<button[39m
+                  [33mdata-testid[39m=[32m"button"[39m
+                [36m>[39m
+                  [0mEdit Profile[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"flex items-center gap-2"[39m
+                  [33mdata-testid[39m=[32m"button"[39m
+                [36m>[39m
+                  [36m<svg[39m
+                    [33maria-hidden[39m=[32m"true"[39m
+                    [33mclass[39m=[32m"w-5 h-5"[39m
+                    [33mdata-slot[39m=[32m"icon"[39m
+                    [33mfill[39m=[32m"none"[39m
+                    [33mstroke[39m=[32m"currentColor"[39m
+                    [33mstroke-width[39m=[32m"1.5"[39m
+                    [33mviewBox[39m=[32m"0 0 24 24"[39m
+                    [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                  [36m>[39m
+                    [36m<path[39m
+                      [33md[39m=[32m"M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                    [36m/>[39m
+                  [36m</svg>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"hidden sm:inline"[39m
+                  [36m>[39m
+                    [0mLogout[0m
+                  [36m</span>[39m
+                [36m</button>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"grid grid-cols-1 md:grid-cols-3 gap-6"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"md:col-span-1"[39m
+                [33mdata-testid[39m=[32m"card"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"text-center"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"relative inline-block mb-4"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"relative"[39m
+                    [36m>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"w-32 h-32 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white text-4xl font-bold mx-auto border-4 border-primary"[39m
+                      [36m>[39m
+                        [0mT[0m
+                      [36m</div>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                  [36m<div>[39m
+                    [36m<h2[39m
+                      [33mclass[39m=[32m"text-2xl font-bold text-gray-900 mb-1"[39m
+                    [36m>[39m
+                      [0mTest User[0m
+                    [36m</h2>[39m
+                    [36m<p[39m
+                      [33mclass[39m=[32m"text-gray-600 mb-1 text-sm"[39m
+                    [36m>[39m
+                      [0mtest@example.com[0m
+                    [36m</p>[39m
+                    [36m<p[39m
+                      [33mclass[39m=[32m"text-gray-600 mb-2"[39m
+                    [36m>[39m
+                      [0m25[0m
+                      [0m years old[0m
+                    [36m</p>[39m
+                    [36m<p[39m
+                      [33mclass[39m=[32m"text-gray-600 mb-4"[39m
+                    [36m>[39m
+                      [0mNew York[0m
+                    [36m</p>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"[39m
+                    [36m>[39m
+                      [0mGen Z[0m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"md:col-span-2"[39m
+                [33mdata-testid[39m=[32m"card"[39m
+              [36m>[39m
+                [36m<h3[39m
+                  [33mclass[39m=[32m"text-xl font-semibold text-gray-900 mb-4"[39m
+                [36m>[39m
+                  [0mAbout[0m
+                [36m</h3>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"mb-6 pb-6 border-b border-gray-200"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"grid grid-cols-1 md:grid-cols-2 gap-4"[39m
+                  [36m>[39m
+                    [36m<div>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-sm text-gray-600"[39m
+                      [36m>[39m
+                        [0mEmail[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900"[39m
+                      [36m>[39m
+                        [0mtest@example.com[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-sm text-gray-600"[39m
+                      [36m>[39m
+                        [0mMember since[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900"[39m
+                      [36m>[39m
+                        [0mRecently[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+                [36m<div>[39m
+                  [36m<p[39m
+                    [33mclass[39m=[32m"text-gray-700 mb-6"[39m
+                  [36m>[39m
+                    [0mTest bio[0m
+                  [36m</p>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"mt-8"[39m
+                [36m>[39m
+                  [36m<h3[39m
+                    [33mclass[39m=[32m"text-xl font-semibold text-gray-900 mb-4"[39m
+                  [36m>[39m
+                    [0mYour Values[0m
+                  [36m</h3>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"space-y-4"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mWhat's your ideal Friday night?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mHow do you handle conflict?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mWhat's most important in a relationship?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mYour communication style?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mHow do you recharge?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mYour approach to life?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mWhat drives you?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mDeal with stress by?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mYour love language?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mFuture goals?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"mt-8"[39m
+                [36m>[39m
+                  [36m<h3[39m
+                    [33mclass[39m=[32m"text-xl font-semibold text-gray-900 mb-4"[39m
+                  [36m>[39m
+                    [0mContent Preferences[0m
+                  [36m</h3>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"space-y-4"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mFavorite social platform?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mContent you consume?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mMusic vibe?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mHumor style?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mWeekend activity?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"mt-8"[39m
+                [36m>[39m
+                  [36m<h3[39m
+                    [33mclass[39m=[32m"text-xl font-semibold text-gray-900 mb-4"[39m
+                  [36m>[39m
+                    [0mPreferences[0m
+                  [36m</h3>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"grid grid-cols-2 gap-4"[39m
+                  [36m>[39m
+                    [36m<div>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-sm text-gray-600"[39m
+                      [36m>[39m
+                        [0mLooking for[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900"[39m
+                      [36m>[39m
+                        [0mNot set[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-sm text-gray-600"[39m
+                      [36m>[39m
+                        [0mAge range[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900"[39m
+                      [36m>[39m
+                        [0m18[0m
+                        [0m - [0m
+                        [0m50[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-sm text-gray-600"[39m
+                      [36m>[39m
+                        [0mDistance[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900"[39m
+                      [36m>[39m
+                        [0m25[0m
+                        [0m miles[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-sm text-gray-600"[39m
+                      [36m>[39m
+                        [0mGender preference[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900"[39m
+                      [36m>[39m
+                        [0mEveryone[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"mt-8 pt-8 border-t border-gray-200"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"flex justify-between items-center mb-4"[39m
+                  [36m>[39m
+                    [36m<h3[39m
+                      [33mclass[39m=[32m"text-xl font-semibold text-gray-900"[39m
+                    [36m>[39m
+                      [0mSecurity[0m
+                    [36m</h3>[39m
+                    [36m<button[39m
+                      [33mdata-testid[39m=[32m"button"[39m
+                    [36m>[39m
+                      [0mSet Password[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"mb-6 pb-6 border-b border-gray-200"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"[39m
+                    [36m>[39m
+                      [36m<div>[39m
+                        [36m<p[39m
+                          [33mclass[39m=[32m"text-sm font-medium text-gray-900 mb-1"[39m
+                        [36m>[39m
+                          [0mAccount[0m
+                        [36m</p>[39m
+                        [36m<p[39m
+                          [33mclass[39m=[32m"text-sm text-gray-600"[39m
+                        [36m>[39m
+                          [0mLog out of your account[0m
+                        [36m</p>[39m
+                      [36m</div>[39m
+                      [36m<button[39m
+                        [33mclass[39m=[32m"w-full sm:w-auto"[39m
+                        [33mdata-testid[39m=[32m"button"[39m
+                      [36m>[39m
+                        [36m<svg[39m
+                          [33maria-hidden[39m=[32m"true"[39m
+                          [33mclass[39m=[32m"w-4 h-4 mr-2"[39m
+                          [33mdata-slot[39m=[32m"icon"[39m
+                          [33mfill[39m=[32m"none"[39m
+                          [33mstroke[39m=[32m"currentColor"[39m
+                          [33mstroke-width[39m=[32m"1.5"[39m
+                          [33mviewBox[39m=[32m"0 0 24 24"[39m
+                          [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                        [36m>[39m
+                          [36m<path[39m
+                            [33md[39m=[32m"M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"[39m
+                            [33mstroke-linecap[39m=[32m"round"[39m
+                            [33mstroke-linejoin[39m=[32m"round"[39m
+                          [36m/>[39m
+                        [36m</svg>[39m
+                        [0mLogout[0m
+                      [36m</button>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                  [36m<p[39m
+                    [33mclass[39m=[32m"text-gray-600 text-sm"[39m
+                  [36m>[39m
+                    [0mYou don't have a password set. Click "Set Password" to create one.[0m
+                  [36m</p>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+    [0m [90m 193 |[39m   it([32m'opens password change form'[39m[33m,[39m () [33m=>[39m {
+     [90m 194 |[39m     render([33m<[39m[33mProfilePage[39m [33m/[39m[33m>[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 195 |[39m     [36mconst[39m changePasswordButton [33m=[39m screen[33m.[39mgetByText([35m/Change Password|Set Password/i[39m)[33m;[39m
+     [90m     |[39m                                         [31m[1m^[22m[39m
+     [90m 196 |[39m     fireEvent[33m.[39mclick(changePasswordButton)[33m;[39m
+     [90m 197 |[39m     
+     [90m 198 |[39m     expect(screen[33m.[39mgetByText([35m/Current Password|Password/i[39m))[33m.[39mtoBeInTheDocument()[33m;[39m[0m
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:37:19)
+      at getElementError (node_modules/@testing-library/dom/dist/query-helpers.js:20:35)
+      at getMultipleElementsFoundError (node_modules/@testing-library/dom/dist/query-helpers.js:23:10)
+      at node_modules/@testing-library/dom/dist/query-helpers.js:55:13
+      at node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+      at Object.getByText (__tests__/pages/profile.test.js:195:41)
+
+  ● Profile Page › displays user email
+
+    TestingLibraryElementError: Found multiple elements with the text: test@example.com
+
+    Here are the matching elements:
+
+    Ignored nodes: comments, script, style
+    [36m<p[39m
+      [33mclass[39m=[32m"text-gray-600 mb-1 text-sm"[39m
+    [36m>[39m
+      [0mtest@example.com[0m
+    [36m</p>[39m
+
+    Ignored nodes: comments, script, style
+    [36m<p[39m
+      [33mclass[39m=[32m"font-medium text-gray-900"[39m
+    [36m>[39m
+      [0mtest@example.com[0m
+    [36m</p>[39m
+
+    (If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"min-h-screen bg-gray-50 py-8 px-4"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"max-w-4xl mx-auto"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 gap-4"[39m
+            [36m>[39m
+              [36m<h1[39m
+                [33mclass[39m=[32m"text-3xl font-bold text-gray-900"[39m
+              [36m>[39m
+                [0mMy Profile[0m
+              [36m</h1>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex gap-3"[39m
+              [36m>[39m
+                [36m<button[39m
+                  [33mdata-testid[39m=[32m"button"[39m
+                [36m>[39m
+                  [0mEdit Profile[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"flex items-center gap-2"[39m
+                  [33mdata-testid[39m=[32m"button"[39m
+                [36m>[39m
+                  [36m<svg[39m
+                    [33maria-hidden[39m=[32m"true"[39m
+                    [33mclass[39m=[32m"w-5 h-5"[39m
+                    [33mdata-slot[39m=[32m"icon"[39m
+                    [33mfill[39m=[32m"none"[39m
+                    [33mstroke[39m=[32m"currentColor"[39m
+                    [33mstroke-width[39m=[32m"1.5"[39m
+                    [33mviewBox[39m=[32m"0 0 24 24"[39m
+                    [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                  [36m>[39m
+                    [36m<path[39m
+                      [33md[39m=[32m"M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                    [36m/>[39m
+                  [36m</svg>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"hidden sm:inline"[39m
+                  [36m>[39m
+                    [0mLogout[0m
+                  [36m</span>[39m
+                [36m</button>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"grid grid-cols-1 md:grid-cols-3 gap-6"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"md:col-span-1"[39m
+                [33mdata-testid[39m=[32m"card"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"text-center"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"relative inline-block mb-4"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"relative"[39m
+                    [36m>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"w-32 h-32 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white text-4xl font-bold mx-auto border-4 border-primary"[39m
+                      [36m>[39m
+                        [0mT[0m
+                      [36m</div>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                  [36m<div>[39m
+                    [36m<h2[39m
+                      [33mclass[39m=[32m"text-2xl font-bold text-gray-900 mb-1"[39m
+                    [36m>[39m
+                      [0mTest User[0m
+                    [36m</h2>[39m
+                    [36m<p[39m
+                      [33mclass[39m=[32m"text-gray-600 mb-1 text-sm"[39m
+                    [36m>[39m
+                      [0mtest@example.com[0m
+                    [36m</p>[39m
+                    [36m<p[39m
+                      [33mclass[39m=[32m"text-gray-600 mb-2"[39m
+                    [36m>[39m
+                      [0m25[0m
+                      [0m years old[0m
+                    [36m</p>[39m
+                    [36m<p[39m
+                      [33mclass[39m=[32m"text-gray-600 mb-4"[39m
+                    [36m>[39m
+                      [0mNew York[0m
+                    [36m</p>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"[39m
+                    [36m>[39m
+                      [0mGen Z[0m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"md:col-span-2"[39m
+                [33mdata-testid[39m=[32m"card"[39m
+              [36m>[39m
+                [36m<h3[39m
+                  [33mclass[39m=[32m"text-xl font-semibold text-gray-900 mb-4"[39m
+                [36m>[39m
+                  [0mAbout[0m
+                [36m</h3>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"mb-6 pb-6 border-b border-gray-200"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"grid grid-cols-1 md:grid-cols-2 gap-4"[39m
+                  [36m>[39m
+                    [36m<div>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-sm text-gray-600"[39m
+                      [36m>[39m
+                        [0mEmail[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900"[39m
+                      [36m>[39m
+                        [0mtest@example.com[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-sm text-gray-600"[39m
+                      [36m>[39m
+                        [0mMember since[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900"[39m
+                      [36m>[39m
+                        [0mRecently[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+                [36m<div>[39m
+                  [36m<p[39m
+                    [33mclass[39m=[32m"text-gray-700 mb-6"[39m
+                  [36m>[39m
+                    [0mTest bio[0m
+                  [36m</p>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"mt-8"[39m
+                [36m>[39m
+                  [36m<h3[39m
+                    [33mclass[39m=[32m"text-xl font-semibold text-gray-900 mb-4"[39m
+                  [36m>[39m
+                    [0mYour Values[0m
+                  [36m</h3>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"space-y-4"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mWhat's your ideal Friday night?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mHow do you handle conflict?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mWhat's most important in a relationship?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mYour communication style?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mHow do you recharge?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mYour approach to life?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mWhat drives you?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mDeal with stress by?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mYour love language?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mFuture goals?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"mt-8"[39m
+                [36m>[39m
+                  [36m<h3[39m
+                    [33mclass[39m=[32m"text-xl font-semibold text-gray-900 mb-4"[39m
+                  [36m>[39m
+                    [0mContent Preferences[0m
+                  [36m</h3>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"space-y-4"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mFavorite social platform?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mContent you consume?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mMusic vibe?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mHumor style?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"border-b border-gray-200 pb-4 last:border-b-0"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900 mb-1"[39m
+                      [36m>[39m
+                        [0mWeekend activity?[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-gray-400 italic"[39m
+                      [36m>[39m
+                        [0mNot answered[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"mt-8"[39m
+                [36m>[39m
+                  [36m<h3[39m
+                    [33mclass[39m=[32m"text-xl font-semibold text-gray-900 mb-4"[39m
+                  [36m>[39m
+                    [0mPreferences[0m
+                  [36m</h3>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"grid grid-cols-2 gap-4"[39m
+                  [36m>[39m
+                    [36m<div>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-sm text-gray-600"[39m
+                      [36m>[39m
+                        [0mLooking for[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900"[39m
+                      [36m>[39m
+                        [0mNot set[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-sm text-gray-600"[39m
+                      [36m>[39m
+                        [0mAge range[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900"[39m
+                      [36m>[39m
+                        [0m18[0m
+                        [0m - [0m
+                        [0m50[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-sm text-gray-600"[39m
+                      [36m>[39m
+                        [0mDistance[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900"[39m
+                      [36m>[39m
+                        [0m25[0m
+                        [0m miles[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"text-sm text-gray-600"[39m
+                      [36m>[39m
+                        [0mGender preference[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mclass[39m=[32m"font-medium text-gray-900"[39m
+                      [36m>[39m
+                        [0mEveryone[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"mt-8 pt-8 border-t border-gray-200"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"flex justify-between items-center mb-4"[39m
+                  [36m>[39m
+                    [36m<h3[39m
+                      [33mclass[39m=[32m"text-xl font-semibold text-gray-900"[39m
+                    [36m>[39m
+                      [0mSecurity[0m
+                    [36m</h3>[39m
+                    [36m<button[39m
+                      [33mdata-testid[39m=[32m"button"[39m
+                    [36m>[39m
+                      [0mSet Password[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"mb-6 pb-6 border-b border-gray-200"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"[39m
+                    [36m>[39m
+                      [36m<div>[39m
+                        [36m<p[39m
+                          [33mclass[39m=[32m"text-sm font-medium text-gray-900 mb-1"[39m
+                        [36m>[39m
+                          [0mAccount[0m
+                        [36m</p>[39m
+                        [36m<p[39m
+                          [33mclass[39m=[32m"text-sm text-gray-600"[39m
+                        [36m>[39m
+                          [0mLog out of your account[0m
+                        [36m</p>[39m
+                      [36m</div>[39m
+                      [36m<button[39m
+                        [33mclass[39m=[32m"w-full sm:w-auto"[39m
+                        [33mdata-testid[39m=[32m"button"[39m
+                      [36m>[39m
+                        [36m<svg[39m
+                          [33maria-hidden[39m=[32m"true"[39m
+                          [33mclass[39m=[32m"w-4 h-4 mr-2"[39m
+                          [33mdata-slot[39m=[32m"icon"[39m
+                          [33mfill[39m=[32m"none"[39m
+                          [33mstroke[39m=[32m"currentColor"[39m
+                          [33mstroke-width[39m=[32m"1.5"[39m
+                          [33mviewBox[39m=[32m"0 0 24 24"[39m
+                          [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                        [36m>[39m
+                          [36m<path[39m
+                            [33md[39m=[32m"M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"[39m
+                            [33mstroke-linecap[39m=[32m"round"[39m
+                            [33mstroke-linejoin[39m=[32m"round"[39m
+                          [36m/>[39m
+                        [36m</svg>[39m
+                        [0mLogout[0m
+                      [36m</button>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                  [36m<p[39m
+                    [33mclass[39m=[32m"text-gray-600 text-sm"[39m
+                  [36m>[39m
+                    [0mYou don't have a password set. Click "Set Password" to create one.[0m
+                  [36m</p>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+    [0m [90m 201 |[39m   it([32m'displays user email'[39m[33m,[39m () [33m=>[39m {
+     [90m 202 |[39m     render([33m<[39m[33mProfilePage[39m [33m/[39m[33m>[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 203 |[39m     expect(screen[33m.[39mgetByText(mockUser[33m.[39memail))[33m.[39mtoBeInTheDocument()[33m;[39m
+     [90m     |[39m                   [31m[1m^[22m[39m
+     [90m 204 |[39m   })[33m;[39m
+     [90m 205 |[39m
+     [90m 206 |[39m   it([32m'displays user location'[39m[33m,[39m () [33m=>[39m {[0m
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:37:19)
+      at getElementError (node_modules/@testing-library/dom/dist/query-helpers.js:20:35)
+      at getMultipleElementsFoundError (node_modules/@testing-library/dom/dist/query-helpers.js:23:10)
+      at node_modules/@testing-library/dom/dist/query-helpers.js:55:13
+      at node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+      at Object.getByText (__tests__/pages/profile.test.js:203:19)
+
+FAIL __tests__/pages/forums.test.js
+  ● Forums Page › displays category filter buttons
+
+    thrown: "Exceeded timeout of 2000 ms for a test.
+    Add a timeout value to this test to increase the timeout, if this is a long-running test. See https://jestjs.io/docs/api#testname-fn-timeout."
+
+    [0m [90m 82 |[39m   })[33m;[39m
+     [90m 83 |[39m
+    [31m[1m>[22m[39m[90m 84 |[39m   it([32m'displays category filter buttons'[39m[33m,[39m [36masync[39m () [33m=>[39m {
+     [90m    |[39m   [31m[1m^[22m[39m
+     [90m 85 |[39m     render([33m<[39m[33mForumsPage[39m [33m/[39m[33m>[39m)[33m;[39m
+     [90m 86 |[39m     [36mawait[39m waitFor(() [33m=>[39m {
+     [90m 87 |[39m       expect(screen[33m.[39mgetByText([35m/All/i[39m))[33m.[39mtoBeInTheDocument()[33m;[39m[0m
+
+      at it (__tests__/pages/forums.test.js:84:3)
+      at Object.describe (__tests__/pages/forums.test.js:53:1)
+
+  ● Forums Page › filters forums by category
+
+    Found multiple elements with the text: /Success Stories/i
+
+    Here are the matching elements:
+
+    Ignored nodes: comments, script, style
+    [36m<button[39m
+      [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100"[39m
+    [36m>[39m
+      [0mSuccess Stories[0m
+    [36m</button>[39m
+
+    Ignored nodes: comments, script, style
+    [36m<h3[39m
+      [33mclass[39m=[32m"text-xl sm:text-2xl font-black text-dark-900 mb-2 font-display"[39m
+    [36m>[39m
+      [0mSuccess Stories[0m
+    [36m</h3>[39m
+
+    Ignored nodes: comments, script, style
+    [36m<p[39m
+      [33mclass[39m=[32m"text-dark-600 mb-4 text-sm sm:text-base"[39m
+    [36m>[39m
+      [0mShare your VibeMatch success stories and celebrate connections[0m
+    [36m</p>[39m
+
+    (If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"min-h-screen bg-gradient-to-br from-dark-50 via-white to-primary-50/20 py-8 px-4 sm:px-6 lg:px-8"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"max-w-7xl mx-auto"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"mb-8"[39m
+            [36m>[39m
+              [36m<h1[39m
+                [33mclass[39m=[32m"text-3xl sm:text-4xl lg:text-5xl font-black text-dark-900 mb-2 font-display"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"text-gradient"[39m
+                [36m>[39m
+                  [0mCommunity Forums[0m
+                [36m</span>[39m
+              [36m</h1>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"text-dark-600 text-base sm:text-lg font-medium"[39m
+              [36m>[39m
+                [0mJoin discussions, share experiences, and connect with the community[0m
+              [36m</p>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"mb-8 space-y-4"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"relative"[39m
+              [36m>[39m
+                [36m<svg[39m
+                  [33maria-hidden[39m=[32m"true"[39m
+                  [33mclass[39m=[32m"absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"[39m
+                  [33mdata-slot[39m=[32m"icon"[39m
+                  [33mfill[39m=[32m"none"[39m
+                  [33mstroke[39m=[32m"currentColor"[39m
+                  [33mstroke-width[39m=[32m"1.5"[39m
+                  [33mviewBox[39m=[32m"0 0 24 24"[39m
+                  [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                [36m>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"[39m
+                    [33mstroke-linecap[39m=[32m"round"[39m
+                    [33mstroke-linejoin[39m=[32m"round"[39m
+                  [36m/>[39m
+                [36m</svg>[39m
+                [36m<input[39m
+                  [33mclass[39m=[32m"pl-10 pr-10"[39m
+                  [33mdata-testid[39m=[32m"input"[39m
+                  [33mplaceholder[39m=[32m"Search forums..."[39m
+                  [33mvalue[39m=[32m""[39m
+                [36m/>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-wrap gap-2"[39m
+              [36m>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-primary-600 text-white shadow-md"[39m
+                [36m>[39m
+                  [0mAll[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100"[39m
+                [36m>[39m
+                  [0mSuccess Stories[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100"[39m
+                [36m>[39m
+                  [0mDating Tips[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100"[39m
+                [36m>[39m
+                  [0mProfile Help[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100"[39m
+                [36m>[39m
+                  [0mGeneral Discussion[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100"[39m
+                [36m>[39m
+                  [0mQuestions[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100"[39m
+                [36m>[39m
+                  [0mAnnouncements[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100"[39m
+                [36m>[39m
+                  [0mFeedback[0m
+                [36m</button>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"cursor-pointer hover:shadow-lg transition-all p-4 sm:p-6"[39m
+                [33mdata-testid[39m=[32m"card"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"text-4xl sm:text-5xl mb-4"[39m
+                [36m>[39m
+                  [0m💕[0m
+                [36m</div>[39m
+                [36m<h3[39m
+                  [33mclass[39m=[32m"text-xl sm:text-2xl font-black text-dark-900 mb-2 font-display"[39m
+                [36m>[39m
+                  [0mSuccess Stories[0m
+                [36m</h3>[39m
+                [36m<p[39m
+                  [33mclass[39m=[32m"text-dark-600 mb-4 text-sm sm:text-base"[39m
+                [36m>[39m
+                  [0mShare your VibeMatch success stories and celebrate connections[0m
+                [36m</p>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4 text-sm text-dark-500"[39m
+                [36m>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"flex items-center gap-1"[39m
+                  [36m>[39m
+                    [36m<svg[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"w-4 h-4"[39m
+                      [33mdata-slot[39m=[32m"icon"[39m
+                      [33mfill[39m=[32m"none"[39m
+                      [33mstroke[39m=[32m"currentColor"[39m
+                      [33mstroke-width[39m=[32m"1.5"[39m
+                      [33mviewBox[39m=[32m"0 0 24 24"[39m
+                      [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                    [36m>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1...
+
+    [0m [90m 93 |[39m     render([33m<[39m[33mForumsPage[39m [33m/[39m[33m>[39m)[33m;[39m
+     [90m 94 |[39m     
+    [31m[1m>[22m[39m[90m 95 |[39m     [36mawait[39m waitFor(() [33m=>[39m {
+     [90m    |[39m                  [31m[1m^[22m[39m
+     [90m 96 |[39m       [36mconst[39m categoryButton [33m=[39m screen[33m.[39mgetByText([35m/Success Stories/i[39m)[33m;[39m
+     [90m 97 |[39m       fireEvent[33m.[39mclick(categoryButton)[33m;[39m
+     [90m 98 |[39m       expect(categoryButton)[33m.[39mtoBeInTheDocument()[33m;[39m[0m
+
+      at waitForWrapper (node_modules/@testing-library/dom/dist/wait-for.js:163:27)
+      at Object.<anonymous> (__tests__/pages/forums.test.js:95:18)
+
+  ● Forums Page › navigates to forum detail when forum card clicked
+
+    Unable to fire a "click" event - please provide a DOM element.
+
+    Ignored nodes: comments, script, style
+    [36m<html>[39m
+      [36m<head />[39m
+      [36m<body>[39m
+        [36m<div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"min-h-screen bg-gradient-to-br from-dark-50 via-white to-primary-50/20 py-8 px-4 sm:px-6 lg:px-8"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"max-w-7xl mx-auto"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"mb-8"[39m
+              [36m>[39m
+                [36m<h1[39m
+                  [33mclass[39m=[32m"text-3xl sm:text-4xl lg:text-5xl font-black text-dark-900 mb-2 font-display"[39m
+                [36m>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"text-gradient"[39m
+                  [36m>[39m
+                    [0mCommunity Forums[0m
+                  [36m</span>[39m
+                [36m</h1>[39m
+                [36m<p[39m
+                  [33mclass[39m=[32m"text-dark-600 text-base sm:text-lg font-medium"[39m
+                [36m>[39m
+                  [0mJoin discussions, share experiences, and connect with the community[0m
+                [36m</p>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"mb-8 space-y-4"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"relative"[39m
+                [36m>[39m
+                  [36m<svg[39m
+                    [33maria-hidden[39m=[32m"true"[39m
+                    [33mclass[39m=[32m"absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"[39m
+                    [33mdata-slot[39m=[32m"icon"[39m
+                    [33mfill[39m=[32m"none"[39m
+                    [33mstroke[39m=[32m"currentColor"[39m
+                    [33mstroke-width[39m=[32m"1.5"[39m
+                    [33mviewBox[39m=[32m"0 0 24 24"[39m
+                    [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                  [36m>[39m
+                    [36m<path[39m
+                      [33md[39m=[32m"m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                    [36m/>[39m
+                  [36m</svg>[39m
+                  [36m<input[39m
+                    [33mclass[39m=[32m"pl-10 pr-10"[39m
+                    [33mdata-testid[39m=[32m"input"[39m
+                    [33mplaceholder[39m=[32m"Search forums..."[39m
+                    [33mvalue[39m=[32m""[39m
+                  [36m/>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex flex-wrap gap-2"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-primary-600 text-white shadow-md"[39m
+                  [36m>[39m
+                    [0mAll[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100"[39m
+                  [36m>[39m
+                    [0mSuccess Stories[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100"[39m
+                  [36m>[39m
+                    [0mDating Tips[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100"[39m
+                  [36m>[39m
+                    [0mProfile Help[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100"[39m
+                  [36m>[39m
+                    [0mGeneral Discussion[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100"[39m
+                  [36m>[39m
+                    [0mQuestions[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100"[39m
+                  [36m>[39m
+                    [0mAnnouncements[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100"[39m
+                  [36m>[39m
+                    [0mFeedback[0m
+                  [36m</button>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"cursor-pointer hover:shadow-lg transition-all p-4 sm:p-6"[39m
+                  [33mdata-testid[39m=[32m"card"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"text-4xl sm:text-5xl mb-4"[39m
+                  [36m>[39m
+                    [0m💕[0m
+                  [36m</div>[39m
+                  [36m<h3[39m
+                    [33mclass[39m=[32m"text-xl sm:text-2xl font-black text-dark-900 mb-2 font-display"[39m
+                  [36m>[39m
+                    [0mSuccess Stories[0m
+                  [36m</h3>[39m
+                  [36m<p[39m
+                    [33mclass[39m=[32m"text-dark-600 mb-4 text-sm sm:text-base"[39m
+                  [36m>[39m
+                    [0mShare your VibeMatch success stories and celebrate connections[0m
+                  [36m</p>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4 text-sm text-dark-500"[39m
+                  [36m>[39m
+                    [36m<span[39m
+                      [33mclass[39m=[32m"flex items-center gap-1"[39m
+                    [36m>[39m
+                      [36m<svg[39m
+                        [33maria-hidden[39m=[32m"true"[39m
+                        [33mclass[39m=[32m"w-4 h-4"[39m
+                        [33mdata-slot[39m=[32m"icon"[39m
+                        [33mfill[39m=[32m"none"[39m
+                        [33mstroke[39m=[32m"currentColor"[39m
+                        [33mstroke-width[39m=[32m"1.5"[39m
+                        [33mviewBox[39m=[32m"0 0 24 24"[39m
+                        [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                      [36m>[39m
+                        [36m<path[39m
+                          [33md[39m=[32m"M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8....
+
+    [0m [90m 106 |[39m       [36mconst[39m forumCards [33m=[39m screen[33m.[39mqueryAllByText([35m/Success Stories|Dating Tips/i[39m)[33m;[39m
+     [90m 107 |[39m       [36mif[39m (forumCards[33m.[39mlength [33m>[39m [35m0[39m) {
+    [31m[1m>[22m[39m[90m 108 |[39m         fireEvent[33m.[39mclick(forumCards[[35m0[39m][33m.[39mclosest([32m'[class*="cursor-pointer"]'[39m))[33m;[39m
+     [90m     |[39m                   [31m[1m^[22m[39m
+     [90m 109 |[39m         expect(mockPush)[33m.[39mtoHaveBeenCalled()[33m;[39m
+     [90m 110 |[39m       }
+     [90m 111 |[39m     })[33m;[39m[0m
+
+      at createEvent (node_modules/@testing-library/dom/dist/events.js:27:11)
+      at createEvent.<computed> [as click] (node_modules/@testing-library/dom/dist/events.js:106:38)
+      at fireEvent.<computed> [as click] (node_modules/@testing-library/dom/dist/events.js:110:68)
+      at fireEvent.<computed> [as click] (node_modules/@testing-library/react/dist/fire-event.js:15:52)
+      at click (__tests__/pages/forums.test.js:108:19)
+      at runWithExpensiveErrorDiagnosticsDisabled (node_modules/@testing-library/dom/dist/config.js:47:12)
+      at checkCallback (node_modules/@testing-library/dom/dist/wait-for.js:124:77)
+      at checkRealTimersCallback (node_modules/@testing-library/dom/dist/wait-for.js:118:16)
+      at Timeout.task [as _onTimeout] (node_modules/jsdom/lib/jsdom/browser/Window.js:579:19)
+
+FAIL __tests__/pages/groups.test.js (5.908 s)
+  ● Groups Page › filters groups by search query
+
+    Found multiple elements with the text: /Music Lovers/i
+
+    Here are the matching elements:
+
+    Ignored nodes: comments, script, style
+    [36m<h3[39m
+      [33mclass[39m=[32m"text-lg sm:text-xl font-bold text-dark-900 mb-2"[39m
+    [36m>[39m
+      [0mMusic Lovers[0m
+    [36m</h3>[39m
+
+    Ignored nodes: comments, script, style
+    [36m<h3[39m
+      [33mclass[39m=[32m"text-lg sm:text-xl font-bold text-dark-900 mb-2"[39m
+    [36m>[39m
+      [0mMusic Lovers[0m
+    [36m</h3>[39m
+
+    (If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"min-h-screen bg-gradient-to-br from-primary-50 via-accent-50 to-secondary-50 py-8 px-4 sm:px-6 lg:px-8"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"max-w-7xl mx-auto"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 gap-4"[39m
+            [36m>[39m
+              [36m<div>[39m
+                [36m<h1[39m
+                  [33mclass[39m=[32m"text-3xl sm:text-4xl lg:text-5xl font-black text-dark-900 mb-2 font-display"[39m
+                [36m>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"text-gradient"[39m
+                  [36m>[39m
+                    [0mInterest Groups[0m
+                  [36m</span>[39m
+                [36m</h1>[39m
+                [36m<p[39m
+                  [33mclass[39m=[32m"text-dark-600 text-base sm:text-lg font-medium"[39m
+                [36m>[39m
+                  [0mJoin communities based on shared interests[0m
+                [36m</p>[39m
+              [36m</div>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"w-full sm:w-auto"[39m
+                [33mdata-testid[39m=[32m"button"[39m
+              [36m>[39m
+                [36m<svg[39m
+                  [33maria-hidden[39m=[32m"true"[39m
+                  [33mclass[39m=[32m"w-5 h-5 mr-2"[39m
+                  [33mdata-slot[39m=[32m"icon"[39m
+                  [33mfill[39m=[32m"none"[39m
+                  [33mstroke[39m=[32m"currentColor"[39m
+                  [33mstroke-width[39m=[32m"1.5"[39m
+                  [33mviewBox[39m=[32m"0 0 24 24"[39m
+                  [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                [36m>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M12 4.5v15m7.5-7.5h-15"[39m
+                    [33mstroke-linecap[39m=[32m"round"[39m
+                    [33mstroke-linejoin[39m=[32m"round"[39m
+                  [36m/>[39m
+                [36m</svg>[39m
+                [0mCreate Group[0m
+              [36m</button>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"mb-8 space-y-4"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"relative"[39m
+              [36m>[39m
+                [36m<svg[39m
+                  [33maria-hidden[39m=[32m"true"[39m
+                  [33mclass[39m=[32m"absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"[39m
+                  [33mdata-slot[39m=[32m"icon"[39m
+                  [33mfill[39m=[32m"none"[39m
+                  [33mstroke[39m=[32m"currentColor"[39m
+                  [33mstroke-width[39m=[32m"1.5"[39m
+                  [33mviewBox[39m=[32m"0 0 24 24"[39m
+                  [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                [36m>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"[39m
+                    [33mstroke-linecap[39m=[32m"round"[39m
+                    [33mstroke-linejoin[39m=[32m"round"[39m
+                  [36m/>[39m
+                [36m</svg>[39m
+                [36m<input[39m
+                  [33mclass[39m=[32m"pl-10 pr-10"[39m
+                  [33mdata-testid[39m=[32m"input"[39m
+                  [33mplaceholder[39m=[32m"Search groups..."[39m
+                  [33mvalue[39m=[32m"Music"[39m
+                [36m/>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"[39m
+                [36m>[39m
+                  [36m<svg[39m
+                    [33maria-hidden[39m=[32m"true"[39m
+                    [33mclass[39m=[32m"w-5 h-5"[39m
+                    [33mdata-slot[39m=[32m"icon"[39m
+                    [33mfill[39m=[32m"none"[39m
+                    [33mstroke[39m=[32m"currentColor"[39m
+                    [33mstroke-width[39m=[32m"1.5"[39m
+                    [33mviewBox[39m=[32m"0 0 24 24"[39m
+                    [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                  [36m>[39m
+                    [36m<path[39m
+                      [33md[39m=[32m"M6 18 18 6M6 6l12 12"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                    [36m/>[39m
+                  [36m</svg>[39m
+                [36m</button>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-wrap gap-2"[39m
+              [36m>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-primary-600 text-white shadow-md"[39m
+                [36m>[39m
+                  [0mAll[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                [36m>[39m
+                  [0mMusic[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                [36m>[39m
+                  [0mConcerts[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                [36m>[39m
+                  [0mSpotify[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                [36m>[39m
+                  [0mFitness[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                [36m>[39m
+                  [0mGym[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                [36m>[39m
+                  [0mRunning[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                [36m>[39m
+                  [0mTravel[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                [...
+
+    [0m [90m 83 |[39m     fireEvent[33m.[39mchange(searchInput[33m,[39m { target[33m:[39m { value[33m:[39m [32m'Music'[39m } })[33m;[39m
+     [90m 84 |[39m     
+    [31m[1m>[22m[39m[90m 85 |[39m     [36mawait[39m waitFor(() [33m=>[39m {
+     [90m    |[39m                  [31m[1m^[22m[39m
+     [90m 86 |[39m       expect(screen[33m.[39mgetByText([35m/Music Lovers/i[39m))[33m.[39mtoBeInTheDocument()[33m;[39m
+     [90m 87 |[39m     })[33m;[39m
+     [90m 88 |[39m   })[33m;[39m[0m
+
+      at waitForWrapper (node_modules/@testing-library/dom/dist/wait-for.js:163:27)
+      at Object.<anonymous> (__tests__/pages/groups.test.js:85:18)
+
+  ● Groups Page › displays category filter buttons
+
+    thrown: "Exceeded timeout of 2000 ms for a test.
+    Add a timeout value to this test to increase the timeout, if this is a long-running test. See https://jestjs.io/docs/api#testname-fn-timeout."
+
+    [0m [90m 88 |[39m   })[33m;[39m
+     [90m 89 |[39m
+    [31m[1m>[22m[39m[90m 90 |[39m   it([32m'displays category filter buttons'[39m[33m,[39m [36masync[39m () [33m=>[39m {
+     [90m    |[39m   [31m[1m^[22m[39m
+     [90m 91 |[39m     render([33m<[39m[33mGroupsPage[39m [33m/[39m[33m>[39m)[33m;[39m
+     [90m 92 |[39m     [36mawait[39m waitFor(() [33m=>[39m {
+     [90m 93 |[39m       expect(screen[33m.[39mgetByText([35m/All/i[39m))[33m.[39mtoBeInTheDocument()[33m;[39m[0m
+
+      at it (__tests__/pages/groups.test.js:90:3)
+      at Object.describe (__tests__/pages/groups.test.js:50:1)
+
+  ● Groups Page › handles join group button click
+
+    expect(jest.fn()).toHaveBeenCalled()
+
+    Expected number of calls: >= 1
+    Received number of calls:    0
+
+    Ignored nodes: comments, script, style
+    [36m<html>[39m
+      [36m<head />[39m
+      [36m<body>[39m
+        [36m<div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"min-h-screen bg-gradient-to-br from-primary-50 via-accent-50 to-secondary-50 py-8 px-4 sm:px-6 lg:px-8"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"max-w-7xl mx-auto"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 gap-4"[39m
+              [36m>[39m
+                [36m<div>[39m
+                  [36m<h1[39m
+                    [33mclass[39m=[32m"text-3xl sm:text-4xl lg:text-5xl font-black text-dark-900 mb-2 font-display"[39m
+                  [36m>[39m
+                    [36m<span[39m
+                      [33mclass[39m=[32m"text-gradient"[39m
+                    [36m>[39m
+                      [0mInterest Groups[0m
+                    [36m</span>[39m
+                  [36m</h1>[39m
+                  [36m<p[39m
+                    [33mclass[39m=[32m"text-dark-600 text-base sm:text-lg font-medium"[39m
+                  [36m>[39m
+                    [0mJoin communities based on shared interests[0m
+                  [36m</p>[39m
+                [36m</div>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"w-full sm:w-auto"[39m
+                  [33mdata-testid[39m=[32m"button"[39m
+                [36m>[39m
+                  [36m<svg[39m
+                    [33maria-hidden[39m=[32m"true"[39m
+                    [33mclass[39m=[32m"w-5 h-5 mr-2"[39m
+                    [33mdata-slot[39m=[32m"icon"[39m
+                    [33mfill[39m=[32m"none"[39m
+                    [33mstroke[39m=[32m"currentColor"[39m
+                    [33mstroke-width[39m=[32m"1.5"[39m
+                    [33mviewBox[39m=[32m"0 0 24 24"[39m
+                    [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                  [36m>[39m
+                    [36m<path[39m
+                      [33md[39m=[32m"M12 4.5v15m7.5-7.5h-15"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                    [36m/>[39m
+                  [36m</svg>[39m
+                  [0mCreate Group[0m
+                [36m</button>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"mb-8 space-y-4"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"relative"[39m
+                [36m>[39m
+                  [36m<svg[39m
+                    [33maria-hidden[39m=[32m"true"[39m
+                    [33mclass[39m=[32m"absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"[39m
+                    [33mdata-slot[39m=[32m"icon"[39m
+                    [33mfill[39m=[32m"none"[39m
+                    [33mstroke[39m=[32m"currentColor"[39m
+                    [33mstroke-width[39m=[32m"1.5"[39m
+                    [33mviewBox[39m=[32m"0 0 24 24"[39m
+                    [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                  [36m>[39m
+                    [36m<path[39m
+                      [33md[39m=[32m"m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                    [36m/>[39m
+                  [36m</svg>[39m
+                  [36m<input[39m
+                    [33mclass[39m=[32m"pl-10 pr-10"[39m
+                    [33mdata-testid[39m=[32m"input"[39m
+                    [33mplaceholder[39m=[32m"Search groups..."[39m
+                    [33mvalue[39m=[32m""[39m
+                  [36m/>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex flex-wrap gap-2"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-primary-600 text-white shadow-md"[39m
+                  [36m>[39m
+                    [0mAll[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                  [36m>[39m
+                    [0mMusic[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                  [36m>[39m
+                    [0mConcerts[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                  [36m>[39m
+                    [0mSpotify[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                  [36m>[39m
+                    [0mFitness[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                  [36m>[39m
+                    [0mGym[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                  [36m>[39m
+                    [0mRunning[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                  [36m>[39m
+                    [0mTravel[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                  [36m>[39m
+                    [0mAdventure[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                  [36m>[39m
+                    [0mExploring[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                  [36m>[39m
+                    [0mGaming[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33m...
+
+    [0m [90m 102 |[39m       [36mif[39m (joinButtons[33m.[39mlength [33m>[39m [35m0[39m) {
+     [90m 103 |[39m         fireEvent[33m.[39mclick(joinButtons[[35m0[39m])[33m;[39m
+    [31m[1m>[22m[39m[90m 104 |[39m         expect(showToast)[33m.[39mtoHaveBeenCalled()[33m;[39m
+     [90m     |[39m                           [31m[1m^[22m[39m
+     [90m 105 |[39m       }
+     [90m 106 |[39m     })[33m;[39m
+     [90m 107 |[39m   })[33m;[39m[0m
+
+      at toHaveBeenCalled (__tests__/pages/groups.test.js:104:27)
+      at runWithExpensiveErrorDiagnosticsDisabled (node_modules/@testing-library/dom/dist/config.js:47:12)
+      at checkCallback (node_modules/@testing-library/dom/dist/wait-for.js:124:77)
+      at checkRealTimersCallback (node_modules/@testing-library/dom/dist/wait-for.js:118:16)
+      at Timeout.task [as _onTimeout] (node_modules/jsdom/lib/jsdom/browser/Window.js:579:19)
+
+  ● Groups Page › handles category filter change
+
+    Found multiple elements with the text: /All/i
+
+    Here are the matching elements:
+
+    Ignored nodes: comments, script, style
+    [36m<button[39m
+      [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-primary-600 text-white shadow-md"[39m
+    [36m>[39m
+      [0mAll[0m
+    [36m</button>[39m
+
+    Ignored nodes: comments, script, style
+    [36m<p[39m
+      [33mclass[39m=[32m"text-gray-600 text-sm mb-4 line-clamp-2"[39m
+    [36m>[39m
+      [0mFor gamers of all types - console, PC, mobile[0m
+    [36m</p>[39m
+
+    Ignored nodes: comments, script, style
+    [36m<p[39m
+      [33mclass[39m=[32m"text-gray-600 text-sm mb-4 line-clamp-2"[39m
+    [36m>[39m
+      [0mDiscuss books, share recommendations, and join reading challenges[0m
+    [36m</p>[39m
+
+    (If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"min-h-screen bg-gradient-to-br from-primary-50 via-accent-50 to-secondary-50 py-8 px-4 sm:px-6 lg:px-8"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"max-w-7xl mx-auto"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 gap-4"[39m
+            [36m>[39m
+              [36m<div>[39m
+                [36m<h1[39m
+                  [33mclass[39m=[32m"text-3xl sm:text-4xl lg:text-5xl font-black text-dark-900 mb-2 font-display"[39m
+                [36m>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"text-gradient"[39m
+                  [36m>[39m
+                    [0mInterest Groups[0m
+                  [36m</span>[39m
+                [36m</h1>[39m
+                [36m<p[39m
+                  [33mclass[39m=[32m"text-dark-600 text-base sm:text-lg font-medium"[39m
+                [36m>[39m
+                  [0mJoin communities based on shared interests[0m
+                [36m</p>[39m
+              [36m</div>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"w-full sm:w-auto"[39m
+                [33mdata-testid[39m=[32m"button"[39m
+              [36m>[39m
+                [36m<svg[39m
+                  [33maria-hidden[39m=[32m"true"[39m
+                  [33mclass[39m=[32m"w-5 h-5 mr-2"[39m
+                  [33mdata-slot[39m=[32m"icon"[39m
+                  [33mfill[39m=[32m"none"[39m
+                  [33mstroke[39m=[32m"currentColor"[39m
+                  [33mstroke-width[39m=[32m"1.5"[39m
+                  [33mviewBox[39m=[32m"0 0 24 24"[39m
+                  [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                [36m>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M12 4.5v15m7.5-7.5h-15"[39m
+                    [33mstroke-linecap[39m=[32m"round"[39m
+                    [33mstroke-linejoin[39m=[32m"round"[39m
+                  [36m/>[39m
+                [36m</svg>[39m
+                [0mCreate Group[0m
+              [36m</button>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"mb-8 space-y-4"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"relative"[39m
+              [36m>[39m
+                [36m<svg[39m
+                  [33maria-hidden[39m=[32m"true"[39m
+                  [33mclass[39m=[32m"absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"[39m
+                  [33mdata-slot[39m=[32m"icon"[39m
+                  [33mfill[39m=[32m"none"[39m
+                  [33mstroke[39m=[32m"currentColor"[39m
+                  [33mstroke-width[39m=[32m"1.5"[39m
+                  [33mviewBox[39m=[32m"0 0 24 24"[39m
+                  [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                [36m>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"[39m
+                    [33mstroke-linecap[39m=[32m"round"[39m
+                    [33mstroke-linejoin[39m=[32m"round"[39m
+                  [36m/>[39m
+                [36m</svg>[39m
+                [36m<input[39m
+                  [33mclass[39m=[32m"pl-10 pr-10"[39m
+                  [33mdata-testid[39m=[32m"input"[39m
+                  [33mplaceholder[39m=[32m"Search groups..."[39m
+                  [33mvalue[39m=[32m""[39m
+                [36m/>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-wrap gap-2"[39m
+              [36m>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-primary-600 text-white shadow-md"[39m
+                [36m>[39m
+                  [0mAll[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                [36m>[39m
+                  [0mMusic[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                [36m>[39m
+                  [0mConcerts[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                [36m>[39m
+                  [0mSpotify[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                [36m>[39m
+                  [0mFitness[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                [36m>[39m
+                  [0mGym[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                [36m>[39m
+                  [0mRunning[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                [36m>[39m
+                  [0mTravel[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                [36m>[39m
+                  [0mAdventure[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                [36m>[39m
+                  [0mExploring[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                [36m>[39m
+                  [0mGaming[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"[39m
+                [36m>[39m
+                  [0mEsports[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"px-4 py-2 rounded-f...
+
+    [0m [90m 184 |[39m     render([33m<[39m[33mGroupsPage[39m [33m/[39m[33m>[39m)[33m;[39m
+     [90m 185 |[39m     
+    [31m[1m>[22m[39m[90m 186 |[39m     [36mawait[39m waitFor(() [33m=>[39m {
+     [90m     |[39m                  [31m[1m^[22m[39m
+     [90m 187 |[39m       [36mconst[39m allButton [33m=[39m screen[33m.[39mgetByText([35m/All/i[39m)[33m;[39m
+     [90m 188 |[39m       fireEvent[33m.[39mclick(allButton)[33m;[39m
+     [90m 189 |[39m       [90m// Should update filtered results[39m[0m
+
+      at waitForWrapper (node_modules/@testing-library/dom/dist/wait-for.js:163:27)
+      at Object.<anonymous> (__tests__/pages/groups.test.js:186:18)
+
+PASS __tests__/components/ProfileCard.test.js
+PASS __tests__/lib/localStorage.test.js
+PASS __tests__/lib/subscription.test.js
+PASS __tests__/components/Logo.test.js
+PASS __tests__/components/Button.test.js
+PASS __tests__/lib/matchingAlgorithm.test.js
+PASS __tests__/components/Card.test.js
+PASS __tests__/lib/gpsUtils.test.js
+PASS __tests__/lib/passwordSecurity.test.js
+PASS __tests__/integration/matchingFlow.test.js
+PASS __tests__/lib/userActions.test.js
+
+Test Suites: 3 failed, 11 passed, 14 total
+Tests:       10 failed, 141 passed, 151 total
+Snapshots:   0 total
+Time:        18.175 s, estimated 19 s
+Ran all test suites.
+Force exiting Jest: Have you considered using `--detectOpenHandles` to detect async operations that kept running after all tests finished?
