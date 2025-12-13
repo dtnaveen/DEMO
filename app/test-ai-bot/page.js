@@ -371,7 +371,7 @@ export default function TestAIBotPage() {
       // Create test user for this message
       const testUser = createTestUser(testMsg.age, testMsg.context, testMsg.character);
       
-      // Add user message
+        // Add user message
       const userMessage = {
         senderId: testUser.id,
         text: testMsg.text,
@@ -495,8 +495,8 @@ export default function TestAIBotPage() {
         </div>
         
         {!testing && !results && (
-          <Card className="mb-6">
-            <div className="p-6">
+        <Card className="mb-6">
+          <div className="p-6">
               <h2 className="text-xl font-semibold mb-4">Test Overview</h2>
               <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
                 <li><strong>100 diverse messages</strong> covering various scenarios</li>
@@ -504,12 +504,12 @@ export default function TestAIBotPage() {
                 <li><strong>Different contexts:</strong> Casual, Romantic, Professional, Friendly, Deep</li>
                 <li><strong>Different characters:</strong> Slang users, Formal speakers, Emoji users, etc.</li>
                 <li><strong>Analysis metrics:</strong> Response length, human-like score, tone, engagement</li>
-              </ul>
+                </ul>
               <Button onClick={runTest} size="lg" className="w-full">
                 Start Test (100 Messages)
               </Button>
-            </div>
-          </Card>
+          </div>
+        </Card>
         )}
         
         {testing && (
@@ -517,20 +517,20 @@ export default function TestAIBotPage() {
             <div className="p-6">
               <h2 className="text-xl font-semibold mb-4">Running Test...</h2>
               <div className="mb-4">
-                <div className="flex justify-between mb-2">
+                  <div className="flex justify-between mb-2">
                   <span className="text-sm text-gray-600">Progress</span>
                   <span className="text-sm font-semibold">{progress}%</span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-4">
-                  <div 
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-4">
+                    <div
                     className="bg-gradient-to-r from-blue-500 to-purple-500 h-4 rounded-full transition-all duration-300"
-                    style={{ width: `${progress}%` }}
-                  ></div>
+                      style={{ width: `${progress}%` }}
+                    ></div>
+                  </div>
                 </div>
-              </div>
-              {currentMessage && (
+                {currentMessage && (
                 <p className="text-sm text-gray-600 mt-4">{currentMessage}</p>
-              )}
+                )}
             </div>
           </Card>
         )}
@@ -538,27 +538,27 @@ export default function TestAIBotPage() {
         {results && (
           <>
             <Card className="mb-6">
-              <div className="p-6">
+            <div className="p-6">
                 <h2 className="text-xl font-semibold mb-4">Test Results Summary</h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div className="bg-blue-50 p-4 rounded-lg">
+                <div className="bg-blue-50 p-4 rounded-lg">
                     <div className="text-2xl font-black text-blue-600">{results.statistics.averageHumanLikeScore}/10</div>
                     <div className="text-sm text-gray-600">Human-Like Score</div>
-                  </div>
-                  <div className="bg-green-50 p-4 rounded-lg">
+                </div>
+                <div className="bg-green-50 p-4 rounded-lg">
                     <div className="text-2xl font-black text-green-600">{results.statistics.averageResponseLength}</div>
                     <div className="text-sm text-gray-600">Avg Response Length</div>
-                  </div>
-                  <div className="bg-purple-50 p-4 rounded-lg">
+                </div>
+                <div className="bg-purple-50 p-4 rounded-lg">
                     <div className="text-2xl font-black text-purple-600">{results.statistics.questionsAsked}</div>
                     <div className="text-sm text-gray-600">Questions Asked</div>
-                  </div>
+                </div>
                   <div className="bg-pink-50 p-4 rounded-lg">
                     <div className="text-2xl font-black text-pink-600">{results.statistics.averageResponseTime}ms</div>
                     <div className="text-sm text-gray-600">Avg Response Time</div>
+                    </div>
                   </div>
                 </div>
-              </div>
             </Card>
             
             <Card className="mb-6">
@@ -571,14 +571,14 @@ export default function TestAIBotPage() {
                       <span className="font-semibold">{results.statistics.emojisUsed} messages</span>
                     </div>
                   </div>
-                  <div>
+                    <div>
                     <div className="mb-2 text-gray-700">Tone Distribution</div>
                     <div className="space-y-2">
                       {Object.entries(results.statistics.toneDistribution).map(([tone, count]) => (
                         <div key={tone} className="flex justify-between">
                           <span className="capitalize">{tone}</span>
                           <span className="font-semibold">{count}</span>
-                        </div>
+                    </div>
                       ))}
                     </div>
                   </div>
@@ -594,13 +594,13 @@ export default function TestAIBotPage() {
                     {results.issues.slice(0, 20).map((issue, idx) => (
                       <div key={idx} className="text-sm text-gray-700 bg-red-50 p-2 rounded">
                         {issue}
-                      </div>
-                    ))}
+                    </div>
+                  ))}
                     {results.issues.length > 20 && (
                       <p className="text-sm text-gray-500">... and {results.issues.length - 20} more issues</p>
                     )}
-                  </div>
                 </div>
+              </div>
               </Card>
             )}
             
@@ -623,9 +623,9 @@ export default function TestAIBotPage() {
                           <div className="text-xs text-gray-500">{result.responseTime}ms</div>
                         </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
+                      </div>
+                    ))}
+                  </div>
                 <Button 
                   onClick={() => router.push('/messages')}
                   variant="outline"
@@ -633,8 +633,8 @@ export default function TestAIBotPage() {
                 >
                   View Full Conversation
                 </Button>
-              </div>
-            </Card>
+            </div>
+          </Card>
             
             <div className="flex gap-4">
               <Button onClick={runTest} variant="outline">
