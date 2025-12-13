@@ -8,16 +8,21 @@ import { calculateMatchScore } from '@/lib/matchingAlgorithm';
 import { sendAutoMessagesFromSarah } from '@/lib/autoMessaging';
 import { checkAndReplyToMessages, setupAIBotAutoReplies, forceImmediateReply } from '@/lib/aiBotReplies';
 import { getBotUserId } from '@/lib/botProfile';
+import { getOrCreateAIChatBot, getOrCreateAIBotConversation, AI_CHAT_BOT_ID } from '@/lib/aiChatBot';
 import { isPremiumUser, hasPremiumFeature } from '@/lib/subscription';
 import { LocationSharing } from '@/lib/advancedGPS';
+import { uploadVoiceMessage } from '@/lib/api';
 import PremiumBadge from '@/components/ui/PremiumBadge';
 import AIConversationAssistant from '@/components/ui/AIConversationAssistant';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 import Modal from '@/components/ui/Modal';
-import { Cog6ToothIcon, MapPinIcon, VideoCameraIcon } from '@heroicons/react/24/outline';
+import { Cog6ToothIcon, MapPinIcon, VideoCameraIcon, MicrophoneIcon, FaceSmileIcon, PaperAirplaneIcon } from '@heroicons/react/24/outline';
 import IcebreakerPrompts from '@/components/ui/IcebreakerPrompts';
-import { PaperAirplaneIcon } from '@heroicons/react/24/outline';
+import VideoChat from '@/components/ui/VideoChat';
+import SafetyActions from '@/components/ui/SafetyActions';
+import VoiceMessage from '@/components/ui/VoiceMessage';
+import GifStickerPicker from '@/components/ui/GifStickerPicker';
 
 function MessagesContent() {
   const router = useRouter();
@@ -45,9 +50,67 @@ function MessagesContent() {
     
     setCurrentUser(user);
     
+    // Initialize AI chat bot for this user (always available, regardless of matches)
+    // Force creation and ensure it's in the users list
+    try {
+      const aiBot = getOrCreateAIChatBot();
+      console.log('AI Bot created/retrieved:', aiBot);
+      
+      if (aiBot) {
+        const conversationId = getOrCreateAIBotConversation();
+        console.log('AI Bot conversation ID:', conversationId);
+        
+        if (conversationId) {
+          // Ensure conversation is saved
+          const convos = getConversations();
+          if (!convos[conversationId]) {
+            convos[conversationId] = {
+              participants: [user.id, aiBot.id],
+              messages: aiBot.welcomeMessage ? [{
+                senderId: aiBot.id,
+                text: aiBot.welcomeMessage,
+                timestamp: new Date().toISOString(),
+                isAI: true
+              }] : []
+            };
+            setConversations(convos);
+            console.log('AI Bot conversation created with welcome message');
+          }
+        }
+      } else {
+        console.error('Failed to create AI bot - getOrCreateAIChatBot returned null');
+      }
+    } catch (error) {
+      console.error('Error initializing AI bot:', error);
+    }
+    
     // Load conversations
     const convos = getConversations();
     setConversationsState(convos);
+    
+    // Force refresh to ensure AI bot appears - check after a short delay
+    setTimeout(() => {
+      const allUsers = getAllUsers();
+      const aiBot = allUsers.find(u => u.id === AI_CHAT_BOT_ID && u.ownerId === user.id);
+      console.log('AI Bot in users list:', aiBot);
+      
+      if (!aiBot) {
+        console.log('AI Bot not found, attempting to recreate...');
+        try {
+          const newBot = getOrCreateAIChatBot();
+          console.log('Recreated AI Bot:', newBot);
+          // Force state update
+          const updatedConvos = getConversations();
+          setConversationsState(updatedConvos);
+        } catch (e) {
+          console.error('Error recreating AI bot:', e);
+        }
+      } else {
+        // Bot exists, just refresh conversations
+        const updatedConvos = getConversations();
+        setConversationsState(updatedConvos);
+      }
+    }, 100);
     
     // Send auto-messages from Sarah to all users
     setTimeout(() => {
@@ -121,14 +184,105 @@ function MessagesContent() {
     const allUsers = getAllUsers();
     const partners = [];
     
-    Object.keys(conversations).forEach(conversationId => {
-      const conversation = conversations[conversationId];
-      if (conversation.participants.includes(currentUser.id)) {
+    // Always include AI chat bot (always available, regardless of matches)
+    // Force creation if it doesn't exist
+    let aiBot = null;
+    try {
+      aiBot = getOrCreateAIChatBot();
+      console.log('getAllConversationPartners - AI Bot:', aiBot);
+      
+      // If bot not found, try to find it in users list
+      if (!aiBot) {
+        aiBot = allUsers.find(u => u.id === AI_CHAT_BOT_ID && u.ownerId === currentUser.id);
+        console.log('AI Bot found in users list:', aiBot);
+      }
+    } catch (error) {
+      console.error('Error getting AI bot:', error);
+      // Try to find existing bot in users list as fallback
+      aiBot = allUsers.find(u => u.id === AI_CHAT_BOT_ID && u.ownerId === currentUser.id);
+    }
+    
+    // Always add AI bot, even if conversation doesn't exist yet
+    if (aiBot) {
+      let aiBotConversationId = null;
+      try {
+        aiBotConversationId = getOrCreateAIBotConversation();
+      } catch (error) {
+        console.error('Error getting AI bot conversation:', error);
+        // Create conversation ID manually if function fails
+        const { getConversationId } = require('@/utils/helpers');
+        aiBotConversationId = getConversationId(currentUser.id, aiBot.id);
+      }
+      
+      if (aiBotConversationId) {
+        // Get conversation from localStorage (most up-to-date)
+        const allConversations = getConversations();
+        const aiBotConversation = allConversations[aiBotConversationId];
+        const lastMessage = aiBotConversation?.messages && aiBotConversation.messages.length > 0
+          ? aiBotConversation.messages[aiBotConversation.messages.length - 1]
+          : null;
+        
+        partners.push({
+          user: aiBot,
+          conversationId: aiBotConversationId,
+          lastMessage,
+          matchScore: null, // AI bot doesn't have a match score
+          isAIChatBot: true // Flag to identify AI chat bot
+        });
+        console.log('AI Bot added to partners list');
+      } else {
+        // Fallback: add AI bot even without conversation ID
+        const { getConversationId } = require('@/utils/helpers');
+        const fallbackConversationId = getConversationId(currentUser.id, aiBot.id);
+        partners.push({
+          user: aiBot,
+          conversationId: fallbackConversationId,
+          lastMessage: null,
+          matchScore: null,
+          isAIChatBot: true
+        });
+        console.log('AI Bot added to partners list (fallback)');
+      }
+    } else {
+      console.error('AI Bot is null - cannot add to partners list');
+      console.log('All users:', allUsers);
+      console.log('Current user:', currentUser);
+      // Last resort: try to create bot one more time
+      try {
+        const lastResortBot = getOrCreateAIChatBot();
+        if (lastResortBot) {
+          const { getConversationId } = require('@/utils/helpers');
+          const fallbackConversationId = getConversationId(currentUser.id, lastResortBot.id);
+          partners.push({
+            user: lastResortBot,
+            conversationId: fallbackConversationId,
+            lastMessage: null,
+            matchScore: null,
+            isAIChatBot: true
+          });
+          console.log('AI Bot added to partners list (last resort)');
+        }
+      } catch (e) {
+        console.error('Last resort bot creation failed:', e);
+      }
+    }
+    
+    // Add other conversation partners
+    const allConversations = getConversations();
+    Object.keys(allConversations).forEach(conversationId => {
+      const conversation = allConversations[conversationId];
+      if (conversation && conversation.participants && conversation.participants.includes(currentUser.id)) {
         const otherUserId = conversation.participants.find(id => id !== currentUser.id);
+        
+        // Skip AI chat bot (already added above)
+        if (otherUserId === AI_CHAT_BOT_ID) return;
+        
         const otherUser = allUsers.find(u => u.id === otherUserId);
         
         if (otherUser) {
-          const lastMessage = conversation.messages[conversation.messages.length - 1];
+          const lastMessage = conversation.messages && conversation.messages.length > 0
+            ? conversation.messages[conversation.messages.length - 1]
+            : null;
           const matchScore = calculateMatchScore(currentUser, otherUser);
           
           partners.push({
@@ -141,8 +295,13 @@ function MessagesContent() {
       }
     });
     
-    // Sort by last message time
+    // Sort by: AI bot first, then by last message time
     return partners.sort((a, b) => {
+      // AI chat bot always appears first
+      if (a.isAIChatBot) return -1;
+      if (b.isAIChatBot) return 1;
+      
+      // Then sort by last message time
       if (!a.lastMessage) return 1;
       if (!b.lastMessage) return -1;
       return new Date(b.lastMessage.timestamp) - new Date(a.lastMessage.timestamp);
@@ -179,19 +338,18 @@ function MessagesContent() {
       setMessageText('');
       
       // Check if message is to AI bot and trigger auto-reply
-      // Check by name in case isAIBot flag is not set
-      const allUsers = getAllUsers();
-      const targetUser = allUsers.find(u => u.id === selectedUser.id);
-      const isAIBot = targetUser?.isAIBot || (targetUser?.name?.toLowerCase().includes('sarah') && targetUser?.name?.toLowerCase().includes('martinez'));
+      const isAIBot = selectedUser?.isAIBot || selectedUser?.id === AI_CHAT_BOT_ID;
       
       if (isAIBot) {
         // Show typing indicator
         setIsAIBotTyping(true);
         
-        // Wait 4 seconds, then force immediate reply
+        // Wait 2-4 seconds, then force immediate reply
+        const delay = 2000 + Math.random() * 2000; // 2-4 seconds
         setTimeout(() => {
           const conversationId = getConversationId(currentUser.id, selectedUser.id);
-          forceImmediateReply(conversationId, selectedUser.id);
+          const replySent = forceImmediateReply(conversationId, currentUser.id);
+          console.log('AI Bot reply sent:', replySent);
           setIsAIBotTyping(false);
           
           // Refresh conversations multiple times to ensure update
@@ -204,13 +362,13 @@ function MessagesContent() {
             const updatedConvos = getConversations();
             setConversationsState(updatedConvos);
           }, 1500);
-        }, 4000);
+        }, delay);
       }
       return;
     }
     
     if (selectedConversationId) {
-      const convos = { ...conversations };
+      const convos = getConversations();
       if (!convos[selectedConversationId]) {
         convos[selectedConversationId] = {
           participants: [currentUser.id, selectedUser.id],
@@ -229,18 +387,17 @@ function MessagesContent() {
       setMessageText('');
       
       // Check if message is to AI bot and trigger auto-reply
-      // Check by name in case isAIBot flag is not set
-      const allUsers = getAllUsers();
-      const targetUser = allUsers.find(u => u.id === selectedUser.id);
-      const isAIBot = targetUser?.isAIBot || (targetUser?.name?.toLowerCase().includes('sarah') && targetUser?.name?.toLowerCase().includes('martinez'));
+      const isAIBot = selectedUser?.isAIBot || selectedUser?.id === AI_CHAT_BOT_ID;
       
       if (isAIBot) {
         // Show typing indicator
         setIsAIBotTyping(true);
         
-        // Wait 4 seconds, then force immediate reply
+        // Wait 2-4 seconds, then force immediate reply
+        const delay = 2000 + Math.random() * 2000; // 2-4 seconds
         setTimeout(() => {
-          forceImmediateReply(selectedConversationId, currentUser.id);
+          const replySent = forceImmediateReply(selectedConversationId, currentUser.id);
+          console.log('AI Bot reply sent:', replySent);
           setIsAIBotTyping(false);
           
           // Refresh conversations multiple times to ensure update
@@ -253,7 +410,7 @@ function MessagesContent() {
             const updatedConvos = getConversations();
             setConversationsState(updatedConvos);
           }, 1500);
-        }, 4000);
+        }, delay);
       }
     }
   };
@@ -264,11 +421,15 @@ function MessagesContent() {
     }
   };
   
-  const currentMessages = selectedConversationId && conversations[selectedConversationId]
-    ? conversations[selectedConversationId].messages
+  // Get conversations from both state and localStorage to ensure we have the latest
+  const allConversations = { ...getConversations(), ...conversations };
+  
+  const currentMessages = selectedConversationId && allConversations[selectedConversationId]
+    ? (allConversations[selectedConversationId].messages || [])
     : [];
   
   const conversationPartners = getAllConversationPartners();
+  console.log('Conversation partners:', conversationPartners.length, conversationPartners);
   
   return (
     <div className="min-h-screen relative overflow-hidden">
@@ -317,17 +478,21 @@ function MessagesContent() {
                           className="w-16 h-16 rounded-2xl object-cover border-2 border-white shadow-medium"
                         />
                       ) : (
-                        <div className="w-16 h-16 rounded-2xl gradient-primary flex items-center justify-center text-white font-black text-xl border-2 border-white shadow-medium">
-                          {user.name.charAt(0)}
+                        <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-white font-black text-xl border-2 border-white shadow-medium ${
+                          user.id === AI_CHAT_BOT_ID 
+                            ? 'bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500' 
+                            : 'gradient-primary'
+                        }`}>
+                          {user.id === AI_CHAT_BOT_ID ? '🤖' : user.name.charAt(0)}
                         </div>
                       )}
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between mb-2">
                           <div className="flex items-center gap-2">
                             <p className="font-black text-dark-900 truncate text-lg font-display">{user.name}</p>
-                            {user.isAIBot && (
+                            {(user.isAIBot || user.id === AI_CHAT_BOT_ID) && (
                               <span className="px-2 py-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white text-xs font-black rounded-lg uppercase tracking-wide">
-                                AI BOT
+                                {user.id === AI_CHAT_BOT_ID ? '🤖 AI CHAT' : 'AI BOT'}
                               </span>
                             )}
                           </div>
@@ -366,26 +531,32 @@ function MessagesContent() {
                           className="w-14 h-14 rounded-2xl object-cover border-2 border-white shadow-medium"
                         />
                       ) : (
-                        <div className="w-14 h-14 rounded-2xl gradient-primary flex items-center justify-center text-white font-black text-lg border-2 border-white shadow-medium">
-                          {selectedUser.name.charAt(0)}
+                        <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-white font-black text-lg border-2 border-white shadow-medium ${
+                          selectedUser.id === AI_CHAT_BOT_ID 
+                            ? 'bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500' 
+                            : 'gradient-primary'
+                        }`}>
+                          {selectedUser.id === AI_CHAT_BOT_ID ? '🤖' : selectedUser.name.charAt(0)}
                         </div>
                       )}
                       <div>
                         <div className="flex items-center gap-3">
                           <h3 className="font-black text-dark-900 text-xl font-display">{selectedUser.name}</h3>
-                          {selectedUser.isAIBot && (
+                          {(selectedUser.isAIBot || selectedUser.id === AI_CHAT_BOT_ID) && (
                             <span className="px-3 py-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white text-xs font-black rounded-xl uppercase tracking-wide border-2 border-white/30">
-                              🤖 AI BOT
+                              {selectedUser.id === AI_CHAT_BOT_ID ? '🤖 AI CHAT' : '🤖 AI BOT'}
                             </span>
                           )}
                         </div>
-                        <p className="text-sm text-dark-600 font-semibold mt-1">{selectedUser.age} • {selectedUser.location}</p>
+                        <p className="text-sm text-dark-600 font-semibold mt-1">
+                          {selectedUser.id === AI_CHAT_BOT_ID ? 'Always Available' : `${selectedUser.age} • ${selectedUser.location}`}
+                        </p>
                       </div>
                     </div>
                     
                     <div className="flex items-center gap-2">
                       {/* Location Sharing Button */}
-                      {!selectedUser.isAIBot && (
+                      {!selectedUser.isAIBot && selectedUser.id !== AI_CHAT_BOT_ID && (
                         <Button
                           onClick={() => {
                             const share = LocationSharing.shareLocation(
@@ -404,16 +575,18 @@ function MessagesContent() {
                           <span className="hidden sm:inline">Share Location</span>
                         </Button>
                       )}
-                      {/* Video Chat Button */}
-                      <Button
-                        onClick={() => setShowVideoChat(true)}
-                        variant="outline"
-                        size="sm"
-                        className="flex items-center gap-2"
-                      >
-                        <VideoCameraIcon className="w-5 h-5" />
-                        <span className="hidden sm:inline">Video</span>
-                      </Button>
+                      {/* Video Chat Button - Hide for AI bots */}
+                      {!selectedUser.isAIBot && selectedUser.id !== AI_CHAT_BOT_ID && (
+                        <Button
+                          onClick={() => setShowVideoChat(true)}
+                          variant="outline"
+                          size="sm"
+                          className="flex items-center gap-2"
+                        >
+                          <VideoCameraIcon className="w-5 h-5" />
+                          <span className="hidden sm:inline">Video</span>
+                        </Button>
+                      )}
                       
                       {/* Safety Actions */}
                       <SafetyActions
@@ -429,14 +602,14 @@ function MessagesContent() {
                       />
                       
                       {/* Edit Bot Button - Only show for AI bots */}
-                      {selectedUser.isAIBot && (
+                      {(selectedUser.isAIBot || selectedUser.id === AI_CHAT_BOT_ID) && (
                         <Button
-                          onClick={() => router.push('/bot-profile')}
+                          onClick={() => router.push('/ai-chat-settings')}
                           variant="outline"
                           className="flex items-center gap-2"
                         >
                           <Cog6ToothIcon className="w-4 h-4" />
-                          <span className="hidden sm:inline">Edit Bot</span>
+                          <span className="hidden sm:inline">Customize Bot</span>
                         </Button>
                       )}
                     </div>
@@ -467,17 +640,27 @@ function MessagesContent() {
                   
                   {currentMessages.length === 0 ? (
                     <div className="text-center py-12">
-                      <p className="text-gray-500 mb-4">No messages yet. Start the conversation!</p>
-                      <Button onClick={() => setShowIcebreaker(true)}>
-                        Send Icebreaker
-                      </Button>
+                      {(selectedUser?.id === AI_CHAT_BOT_ID) ? (
+                        <>
+                          <div className="text-6xl mb-4">🤖</div>
+                          <p className="text-gray-700 font-semibold mb-2">Your AI Assistant is ready to chat!</p>
+                          <p className="text-gray-500 mb-4">Ask me anything, or just say hello!</p>
+                        </>
+                      ) : (
+                        <>
+                          <p className="text-gray-500 mb-4">No messages yet. Start the conversation!</p>
+                          <Button onClick={() => setShowIcebreaker(true)}>
+                            Send Icebreaker
+                          </Button>
+                        </>
+                      )}
                     </div>
                   ) : (
                     currentMessages.map((message, idx) => {
                       const isOwn = message.senderId === currentUser.id;
                       const allUsers = getAllUsers();
                       const messageSender = allUsers.find(u => u.id === message.senderId);
-                      const isFromAIBot = messageSender?.isAIBot || message.isAI;
+                      const isFromAIBot = messageSender?.isAIBot || messageSender?.id === AI_CHAT_BOT_ID || message.isAI;
                       
                       return (
                         <div
@@ -524,11 +707,11 @@ function MessagesContent() {
                   )}
                   
                   {/* AI Bot Typing Indicator */}
-                  {isAIBotTyping && selectedUser && selectedUser.isAIBot && (
+                  {isAIBotTyping && selectedUser && (selectedUser.isAIBot || selectedUser.id === AI_CHAT_BOT_ID) && (
                     <div className="flex justify-start">
                       <div className="bg-gradient-to-r from-blue-50 to-blue-100 border-2 border-blue-200 rounded-2xl px-5 py-3 shadow-soft">
                         <div className="flex items-center gap-2">
-                          <span className="text-blue-700 text-sm font-bold">🤖 Sarah is typing</span>
+                          <span className="text-blue-700 text-sm font-bold">🤖 {selectedUser.name || 'AI Assistant'} is typing</span>
                           <span className="flex gap-1">
                             <span className="w-2.5 h-2.5 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
                             <span className="w-2.5 h-2.5 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>

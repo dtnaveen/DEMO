@@ -1,0 +1,453 @@
+1f2cc47270c654398002759f84c5d15e
+"use strict";
+
+/* istanbul ignore next */
+function cov_dvjoyb6pq() {
+  var path = "D:\\Tech Vitta\\Apps\\DEMO\\app\\layout.js";
+  var hash = "45ab11955191d0745fc10c09ed64112053b35231";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "D:\\Tech Vitta\\Apps\\DEMO\\app\\layout.js",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 0
+        },
+        end: {
+          line: 4,
+          column: 3
+        }
+      },
+      "1": {
+        start: {
+          line: 6,
+          column: 4
+        },
+        end: {
+          line: 9,
+          column: 7
+        }
+      },
+      "2": {
+        start: {
+          line: 6,
+          column: 24
+        },
+        end: {
+          line: 9,
+          column: 7
+        }
+      },
+      "3": {
+        start: {
+          line: 11,
+          column: 0
+        },
+        end: {
+          line: 18,
+          column: 3
+        }
+      },
+      "4": {
+        start: {
+          line: 13,
+          column: 8
+        },
+        end: {
+          line: 13,
+          column: 26
+        }
+      },
+      "5": {
+        start: {
+          line: 16,
+          column: 8
+        },
+        end: {
+          line: 16,
+          column: 24
+        }
+      },
+      "6": {
+        start: {
+          line: 19,
+          column: 20
+        },
+        end: {
+          line: 19,
+          column: 48
+        }
+      },
+      "7": {
+        start: {
+          line: 20,
+          column: 0
+        },
+        end: {
+          line: 20,
+          column: 25
+        }
+      },
+      "8": {
+        start: {
+          line: 21,
+          column: 36
+        },
+        end: {
+          line: 21,
+          column: 102
+        }
+      },
+      "9": {
+        start: {
+          line: 23,
+          column: 4
+        },
+        end: {
+          line: 25,
+          column: 6
+        }
+      },
+      "10": {
+        start: {
+          line: 27,
+          column: 17
+        },
+        end: {
+          line: 30,
+          column: 1
+        }
+      },
+      "11": {
+        start: {
+          line: 32,
+          column: 4
+        },
+        end: {
+          line: 42,
+          column: 7
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "_export",
+        decl: {
+          start: {
+            line: 5,
+            column: 9
+          },
+          end: {
+            line: 5,
+            column: 16
+          }
+        },
+        loc: {
+          start: {
+            line: 5,
+            column: 30
+          },
+          end: {
+            line: 10,
+            column: 1
+          }
+        },
+        line: 5
+      },
+      "1": {
+        name: "(anonymous_1)",
+        decl: {
+          start: {
+            line: 12,
+            column: 4
+          },
+          end: {
+            line: 12,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 12,
+            column: 19
+          },
+          end: {
+            line: 14,
+            column: 5
+          }
+        },
+        line: 12
+      },
+      "2": {
+        name: "(anonymous_2)",
+        decl: {
+          start: {
+            line: 15,
+            column: 4
+          },
+          end: {
+            line: 15,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 15,
+            column: 20
+          },
+          end: {
+            line: 17,
+            column: 5
+          }
+        },
+        line: 15
+      },
+      "3": {
+        name: "_interop_require_default",
+        decl: {
+          start: {
+            line: 22,
+            column: 9
+          },
+          end: {
+            line: 22,
+            column: 33
+          }
+        },
+        loc: {
+          start: {
+            line: 22,
+            column: 39
+          },
+          end: {
+            line: 26,
+            column: 1
+          }
+        },
+        line: 22
+      },
+      "4": {
+        name: "RootLayout",
+        decl: {
+          start: {
+            line: 31,
+            column: 9
+          },
+          end: {
+            line: 31,
+            column: 19
+          }
+        },
+        loc: {
+          start: {
+            line: 31,
+            column: 34
+          },
+          end: {
+            line: 43,
+            column: 1
+          }
+        },
+        line: 31
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 23,
+            column: 11
+          },
+          end: {
+            line: 25,
+            column: 5
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 23,
+            column: 35
+          },
+          end: {
+            line: 23,
+            column: 38
+          }
+        }, {
+          start: {
+            line: 23,
+            column: 41
+          },
+          end: {
+            line: 25,
+            column: 5
+          }
+        }],
+        line: 23
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 23,
+            column: 11
+          },
+          end: {
+            line: 23,
+            column: 32
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 23,
+            column: 11
+          },
+          end: {
+            line: 23,
+            column: 14
+          }
+        }, {
+          start: {
+            line: 23,
+            column: 18
+          },
+          end: {
+            line: 23,
+            column: 32
+          }
+        }],
+        line: 23
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0
+    },
+    b: {
+      "0": [0, 0],
+      "1": [0, 0]
+    },
+    inputSourceMap: {
+      version: 3,
+      sources: ["D:\\Tech Vitta\\Apps\\DEMO\\app\\layout.js"],
+      sourcesContent: ["import './globals.css';\nimport ClientLayout from '@/components/ClientLayout';\n\nexport const metadata = {\n  title: 'VibeMatch - Find Your Perfect Match',\n  description: 'A vibe-based dating app where users match based on shared values and content preferences',\n};\n\nexport default function RootLayout({ children }) {\n  return (\n    <html lang=\"en\" suppressHydrationWarning>\n      <body className=\"bg-gray-50\" suppressHydrationWarning>\n        <ClientLayout>{children}</ClientLayout>\n      </body>\n    </html>\n  );\n}\n"],
+      names: ["RootLayout", "metadata", "title", "description", "children", "html", "lang", "suppressHydrationWarning", "body", "className", "ClientLayout"],
+      mappings: ";;;;;;;;;;;QAQA;eAAwBA;;QALXC;eAAAA;;;;QAHN;qEACkB;;;;;;AAElB,MAAMA,WAAW;IACtBC,OAAO;IACPC,aAAa;AACf;AAEe,SAASH,WAAW,EAAEI,QAAQ,EAAE;IAC7C,qBACE,qBAACC;QAAKC,MAAK;QAAKC,wBAAwB;kBACtC,cAAA,qBAACC;YAAKC,WAAU;YAAaF,wBAAwB;sBACnD,cAAA,qBAACG,qBAAY;0BAAEN;;;;AAIvB"
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "45ab11955191d0745fc10c09ed64112053b35231"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_dvjoyb6pq = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_dvjoyb6pq();
+cov_dvjoyb6pq().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+function _export(target, all) {
+  /* istanbul ignore next */
+  cov_dvjoyb6pq().f[0]++;
+  cov_dvjoyb6pq().s[1]++;
+  for (var name in all) {
+    /* istanbul ignore next */
+    cov_dvjoyb6pq().s[2]++;
+    Object.defineProperty(target, name, {
+      enumerable: true,
+      get: Object.getOwnPropertyDescriptor(all, name).get
+    });
+  }
+}
+/* istanbul ignore next */
+cov_dvjoyb6pq().s[3]++;
+_export(exports, {
+  get default() {
+    /* istanbul ignore next */
+    cov_dvjoyb6pq().f[1]++;
+    cov_dvjoyb6pq().s[4]++;
+    return RootLayout;
+  },
+  get metadata() {
+    /* istanbul ignore next */
+    cov_dvjoyb6pq().f[2]++;
+    cov_dvjoyb6pq().s[5]++;
+    return metadata;
+  }
+});
+const _jsxruntime =
+/* istanbul ignore next */
+(cov_dvjoyb6pq().s[6]++, require("react/jsx-runtime"));
+/* istanbul ignore next */
+cov_dvjoyb6pq().s[7]++;
+require("./globals.css");
+const _ClientLayout =
+/* istanbul ignore next */
+(/*#__PURE__*/cov_dvjoyb6pq().s[8]++, _interop_require_default(require("../components/ClientLayout.js")));
+function _interop_require_default(obj) {
+  /* istanbul ignore next */
+  cov_dvjoyb6pq().f[3]++;
+  cov_dvjoyb6pq().s[9]++;
+  return /* istanbul ignore next */(cov_dvjoyb6pq().b[1][0]++, obj) &&
+  /* istanbul ignore next */
+  (cov_dvjoyb6pq().b[1][1]++, obj.__esModule) ?
+  /* istanbul ignore next */
+  (cov_dvjoyb6pq().b[0][0]++, obj) :
+  /* istanbul ignore next */
+  (cov_dvjoyb6pq().b[0][1]++, {
+    default: obj
+  });
+}
+const metadata =
+/* istanbul ignore next */
+(cov_dvjoyb6pq().s[10]++, {
+  title: 'VibeMatch - Find Your Perfect Match',
+  description: 'A vibe-based dating app where users match based on shared values and content preferences'
+});
+function RootLayout({
+  children
+}) {
+  /* istanbul ignore next */
+  cov_dvjoyb6pq().f[4]++;
+  cov_dvjoyb6pq().s[11]++;
+  return /*#__PURE__*/(0, _jsxruntime.jsx)("html", {
+    lang: "en",
+    suppressHydrationWarning: true,
+    children: /*#__PURE__*/(0, _jsxruntime.jsx)("body", {
+      className: "bg-gray-50",
+      suppressHydrationWarning: true,
+      children: /*#__PURE__*/(0, _jsxruntime.jsx)(_ClientLayout.default, {
+        children: children
+      })
+    })
+  });
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJkZWZhdWx0IiwiY292X2R2am95YjZwcSIsImYiLCJzIiwiUm9vdExheW91dCIsIm1ldGFkYXRhIiwidGl0bGUiLCJkZXNjcmlwdGlvbiIsImNoaWxkcmVuIiwiX2pzeHJ1bnRpbWUiLCJqc3giLCJsYW5nIiwic3VwcHJlc3NIeWRyYXRpb25XYXJuaW5nIiwiY2xhc3NOYW1lIiwiX0NsaWVudExheW91dCJdLCJzb3VyY2VzIjpbIkQ6XFxUZWNoIFZpdHRhXFxBcHBzXFxERU1PXFxhcHBcXGxheW91dC5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgJy4vZ2xvYmFscy5jc3MnO1xuaW1wb3J0IENsaWVudExheW91dCBmcm9tICdAL2NvbXBvbmVudHMvQ2xpZW50TGF5b3V0JztcblxuZXhwb3J0IGNvbnN0IG1ldGFkYXRhID0ge1xuICB0aXRsZTogJ1ZpYmVNYXRjaCAtIEZpbmQgWW91ciBQZXJmZWN0IE1hdGNoJyxcbiAgZGVzY3JpcHRpb246ICdBIHZpYmUtYmFzZWQgZGF0aW5nIGFwcCB3aGVyZSB1c2VycyBtYXRjaCBiYXNlZCBvbiBzaGFyZWQgdmFsdWVzIGFuZCBjb250ZW50IHByZWZlcmVuY2VzJyxcbn07XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIFJvb3RMYXlvdXQoeyBjaGlsZHJlbiB9KSB7XG4gIHJldHVybiAoXG4gICAgPGh0bWwgbGFuZz1cImVuXCIgc3VwcHJlc3NIeWRyYXRpb25XYXJuaW5nPlxuICAgICAgPGJvZHkgY2xhc3NOYW1lPVwiYmctZ3JheS01MFwiIHN1cHByZXNzSHlkcmF0aW9uV2FybmluZz5cbiAgICAgICAgPENsaWVudExheW91dD57Y2hpbGRyZW59PC9DbGllbnRMYXlvdXQ+XG4gICAgICA8L2JvZHk+XG4gICAgPC9odG1sPlxuICApO1xufVxuIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O01BUUFBLFFBQUE7SUFBQTtJQUFBQyxhQUFBLEdBQUFDLENBQUE7SUFBQUQsYUFBQSxHQUFBRSxDQUFBO1dBQXdCQyxVQUFBOztNQUxYQyxTQUFBO0lBQUE7SUFBQUosYUFBQSxHQUFBQyxDQUFBO0lBQUFELGFBQUEsR0FBQUUsQ0FBQTtXQUFBRSxRQUFBOzs7Ozs7OztRQUhOOzs7dUVBQ2tCOzs7Ozs7Ozs7Ozs7Ozs7QUFFbEIsTUFBTUEsUUFBQTtBQUFBO0FBQUEsQ0FBQUosYUFBQSxHQUFBRSxDQUFBLFFBQVc7RUFDdEJHLEtBQUEsRUFBTztFQUNQQyxXQUFBLEVBQWE7QUFDZjtBQUVlLFNBQVNILFdBQVc7RUFBRUk7QUFBUSxDQUFFO0VBQUE7RUFBQVAsYUFBQSxHQUFBQyxDQUFBO0VBQUFELGFBQUEsR0FBQUUsQ0FBQTtFQUM3QyxvQkFDRSxJQUFBTSxXQUFBLENBQUFDLEdBQUEsRUFBQztJQUFLQyxJQUFBLEVBQUs7SUFBS0Msd0JBQXdCO2NBQ3RDLGlCQUFBSCxXQUFBLENBQUFDLEdBQUEsRUFBQztNQUFLRyxTQUFBLEVBQVU7TUFBYUQsd0JBQXdCO2dCQUNuRCxpQkFBQUgsV0FBQSxDQUFBQyxHQUFBLEVBQUNJLGFBQUEsQ0FBQWQsT0FBWTtrQkFBRVE7Ozs7QUFJdkIiLCJpZ25vcmVMaXN0IjpbXX0=

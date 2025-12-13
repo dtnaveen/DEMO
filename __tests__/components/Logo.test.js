@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+// eslint-disable-next-line no-unused-vars
 import Logo from '@/components/ui/Logo'
 
 describe('Logo Component', () => {

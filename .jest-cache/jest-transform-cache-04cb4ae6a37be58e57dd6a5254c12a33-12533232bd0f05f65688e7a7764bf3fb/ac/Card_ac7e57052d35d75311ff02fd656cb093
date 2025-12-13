@@ -1,0 +1,327 @@
+01c68da00799f66daae919a42f0d3a0d
+'use client';
+"use strict";
+
+/* istanbul ignore next */
+function cov_rhpyy668c() {
+  var path = "D:\\Tech Vitta\\Apps\\DEMO\\components\\ui\\Card.js";
+  var hash = "0b023db5afc9feefbf1616a31571930df476b217";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "D:\\Tech Vitta\\Apps\\DEMO\\components\\ui\\Card.js",
+    statementMap: {
+      "0": {
+        start: {
+          line: 3,
+          column: 0
+        },
+        end: {
+          line: 5,
+          column: 3
+        }
+      },
+      "1": {
+        start: {
+          line: 6,
+          column: 0
+        },
+        end: {
+          line: 11,
+          column: 3
+        }
+      },
+      "2": {
+        start: {
+          line: 9,
+          column: 8
+        },
+        end: {
+          line: 9,
+          column: 20
+        }
+      },
+      "3": {
+        start: {
+          line: 12,
+          column: 20
+        },
+        end: {
+          line: 12,
+          column: 48
+        }
+      },
+      "4": {
+        start: {
+          line: 14,
+          column: 23
+        },
+        end: {
+          line: 14,
+          column: 40
+        }
+      },
+      "5": {
+        start: {
+          line: 15,
+          column: 24
+        },
+        end: {
+          line: 15,
+          column: 74
+        }
+      },
+      "6": {
+        start: {
+          line: 16,
+          column: 21
+        },
+        end: {
+          line: 21,
+          column: 5
+        }
+      },
+      "7": {
+        start: {
+          line: 22,
+          column: 4
+        },
+        end: {
+          line: 26,
+          column: 7
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 8,
+            column: 9
+          },
+          end: {
+            line: 8,
+            column: 10
+          }
+        },
+        loc: {
+          start: {
+            line: 8,
+            column: 20
+          },
+          end: {
+            line: 10,
+            column: 5
+          }
+        },
+        line: 8
+      },
+      "1": {
+        name: "Card",
+        decl: {
+          start: {
+            line: 13,
+            column: 9
+          },
+          end: {
+            line: 13,
+            column: 13
+          }
+        },
+        loc: {
+          start: {
+            line: 13,
+            column: 74
+          },
+          end: {
+            line: 27,
+            column: 1
+          }
+        },
+        line: 13
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 13,
+            column: 26
+          },
+          end: {
+            line: 13,
+            column: 40
+          }
+        },
+        type: "default-arg",
+        locations: [{
+          start: {
+            line: 13,
+            column: 38
+          },
+          end: {
+            line: 13,
+            column: 40
+          }
+        }],
+        line: 13
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 13,
+            column: 51
+          },
+          end: {
+            line: 13,
+            column: 70
+          }
+        },
+        type: "default-arg",
+        locations: [{
+          start: {
+            line: 13,
+            column: 61
+          },
+          end: {
+            line: 13,
+            column: 70
+          }
+        }],
+        line: 13
+      },
+      "2": {
+        loc: {
+          start: {
+            line: 15,
+            column: 24
+          },
+          end: {
+            line: 15,
+            column: 74
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 15,
+            column: 34
+          },
+          end: {
+            line: 15,
+            column: 69
+          }
+        }, {
+          start: {
+            line: 15,
+            column: 72
+          },
+          end: {
+            line: 15,
+            column: 74
+          }
+        }],
+        line: 15
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0
+    },
+    b: {
+      "0": [0],
+      "1": [0],
+      "2": [0, 0]
+    },
+    inputSourceMap: {
+      version: 3,
+      sources: ["D:\\Tech Vitta\\Apps\\DEMO\\components\\ui\\Card.js"],
+      sourcesContent: ["'use client';\n\nexport default function Card({ children, className = '', onClick, variant = 'default' }) {\n  const baseStyles = 'card-modern p-6';\n  const hoverStyles = onClick ? 'cursor-pointer hover:shadow-large' : '';\n  \n  const variants = {\n    default: 'bg-white',\n    glass: 'glass-effect',\n    gradient: 'bg-gradient-to-br from-white to-primary-50/30',\n    premium: 'bg-gradient-to-br from-accent-50 via-primary-50 to-secondary-50 border-2 border-primary-200'\n  };\n  \n  return (\n    <div \n      className={`${baseStyles} ${variants[variant]} ${hoverStyles} ${className}`}\n      onClick={onClick}\n    >\n      {children}\n    </div>\n  );\n}\n"],
+      names: ["Card", "children", "className", "onClick", "variant", "baseStyles", "hoverStyles", "variants", "default", "glass", "gradient", "premium", "div"],
+      mappings: "AAAA;;;;;+BAEA;;;eAAwBA;;;;AAAT,SAASA,KAAK,EAAEC,QAAQ,EAAEC,YAAY,EAAE,EAAEC,OAAO,EAAEC,UAAU,SAAS,EAAE;IACrF,MAAMC,aAAa;IACnB,MAAMC,cAAcH,UAAU,sCAAsC;IAEpE,MAAMI,WAAW;QACfC,SAAS;QACTC,OAAO;QACPC,UAAU;QACVC,SAAS;IACX;IAEA,qBACE,qBAACC;QACCV,WAAW,GAAGG,WAAW,CAAC,EAAEE,QAAQ,CAACH,QAAQ,CAAC,CAAC,EAAEE,YAAY,CAAC,EAAEJ,WAAW;QAC3EC,SAASA;kBAERF;;AAGP"
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "0b023db5afc9feefbf1616a31571930df476b217"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_rhpyy668c = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_rhpyy668c();
+cov_rhpyy668c().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/* istanbul ignore next */
+cov_rhpyy668c().s[1]++;
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function () {
+    /* istanbul ignore next */
+    cov_rhpyy668c().f[0]++;
+    cov_rhpyy668c().s[2]++;
+    return Card;
+  }
+});
+const _jsxruntime =
+/* istanbul ignore next */
+(cov_rhpyy668c().s[3]++, require("react/jsx-runtime"));
+function Card({
+  children,
+  className =
+  /* istanbul ignore next */
+  (cov_rhpyy668c().b[0][0]++, ''),
+  onClick,
+  variant =
+  /* istanbul ignore next */
+  (cov_rhpyy668c().b[1][0]++, 'default')
+}) {
+  /* istanbul ignore next */
+  cov_rhpyy668c().f[1]++;
+  const baseStyles =
+  /* istanbul ignore next */
+  (cov_rhpyy668c().s[4]++, 'card-modern p-6');
+  const hoverStyles =
+  /* istanbul ignore next */
+  (cov_rhpyy668c().s[5]++, onClick ?
+  /* istanbul ignore next */
+  (cov_rhpyy668c().b[2][0]++, 'cursor-pointer hover:shadow-large') :
+  /* istanbul ignore next */
+  (cov_rhpyy668c().b[2][1]++, ''));
+  const variants =
+  /* istanbul ignore next */
+  (cov_rhpyy668c().s[6]++, {
+    default: 'bg-white',
+    glass: 'glass-effect',
+    gradient: 'bg-gradient-to-br from-white to-primary-50/30',
+    premium: 'bg-gradient-to-br from-accent-50 via-primary-50 to-secondary-50 border-2 border-primary-200'
+  });
+  /* istanbul ignore next */
+  cov_rhpyy668c().s[7]++;
+  return /*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+    className: `${baseStyles} ${variants[variant]} ${hoverStyles} ${className}`,
+    onClick: onClick,
+    children: children
+  });
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3ZfcmhweXk2NjhjIiwiYWN0dWFsQ292ZXJhZ2UiLCJzIiwiQ2FyZCIsImNoaWxkcmVuIiwiY2xhc3NOYW1lIiwiYiIsIm9uQ2xpY2siLCJ2YXJpYW50IiwiZiIsImJhc2VTdHlsZXMiLCJob3ZlclN0eWxlcyIsInZhcmlhbnRzIiwiZGVmYXVsdCIsImdsYXNzIiwiZ3JhZGllbnQiLCJwcmVtaXVtIiwiX2pzeHJ1bnRpbWUiLCJqc3giXSwic291cmNlcyI6WyJEOlxcVGVjaCBWaXR0YVxcQXBwc1xcREVNT1xcY29tcG9uZW50c1xcdWlcXENhcmQuanMiXSwic291cmNlc0NvbnRlbnQiOlsiJ3VzZSBjbGllbnQnO1xuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBDYXJkKHsgY2hpbGRyZW4sIGNsYXNzTmFtZSA9ICcnLCBvbkNsaWNrLCB2YXJpYW50ID0gJ2RlZmF1bHQnIH0pIHtcbiAgY29uc3QgYmFzZVN0eWxlcyA9ICdjYXJkLW1vZGVybiBwLTYnO1xuICBjb25zdCBob3ZlclN0eWxlcyA9IG9uQ2xpY2sgPyAnY3Vyc29yLXBvaW50ZXIgaG92ZXI6c2hhZG93LWxhcmdlJyA6ICcnO1xuICBcbiAgY29uc3QgdmFyaWFudHMgPSB7XG4gICAgZGVmYXVsdDogJ2JnLXdoaXRlJyxcbiAgICBnbGFzczogJ2dsYXNzLWVmZmVjdCcsXG4gICAgZ3JhZGllbnQ6ICdiZy1ncmFkaWVudC10by1iciBmcm9tLXdoaXRlIHRvLXByaW1hcnktNTAvMzAnLFxuICAgIHByZW1pdW06ICdiZy1ncmFkaWVudC10by1iciBmcm9tLWFjY2VudC01MCB2aWEtcHJpbWFyeS01MCB0by1zZWNvbmRhcnktNTAgYm9yZGVyLTIgYm9yZGVyLXByaW1hcnktMjAwJ1xuICB9O1xuICBcbiAgcmV0dXJuIChcbiAgICA8ZGl2IFxuICAgICAgY2xhc3NOYW1lPXtgJHtiYXNlU3R5bGVzfSAke3ZhcmlhbnRzW3ZhcmlhbnRdfSAke2hvdmVyU3R5bGVzfSAke2NsYXNzTmFtZX1gfVxuICAgICAgb25DbGljaz17b25DbGlja31cbiAgICA+XG4gICAgICB7Y2hpbGRyZW59XG4gICAgPC9kaXY+XG4gICk7XG59XG4iXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7SUFNUTtJQUFBQSxhQUFBLFlBQUFBLENBQUE7TUFBQSxPQUFBQyxjQUFBO0lBQUE7RUFBQTtFQUFBLE9BQUFBLGNBQUE7QUFBQTtBQUFBRCxhQUFBO0FBQUFBLGFBQUEsR0FBQUUsQ0FBQTs7Ozs7OytCQUpSOzs7Ozs7V0FBd0JDLElBQUE7Ozs7OztBQUFULFNBQVNBLEtBQUs7RUFBRUMsUUFBUTtFQUFFQyxTQUFBO0VBQUE7RUFBQSxDQUFBTCxhQUFBLEdBQUFNLENBQUEsVUFBWSxFQUFFO0VBQUVDLE9BQU87RUFBRUMsT0FBQTtFQUFBO0VBQUEsQ0FBQVIsYUFBQSxHQUFBTSxDQUFBLFVBQVUsU0FBUztBQUFBLENBQUU7RUFBQTtFQUFBTixhQUFBLEdBQUFTLENBQUE7RUFDckYsTUFBTUMsVUFBQTtFQUFBO0VBQUEsQ0FBQVYsYUFBQSxHQUFBRSxDQUFBLE9BQWE7RUFDbkIsTUFBTVMsV0FBQTtFQUFBO0VBQUEsQ0FBQVgsYUFBQSxHQUFBRSxDQUFBLE9BQWNLLE9BQUE7RUFBQTtFQUFBLENBQUFQLGFBQUEsR0FBQU0sQ0FBQSxVQUFVO0VBQUE7RUFBQSxDQUFBTixhQUFBLEdBQUFNLENBQUEsVUFBc0M7RUFFcEUsTUFBTU0sUUFBQTtFQUFBO0VBQUEsQ0FBQVosYUFBQSxHQUFBRSxDQUFBLE9BQVc7SUFDZlcsT0FBQSxFQUFTO0lBQ1RDLEtBQUEsRUFBTztJQUNQQyxRQUFBLEVBQVU7SUFDVkMsT0FBQSxFQUFTO0VBQ1g7RUFBQTtFQUFBaEIsYUFBQSxHQUFBRSxDQUFBO0VBRUEsb0JBQ0UsSUFBQWUsV0FBQSxDQUFBQyxHQUFBLEVBQUM7SUFDQ2IsU0FBQSxFQUFXLEdBQUdLLFVBQUEsSUFBY0UsUUFBUSxDQUFDSixPQUFBLENBQVEsSUFBSUcsV0FBQSxJQUFlTixTQUFBLEVBQVc7SUFDM0VFLE9BQUEsRUFBU0EsT0FBQTtjQUVSSDs7QUFHUCIsImlnbm9yZUxpc3QiOltdfQ==

@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+// eslint-disable-next-line no-unused-vars
 import Card from '@/components/ui/Card'
 
 describe('Card Component', () => {

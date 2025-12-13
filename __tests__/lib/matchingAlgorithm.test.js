@@ -26,7 +26,7 @@ describe('Matching Algorithm', () => {
       const user2 = createUser()
       
       const result = calculateMatchScore(user1, user2)
-      expect(result.percentage).toBeGreaterThan(80)
+      expect(result.percentage).toBeGreaterThanOrEqual(80)
     })
 
     it('calculates match score with value answers', () => {

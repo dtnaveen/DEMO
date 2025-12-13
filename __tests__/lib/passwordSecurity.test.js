@@ -11,29 +11,121 @@ import {
   loginRateLimiter 
 } from '@/lib/passwordSecurity';
 
-// Mock crypto for testing
-global.crypto = {
-  getRandomValues: (arr) => {
-    // Return predictable values for testing
+// Crypto is mocked in jest.setup.js, but we need to re-implement it in beforeEach
+// because Jest's resetMocks clears the implementations
+
+const cryptoHashStore = new Map();
+
+// Mock localStorage for rate limiter tests
+let rateLimiterStore = {};
+const rateLimiterLocalStorage = {
+  getItem: jest.fn((key) => {
+    return rateLimiterStore[key] || null;
+  }),
+  setItem: jest.fn((key, value) => {
+    rateLimiterStore[key] = value.toString();
+  }),
+  removeItem: jest.fn((key) => {
+    delete rateLimiterStore[key];
+  }),
+  clear: jest.fn(() => {
+    rateLimiterStore = {};
+  })
+};
+
+// Ensure window exists
+if (typeof window === 'undefined') {
+  global.window = {};
+}
+
+beforeEach(() => {
+  // Reset rate limiter store
+  rateLimiterStore = {};
+  
+  // Re-implement localStorage mocks for rate limiter
+  rateLimiterLocalStorage.getItem.mockImplementation((key) => {
+    return rateLimiterStore[key] || null;
+  });
+  rateLimiterLocalStorage.setItem.mockImplementation((key, value) => {
+    rateLimiterStore[key] = value.toString();
+  });
+  rateLimiterLocalStorage.removeItem.mockImplementation((key) => {
+    delete rateLimiterStore[key];
+  });
+  rateLimiterLocalStorage.clear.mockImplementation(() => {
+    rateLimiterStore = {};
+  });
+  
+  // Set up localStorage for rate limiter
+  Object.defineProperty(window, 'localStorage', {
+    value: rateLimiterLocalStorage,
+    writable: true,
+    configurable: true,
+  });
+  global.localStorage = rateLimiterLocalStorage;
+  
+  // Ensure crypto is set up (Jest's resetMocks might clear it)
+  if (!global.crypto) {
+    global.crypto = {};
+  }
+  if (!global.crypto.subtle) {
+    global.crypto.subtle = {};
+  }
+  
+  // Re-implement crypto mocks (Jest's resetMocks might clear them)
+  global.crypto.getRandomValues = (arr) => {
     for (let i = 0; i < arr.length; i++) {
-      arr[i] = i % 256;
+      arr[i] = (i * 17) % 256;
     }
     return arr;
-  },
-  subtle: {
-    importKey: async (format, keyData, algorithm, extractable, keyUsages) => {
-      return { format, keyData, algorithm, extractable, keyUsages };
-    },
-    deriveBits: async (algorithm, keyMaterial, length) => {
-      // Return predictable hash for testing
+  };
+  
+  // Store password data with keyMaterial for hash generation
+  const passwordDataMap = new WeakMap();
+  
+  global.crypto.subtle.importKey = jest.fn().mockImplementation(async (format, keyData, algorithm, extractable, keyUsages) => {
+    // Store the password data (keyData is the password bytes) with the returned keyMaterial
+    const keyMaterial = { 
+      format, 
+      algorithm, 
+      extractable, 
+      keyUsages,
+      _passwordData: new Uint8Array(keyData) // Store password bytes for hash generation
+    };
+    passwordDataMap.set(keyMaterial, keyData);
+    return keyMaterial;
+  });
+  
+  global.crypto.subtle.deriveBits = jest.fn().mockImplementation(async (algorithm, keyMaterial, length) => {
+    // Create a consistent hash based on salt AND password
+    const saltHex = Array.from(algorithm.salt).map(b => b.toString(16).padStart(2, '0')).join('');
+    
+    // Get password data from keyMaterial
+    let passwordHash = 0;
+    if (keyMaterial && keyMaterial._passwordData) {
+      const passwordBytes = keyMaterial._passwordData;
+      for (let i = 0; i < Math.min(passwordBytes.length, 20); i++) {
+        passwordHash = (passwordHash * 31 + passwordBytes[i]) % 1000000;
+      }
+    }
+    
+    const key = `${saltHex}-${length}-${passwordHash}`;
+    
+    if (!cryptoHashStore.has(key)) {
+      // Generate a predictable hash based on salt and password
       const hash = new Uint8Array(length / 8);
       for (let i = 0; i < hash.length; i++) {
-        hash[i] = (i * 7) % 256;
+        hash[i] = (i * 7 + saltHex.charCodeAt(i % saltHex.length) + passwordHash) % 256;
       }
-      return hash.buffer;
+      cryptoHashStore.set(key, hash.buffer);
     }
-  }
-};
+    
+    return cryptoHashStore.get(key);
+  });
+  
+  // Clear hash store between tests
+  cryptoHashStore.clear();
+});
 
 describe('Password Security', () => {
   describe('hashPassword', () => {
