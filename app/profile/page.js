@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { getCurrentUser, setCurrentUser, getAllUsers, setAllUsers } from '@/lib/localStorage';
+import { getCurrentUser, setCurrentUser, getAllUsers, setAllUsers, clearCurrentUser } from '@/lib/localStorage';
 import { VALUE_QUESTIONS, CONTENT_QUESTIONS, EDUCATION_LEVELS, OCCUPATION_CATEGORIES, LIFESTYLE_OPTIONS, getAgeGroup } from '@/lib/constants';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
@@ -11,7 +11,7 @@ import PhotoUpload from '@/components/ui/PhotoUpload';
 import PhotoVerification from '@/components/ui/PhotoVerification';
 import SocialMediaIntegration from '@/components/ui/SocialMediaIntegration';
 import { showToast } from '@/utils/helpers';
-import { CheckBadgeIcon, PhotoIcon, MicrophoneIcon } from '@heroicons/react/24/outline';
+import { CheckBadgeIcon, PhotoIcon, MicrophoneIcon, ArrowRightOnRectangleIcon } from '@heroicons/react/24/outline';
 
 export default function ProfilePage() {
   const router = useRouter();
@@ -201,6 +201,14 @@ export default function ProfilePage() {
     });
     setIsChangingPassword(false);
   };
+
+  const handleLogout = () => {
+    if (confirm('Are you sure you want to logout? Your chats and matches will be saved.')) {
+      clearCurrentUser();
+      showToast('Logged out successfully', 'success');
+      router.push('/');
+    }
+  };
   
   if (loading) {
     return (
@@ -224,13 +232,23 @@ export default function ProfilePage() {
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">
       <div className="max-w-4xl mx-auto">
-        <div className="flex justify-between items-center mb-6">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 gap-4">
           <h1 className="text-3xl font-bold text-gray-900">My Profile</h1>
-          {!isEditing && (
-            <Button onClick={() => setIsEditing(true)} variant="outline">
-              Edit Profile
+          <div className="flex gap-3">
+            {!isEditing && (
+              <Button onClick={() => setIsEditing(true)} variant="outline">
+                Edit Profile
+              </Button>
+            )}
+            <Button 
+              onClick={handleLogout} 
+              variant="danger"
+              className="flex items-center gap-2"
+            >
+              <ArrowRightOnRectangleIcon className="w-5 h-5" />
+              <span className="hidden sm:inline">Logout</span>
             </Button>
-          )}
+          </div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -730,7 +748,7 @@ export default function ProfilePage() {
               </div>
             </div>
             
-            {/* Change Password Section */}
+            {/* Security Section */}
             <div className="mt-8 pt-8 border-t border-gray-200">
               <div className="flex justify-between items-center mb-4">
                 <h3 className="text-xl font-semibold text-gray-900">Security</h3>
@@ -744,6 +762,28 @@ export default function ProfilePage() {
                   </Button>
                 )}
               </div>
+              
+              {/* Logout Section */}
+              <div className="mb-6 pb-6 border-b border-gray-200">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                  <div>
+                    <p className="text-sm font-medium text-gray-900 mb-1">Account</p>
+                    <p className="text-sm text-gray-600">Log out of your account</p>
+                  </div>
+                  <Button 
+                    onClick={handleLogout} 
+                    variant="danger"
+                    size="sm"
+                    className="w-full sm:w-auto"
+                  >
+                    <ArrowRightOnRectangleIcon className="w-4 h-4 mr-2" />
+                    Logout
+                  </Button>
+                </div>
+              </div>
+              
+              {/* Change Password Section */}
+              <div>
               
               {isChangingPassword ? (
                 <div className="space-y-4 bg-gray-50 p-6 rounded-lg">
